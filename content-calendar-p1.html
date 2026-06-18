@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Skyquire — Phase 1 Content Calendar</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Bricolage+Grotesque:wght@600;700;800&display=swap" rel="stylesheet" />
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  :root{--sky:#38BDF8;--violet:#8B5CF6;--green:#34D399;--amber:#FBBF24;--pink:#F472B6;--orange:#FB923C;--text:#EAF1FB;--soft:rgba(234,241,251,.62);--dim:rgba(234,241,251,.4);--line:rgba(255,255,255,.1);--card:rgba(255,255,255,.03);}
+  body{font-family:'Inter',sans-serif;background:radial-gradient(ellipse 90% 55% at 50% -10%,#1a1033,#070E1B);color:var(--text);min-height:100vh;padding:30px;}
+  h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif;letter-spacing:-.02em;}
+  .brand{font-weight:800;font-size:14px;} .brand span{color:var(--violet);}
+  h1{font-size:28px;font-weight:800;margin-top:6px;}
+  .sub{color:var(--soft);font-size:14px;margin:4px 0 8px;max-width:760px;line-height:1.5;}
+  .meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;}
+  .chip{font-size:12px;border:1px solid var(--line);background:var(--card);border-radius:100px;padding:6px 13px;color:var(--soft);}
+  .chip b{color:var(--text);}
+  .sec-label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);font-weight:600;margin:28px 0 14px;display:flex;align-items:center;gap:12px;}
+  .sec-label::after{content:'';flex:1;height:1px;background:var(--line);}
+
+  .tag{font-size:9.5px;font-weight:700;padding:2px 7px;border-radius:5px;white-space:nowrap;}
+  .t-li{background:rgba(56,189,248,.18);color:#7dd3fc;}
+  .t-x{background:rgba(255,255,255,.12);color:#e2e8f0;}
+  .t-vid{background:rgba(248,113,113,.18);color:#fca5a5;}
+  .t-reel{background:rgba(244,114,182,.18);color:#f9a8d4;}
+  .t-news{background:rgba(52,211,153,.18);color:#6ee7b7;}
+  .t-comm{background:rgba(251,191,36,.18);color:#fcd34d;}
+  .t-grow{background:rgba(139,92,246,.2);color:#c4b5fd;}
+
+  .setup{border:1px solid var(--line);border-radius:16px;padding:18px;background:var(--card);}
+  .setup li{list-style:none;font-size:13px;color:var(--soft);padding:7px 0;border-bottom:1px solid var(--line);display:flex;gap:9px;line-height:1.4;}
+  .setup li:last-child{border:0;} .setup .ic{flex:none;}
+
+  .week{border:1px solid var(--line);border-radius:16px;padding:18px;background:var(--card);margin-bottom:14px;}
+  .week .wh{display:flex;align-items:baseline;gap:10px;margin-bottom:4px;flex-wrap:wrap;}
+  .week .wn{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:13px;padding:3px 10px;border-radius:8px;background:var(--violet);color:#fff;}
+  .week h3{font-size:16px;} .week .theme{font-size:12px;color:var(--dim);margin-left:auto;}
+  .post{display:flex;gap:10px;padding:9px 0;border-bottom:1px solid var(--line);font-size:13px;line-height:1.45;}
+  .post:last-child{border:0;}
+  .post .tag{align-self:flex-start;margin-top:2px;}
+  .post .txt{color:var(--soft);} .post .txt b{color:var(--text);font-weight:600;}
+
+  table{width:100%;border-collapse:collapse;font-size:12.5px;}
+  th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--line);}
+  th{font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--dim);font-weight:600;}
+  td{color:var(--soft);} td.m{color:var(--text);font-weight:600;font-family:'Bricolage Grotesque',sans-serif;}
+  .foot{margin-top:22px;color:var(--dim);font-size:11.5px;text-align:center;}
+  .legend{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px;}
+  @media(max-width:760px){body{padding:16px;}}
+</style>
+</head>
+<body>
+  <div class="brand">Sky<span>quire</span> Marketing</div>
+  <h1>Phase 1 — First 30 days content calendar</h1>
+  <div class="sub">“Plant the flag.” Launch your founder presence, lock the narrative, and start building an audience on both sides — buyers and sellers. Goal for the month: <b>500 waitlist signups</b> and a live content engine.</div>
+  <div class="meta">
+    <span class="chip">Founder-led</span>
+    <span class="chip">India-first · EN + Hindi</span>
+    <span class="chip">Cadence <b>LinkedIn 4×/wk · X daily · 1 video/wk</b></span>
+  </div>
+  <div class="legend">
+    <span class="tag t-li">LinkedIn</span><span class="tag t-x">X / Twitter</span><span class="tag t-vid">Video</span><span class="tag t-reel">Reel</span><span class="tag t-news">Newsletter</span><span class="tag t-comm">Community</span><span class="tag t-grow">Growth</span>
+  </div>
+
+  <!-- SETUP -->
+  <div class="sec-label">🚦 Day 0–3 — set the stage first</div>
+  <div class="setup">
+    <li><span class="ic">👤</span> Optimise LinkedIn + X profiles: clear bio (“Building Skyquire — buy &amp; sell businesses in India”), banner, link to waitlist</li>
+    <li><span class="ic">📌</span> Pin a “I’m building Skyquire” founder post on both profiles</li>
+    <li><span class="ic">💬</span> Create 2 WhatsApp communities: <b>India Business Buyers</b> &amp; <b>Business Owners (Sellers)</b> — seed with 5–10 friends/contacts</li>
+    <li><span class="ic">🪜</span> Turn on the waitlist “skip the line” referral on the landing page</li>
+    <li><span class="ic">✉️</span> Set up the newsletter (Resend/Substack) + a welcome email</li>
+    <li><span class="ic">🗓️</span> Pick a scheduling tool (Buffer/Typefully) and batch week 1 in advance</li>
+    <li><span class="ic">🧲</span> Make the free valuation calculator public as the first lead magnet</li>
+  </div>
+
+  <!-- WEEK 1 -->
+  <div class="sec-label">📅 The 4 weeks</div>
+  <div class="week">
+    <div class="wh"><span class="wn">W1</span><h3>Narrative &amp; the launch</h3><span class="theme">“Why I’m building this”</span></div>
+    <div class="post"><span class="tag t-li">LinkedIn</span><span class="txt"><b>“I’m building Skyquire.”</b> Founder story — why most Indians start from zero when they could buy a profitable business.</span></div>
+    <div class="post"><span class="tag t-li">LinkedIn</span><span class="txt"><b>63 million MSMEs, zero real marketplace.</b> The opportunity, in numbers.</span></div>
+    <div class="post"><span class="tag t-li">LinkedIn</span><span class="txt"><b>“What I learned brokering my first deal by hand.”</b> A story that builds credibility.</span></div>
+    <div class="post"><span class="tag t-x">X</span><span class="txt">Thread: <b>“How to buy a business in India — a beginner’s map 🧵”</b></span></div>
+    <div class="post"><span class="tag t-vid">Video</span><span class="txt"><b>“Why I’m building Skyquire”</b> — 2-min founder intro (also cut into a Reel).</span></div>
+    <div class="post"><span class="tag t-news">Newsletter</span><span class="txt">Issue #1 — the vision + invite to the WhatsApp community.</span></div>
+    <div class="post"><span class="tag t-comm">Community</span><span class="txt">Launch both WhatsApp groups, seed the first conversation prompts.</span></div>
+  </div>
+
+  <!-- WEEK 2 -->
+  <div class="week">
+    <div class="wh"><span class="wn">W2</span><h3>Buyer education</h3><span class="theme">“How to buy a business”</span></div>
+    <div class="post"><span class="tag t-li">LinkedIn</span><span class="txt"><b>“How much does it cost to buy a small business in India?”</b></span></div>
+    <div class="post"><span class="tag t-li">LinkedIn</span><span class="txt"><b>“5 businesses you can buy under ₹50 lakh.”</b></span></div>
+    <div class="post"><span class="tag t-li">LinkedIn</span><span class="txt"><b>“Buying vs starting a business — the honest math.”</b></span></div>
+    <div class="post"><span class="tag t-li">LinkedIn</span><span class="txt"><b>“How to spot a business that’s secretly dying.”</b> (red flags)</span></div>
+    <div class="post"><span class="tag t-x">X</span><span class="txt">Thread: <b>due-diligence checklist for first-time buyers.</b></span></div>
+    <div class="post"><span class="tag t-vid">Video</span><span class="txt"><b>“Value any business in 10 minutes”</b> — demo the free valuation calculator (lead magnet).</span></div>
+    <div class="post"><span class="tag t-reel">Reel</span><span class="txt"><b>“3 questions before you buy any business.”</b></span></div>
+    <div class="post"><span class="tag t-news">Newsletter</span><span class="txt">Issue #2 — buyer guide + valuation calculator CTA.</span></div>
+  </div>
+
+  <!-- WEEK 3 -->
+  <div class="week">
+    <div class="wh"><span class="wn">W3</span><h3>Seller education</h3><span class="theme">“How to sell &amp; value your business”</span></div>
+    <div class="post"><span class="tag t-li">LinkedIn</span><span class="txt"><b>“Thinking of selling your business? Do these 5 things first.”</b></span></div>
+    <div class="post"><span class="tag t-li">LinkedIn</span><span class="txt"><b>“Why most Indian owners undervalue their company.”</b></span></div>
+    <div class="post"><span class="tag t-li">LinkedIn</span><span class="txt"><b>“What buyers actually look for”</b> — from the person building the marketplace.</span></div>
+    <div class="post"><span class="tag t-li">LinkedIn</span><span class="txt"><b>“Sell your business without a banker taking 5%.”</b></span></div>
+    <div class="post"><span class="tag t-x">X</span><span class="txt">Thread: <b>how to prep your financials to sell.</b></span></div>
+    <div class="post"><span class="tag t-vid">Video</span><span class="txt"><b>“What’s your business worth?”</b> seller walkthrough.</span></div>
+    <div class="post"><span class="tag t-reel">Reel</span><span class="txt"><b>“Selling your business? Avoid these 3 mistakes.”</b></span></div>
+    <div class="post"><span class="tag t-news">Newsletter</span><span class="txt">Issue #3 — seller guide + “first 100 listings free” teaser.</span></div>
+    <div class="post"><span class="tag t-grow">Growth</span><span class="txt">Reach out to <b>20 CAs</b> for partnership; invite owners into the sellers community.</span></div>
+  </div>
+
+  <!-- WEEK 4 -->
+  <div class="week">
+    <div class="wh"><span class="wn">W4</span><h3>Build-in-public &amp; momentum</h3><span class="theme">“What we shipped + what’s next”</span></div>
+    <div class="post"><span class="tag t-li">LinkedIn</span><span class="txt"><b>“30 days building Skyquire in public”</b> — everything that happened + the waitlist number.</span></div>
+    <div class="post"><span class="tag t-li">LinkedIn</span><span class="txt"><b>“We crossed X signups — here’s what’s resonating.”</b></span></div>
+    <div class="post"><span class="tag t-li">LinkedIn</span><span class="txt"><b>“The feature I’m building next and why”</b> (AI matchmaker / health score).</span></div>
+    <div class="post"><span class="tag t-x">X</span><span class="txt">Thread: <b>build-in-public learnings from month 1.</b></span></div>
+    <div class="post"><span class="tag t-vid">Video</span><span class="txt">Product sneak peek — the dashboard / AI matchmaker.</span></div>
+    <div class="post"><span class="tag t-reel">Reel</span><span class="txt"><b>“AI scored this business 91/100 — here’s why.”</b></span></div>
+    <div class="post"><span class="tag t-news">Newsletter</span><span class="txt">Issue #4 — month recap + what’s next + referral push.</span></div>
+    <div class="post"><span class="tag t-grow">Growth</span><span class="txt">Launch the <b>“skip the line” referral</b> campaign; first micro-creator outreach.</span></div>
+  </div>
+
+  <!-- TARGETS -->
+  <div class="sec-label">🎯 30-day targets</div>
+  <div class="setup">
+    <table>
+      <thead><tr><th>Metric</th><th>Start</th><th>Day 30</th></tr></thead>
+      <tbody>
+        <tr><td>Waitlist signups</td><td>100</td><td class="m">500</td></tr>
+        <tr><td>Founder followers (LinkedIn + X)</td><td>baseline</td><td class="m">2,000–3,000</td></tr>
+        <tr><td>WhatsApp community members</td><td>0</td><td class="m">300–500</td></tr>
+        <tr><td>Newsletter subscribers</td><td>0</td><td class="m">300+</td></tr>
+        <tr><td>CA partnership conversations</td><td>0</td><td class="m">20</td></tr>
+        <tr><td>Lead magnet (valuation) uses</td><td>0</td><td class="m">200+</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="foot">Skyquire · Phase 1 Content Calendar · generated Jun 18, 2026 · pair with the Marketing Road Path</div>
+</body>
+</html>
