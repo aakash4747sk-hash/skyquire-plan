@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Skyquire — Main Platform</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Bricolage+Grotesque:wght@600;700;800&display=swap" rel="stylesheet" />
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  :root{--sky:#38BDF8;--violet:#8B5CF6;--green:#34D399;--amber:#FBBF24;--text:#EAF1FB;--soft:rgba(234,241,251,.62);--dim:rgba(234,241,251,.4);--line:rgba(255,255,255,.1);--card:rgba(255,255,255,.03);}
+  body{font-family:'Inter',sans-serif;background:radial-gradient(ellipse 90% 55% at 50% -10%,#10213c,#070E1B);color:var(--text);min-height:100vh;padding:30px;}
+  h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif;letter-spacing:-.02em;}
+  .brand{font-weight:800;font-size:14px;} .brand span{color:var(--sky);}
+  h1{font-size:30px;font-weight:800;margin-top:6px;}
+  .sub{color:var(--soft);font-size:14px;margin:4px 0 8px;max-width:760px;line-height:1.5;}
+  .pills{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px;}
+  .pill{display:inline-flex;align-items:center;gap:8px;border-radius:100px;padding:6px 13px;font-size:12px;}
+  .pill.live{border:1px solid rgba(52,211,153,.35);background:rgba(52,211,153,.1);color:#6ee7b7;}
+  .pill.url{border:1px solid var(--line);background:var(--card);color:var(--soft);}
+  .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px;}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:600;padding:11px 18px;border-radius:10px;text-decoration:none;}
+  .btn-p{background:linear-gradient(180deg,#4cc3fb,#0ea5e9);color:#04121f;}
+  .btn-g{border:1px solid var(--line);color:var(--soft);background:var(--card);}
+  .sec-label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);font-weight:600;margin:28px 0 14px;display:flex;align-items:center;gap:12px;}
+  .sec-label::after{content:'';flex:1;height:1px;background:var(--line);}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .side{border:1px solid var(--line);border-radius:18px;padding:20px;}
+  .side.buy{background:linear-gradient(165deg,rgba(139,92,246,.12),var(--card));}
+  .side.corp{background:linear-gradient(165deg,rgba(56,189,248,.1),var(--card));}
+  .side .h{display:flex;align-items:center;gap:12px;}
+  .side .ic{width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:23px;}
+  .buy .ic{background:rgba(139,92,246,.18);} .corp .ic{background:rgba(56,189,248,.16);}
+  .side .k{font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--dim);} .side h3{font-size:19px;margin-top:2px;}
+  .side ul{list-style:none;margin-top:16px;display:flex;flex-direction:column;gap:10px;}
+  .side li{font-size:13.5px;color:var(--soft);display:flex;gap:9px;line-height:1.4;}
+  .side li .c{flex:none;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;}
+  .buy li .c{background:rgba(139,92,246,.2);color:#c4b5fd;} .corp li .c{background:rgba(56,189,248,.18);color:#7dd3fc;}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .panel{border:1px solid var(--line);border-radius:16px;padding:18px;background:var(--card);}
+  .panel h3{font-size:15px;margin-bottom:10px;}
+  .panel li{list-style:none;font-size:13px;color:var(--soft);padding:7px 0;border-bottom:1px solid var(--line);display:flex;gap:9px;line-height:1.4;}
+  .panel li:last-child{border-bottom:0;}
+  .tag{font-size:9.5px;font-weight:700;padding:1px 7px;border-radius:5px;margin-left:auto;white-space:nowrap;}
+  .t-live{background:rgba(52,211,153,.18);color:#6ee7b7;} .t-build{background:rgba(251,191,36,.18);color:#fcd34d;}
+  .callout{margin-top:16px;border:1px solid rgba(251,146,60,.3);background:rgba(251,146,60,.07);border-radius:14px;padding:16px 18px;font-size:13px;color:var(--soft);line-height:1.6;}
+  .callout b{color:#fdba74;}
+  .foot{margin-top:22px;color:var(--dim);font-size:11.5px;text-align:center;}
+  @media(max-width:840px){.two,.grid2{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<nav style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;padding:9px 14px;margin-bottom:20px;background:rgba(7,14,27,.7);border:1px solid rgba(255,255,255,.1);border-radius:12px;font-family:'Inter',sans-serif;">
+<a href="index.html" style="font-weight:800;font-size:13px;color:#EAF1FB;text-decoration:none;">Sky<span style="color:#38BDF8;">quire</span></a>
+<span style="color:rgba(234,241,251,.25);font-size:12px;margin-right:4px;">/ Main Platform</span>
+<a href="index.html" style="font-size:12px;color:rgba(234,241,251,.62);text-decoration:none;padding:4px 9px;border-radius:7px;">Hub</a>
+<a href="seller-platform.html" style="font-size:12px;color:rgba(234,241,251,.62);text-decoration:none;padding:4px 9px;border-radius:7px;">Seller Platform</a>
+<a href="index.html" style="margin-left:auto;font-size:12px;color:#38BDF8;text-decoration:none;">All plans →</a>
+</nav>
+
+  <div class="brand">Sky<span>quire</span></div>
+  <h1>Main Platform — the core product</h1>
+  <div class="sub">The two-sided M&amp;A platform: a marketplace where entrepreneurs buy verified businesses, and a deal-management suite where corporates run acquisitions end to end. This is the flagship app the whole launch builds toward.</div>
+  <div class="pills">
+    <span class="pill live">● Live MVP</span>
+    <span class="pill url">🌐 skyquire-app.vercel.app</span>
+    <span class="pill url">📱 Mobile (Expo) — in progress</span>
+  </div>
+  <div class="cta">
+    <a class="btn btn-p" href="https://skyquire-app.vercel.app" target="_blank" rel="noopener">Open the live app ↗</a>
+    <a class="btn btn-g" href="https://skyquire-app.vercel.app/login" target="_blank" rel="noopener">Sign in ↗</a>
+  </div>
+
+  <!-- TWO SIDES -->
+  <div class="sec-label">🔀 One platform, two audiences</div>
+  <div class="two">
+    <div class="side buy">
+      <div class="h"><div class="ic">🛒</div><div><div class="k">Buyer side</div><h3>SMB marketplace</h3></div></div>
+      <ul>
+        <li><span class="c">✓</span> Browse verified businesses for sale with real financials</li>
+        <li><span class="c">✓</span> AI business health score (0–100) &amp; growth view</li>
+        <li><span class="c">✓</span> Aria AI matchmaker + semantic (pgvector) matching</li>
+        <li><span class="c">✓</span> Save, inquire, and chat with advisors</li>
+        <li><span class="c">✓</span> Financing &amp; escrow-backed transactions (planned)</li>
+      </ul>
+    </div>
+    <div class="side corp">
+      <div class="h"><div class="ic">🏢</div><div><div class="k">Corporate side</div><h3>M&amp;A deal management</h3></div></div>
+      <ul>
+        <li><span class="c">✓</span> Deal pipeline (Kanban) + team workspaces</li>
+        <li><span class="c">✓</span> Secure deal rooms — docs, notes, activity, participants</li>
+        <li><span class="c">✓</span> Valuation tools (DCF / EBITDA / SDE) + DD checklists</li>
+        <li><span class="c">✓</span> AI deal analysis &amp; target screening</li>
+        <li><span class="c">✓</span> eSign &amp; subscriptions (planned)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STATUS + STACK -->
+  <div class="sec-label">📦 Status &amp; stack</div>
+  <div class="grid2">
+    <div class="panel">
+      <h3>What's live vs building</h3>
+      <li><span>🌐</span> Web app (Next.js) — buyer, corporate &amp; admin <span class="tag t-live">live</span></li>
+      <li><span>🛡️</span> Auth, RLS, secured APIs, deal-room lockdown <span class="tag t-live">live</span></li>
+      <li><span>🤖</span> AI analyze · match · onboarding <span class="tag t-live">live</span></li>
+      <li><span>🧲</span> Drag-drop pipeline + pgvector matching <span class="tag t-build">building</span></li>
+      <li><span>💳</span> Razorpay · eSign · escrow <span class="tag t-build">building</span></li>
+      <li><span>📱</span> Mobile app (iOS + Android) <span class="tag t-build">building</span></li>
+    </div>
+    <div class="panel">
+      <h3>Tech stack</h3>
+      <li><span>🖥️</span> Next.js 14 + TypeScript + Tailwind</li>
+      <li><span>🗄️</span> Supabase (Postgres + Auth + Storage), RLS on all tables</li>
+      <li><span>🧠</span> Anthropic Claude for scoring, matching &amp; analysis</li>
+      <li><span>📱</span> Expo / React Native for mobile</li>
+      <li><span>☁️</span> Vercel hosting · Resend email · (Razorpay, India rails)</li>
+    </div>
+  </div>
+
+  <div class="callout">
+    <b>How the Seller Platform connects:</b> the standalone seller app feeds <i>verified</i> listings into this main platform's <code>business_listings</code> table after your team approves them — so approved businesses appear in this buyer marketplace live, with no redeploy. Two separate products, one shared listings backend. See the Seller Platform page for the full pipeline.
+  </div>
+
+  <div class="foot">Skyquire · Main Platform · the flagship product · generated Jun 18, 2026</div>
+</body>
+</html>
