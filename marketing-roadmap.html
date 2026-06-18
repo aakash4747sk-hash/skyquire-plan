@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Skyquire — Marketing Road Path</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Bricolage+Grotesque:wght@600;700;800&display=swap" rel="stylesheet" />
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  :root{--sky:#38BDF8;--violet:#8B5CF6;--green:#34D399;--amber:#FBBF24;--pink:#F472B6;--red:#F87171;--text:#EAF1FB;--soft:rgba(234,241,251,.62);--dim:rgba(234,241,251,.4);--line:rgba(255,255,255,.1);--card:rgba(255,255,255,.03);}
+  body{font-family:'Inter',sans-serif;background:radial-gradient(ellipse 90% 55% at 50% -10%,#1a1033,#070E1B);color:var(--text);min-height:100vh;padding:30px;}
+  h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif;letter-spacing:-.02em;}
+  .brand{font-weight:800;font-size:14px;} .brand span{color:var(--violet);}
+  h1{font-size:30px;font-weight:800;margin-top:6px;}
+  .sub{color:var(--soft);font-size:14px;margin:4px 0 8px;max-width:780px;line-height:1.5;}
+  .meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;}
+  .chip{font-size:12px;border:1px solid var(--line);background:var(--card);border-radius:100px;padding:6px 13px;color:var(--soft);}
+  .chip b{color:var(--text);}
+  .sec-label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);font-weight:600;margin:30px 0 14px;display:flex;align-items:center;gap:12px;}
+  .sec-label::after{content:'';flex:1;height:1px;background:var(--line);}
+
+  .phases{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+  .phase{border:1px solid var(--line);border-radius:14px;padding:15px;background:var(--card);position:relative;}
+  .phase .tp{font-size:9.5px;font-weight:700;padding:2px 8px;border-radius:100px;color:#04121f;}
+  .p1 .tp{background:var(--sky);} .p2 .tp{background:var(--violet);color:#fff;} .p3 .tp{background:var(--amber);} .p4 .tp{background:var(--red);color:#fff;}
+  .phase h3{font-size:14px;margin:8px 0 3px;} .phase .when{font-size:11px;color:var(--dim);}
+  .phase ul{list-style:none;margin-top:10px;display:flex;flex-direction:column;gap:6px;}
+  .phase li{font-size:11.5px;color:var(--soft);display:flex;gap:7px;line-height:1.35;}
+  .phase li::before{content:'';flex:none;width:5px;height:5px;border-radius:50%;background:var(--violet);margin-top:5px;}
+  .phase .goal{margin-top:10px;font-size:11px;color:var(--green);font-weight:600;}
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .panel{border:1px solid var(--line);border-radius:16px;padding:18px;background:var(--card);}
+  .panel h3{font-size:15px;margin-bottom:12px;}
+  .chan{display:flex;gap:10px;padding:9px 0;border-bottom:1px solid var(--line);font-size:13px;}
+  .chan:last-child{border:0;} .chan .ic{flex:none;width:22px;text-align:center;} .chan .nm{font-weight:600;color:var(--text);} .chan .role{color:var(--dim);font-size:12px;}
+  .pill{font-size:9px;font-weight:700;padding:1px 7px;border-radius:5px;margin-left:auto;white-space:nowrap;align-self:center;}
+  .pri{background:rgba(139,92,246,.2);color:#c4b5fd;} .paid{background:rgba(251,191,36,.18);color:#fcd34d;}
+
+  .pillar{font-size:13px;color:var(--soft);padding:7px 0;border-bottom:1px solid var(--line);display:flex;gap:9px;line-height:1.4;}
+  .pillar:last-child{border:0;} .pillar b{color:var(--text);}
+  .cad{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;}
+  .cad span{font-size:11px;border:1px solid var(--line);border-radius:8px;padding:5px 10px;color:var(--soft);}
+
+  .bud{display:flex;flex-direction:column;gap:10px;margin-top:4px;}
+  .budrow .top{display:flex;justify-content:space-between;font-size:12.5px;margin-bottom:5px;}
+  .budrow .top .l{color:var(--soft);} .budrow .top .v{color:var(--text);font-weight:600;}
+  .track{height:9px;border-radius:100px;background:rgba(255,255,255,.06);overflow:hidden;}
+  .fill{height:100%;border-radius:100px;}
+
+  .hype li{list-style:none;font-size:13px;color:var(--soft);padding:8px 0;border-bottom:1px solid var(--line);display:flex;gap:10px;line-height:1.4;}
+  .hype li:last-child{border:0;} .hype .ic{flex:none;}
+
+  table{width:100%;border-collapse:collapse;font-size:12.5px;}
+  th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--line);}
+  th{font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--dim);font-weight:600;}
+  td{color:var(--soft);} td.m{color:var(--text);font-weight:600;font-family:'Bricolage Grotesque',sans-serif;}
+
+  .runbook{border:1px solid rgba(248,113,113,.3);background:rgba(248,113,113,.06);border-radius:16px;padding:18px;}
+  .runbook h3{font-size:15px;margin-bottom:10px;} .runbook li{list-style:none;font-size:13px;color:var(--soft);padding:6px 0;display:flex;gap:9px;line-height:1.4;}
+  .foot{margin-top:22px;color:var(--dim);font-size:11.5px;text-align:center;}
+  @media(max-width:880px){.phases{grid-template-columns:1fr 1fr;}.grid2{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+  <div class="brand">Sky<span>quire</span> Marketing</div>
+  <h1>Marketing Road Path — hype → launch Dec 19</h1>
+  <div class="sub">Build a public audience on both sides of the marketplace (buyers + sellers), powered by a founder-led content engine, then convert the hype into a loud public launch on Dec 19.</div>
+  <div class="meta">
+    <span class="chip">Budget <b>₹1.5–5L</b></span>
+    <span class="chip">Engine <b>Founder-led</b></span>
+    <span class="chip">Audience <b>Buyers + Sellers</b></span>
+    <span class="chip">Runway <b>~26 weeks</b></span>
+  </div>
+
+  <!-- PHASES -->
+  <div class="sec-label">📈 The 4-phase path</div>
+  <div class="phases">
+    <div class="phase p1"><span class="tp">P1 · Jun–Jul</span><h3>Plant the flag</h3><div class="when">Foundation &amp; audience</div>
+      <ul>
+        <li>Set up founder brand (LinkedIn + X), lock the narrative</li>
+        <li>Start build-in-public posting</li>
+        <li>Waitlist + “skip the line” referral</li>
+        <li>Launch 2 WhatsApp communities (buyers / sellers)</li>
+        <li>Cornerstone SEO posts (EN + Hindi)</li>
+        <li>Lead magnets: free valuation + health-score teaser</li>
+      </ul>
+      <div class="goal">→ 500 waitlist · 2k founder followers</div>
+    </div>
+    <div class="phase p2"><span class="tp">P2 · Aug–Sep</span><h3>Build the audience</h3><div class="when">Content engine &amp; community</div>
+      <ul>
+        <li>Consistent cadence: LinkedIn 4–5×/wk, X daily, weekly video</li>
+        <li>Dual content: how to buy / how to sell a business</li>
+        <li>20 CA &amp; broker partnerships + co-webinars</li>
+        <li>First micro-creator collabs</li>
+        <li>Email nurture from lead magnets</li>
+        <li>Build-in-public: every shipped feature = a post</li>
+      </ul>
+      <div class="goal">→ 2,000 waitlist · active community</div>
+    </div>
+    <div class="phase p3"><span class="tp">P3 · Oct–Nov</span><h3>Create the wave</h3><div class="when">Hype &amp; scarcity</div>
+      <ul>
+        <li>Paid acquisition: LinkedIn (corp) + Meta (buyers/sellers) + retargeting</li>
+        <li>Creator sponsorships (entrepreneur YouTubers)</li>
+        <li>PR outreach: YourStory, Inc42, ET, Mint</li>
+        <li>Founding-member program + “first 100 listings free”</li>
+        <li>Closed beta to waitlist · collect testimonials</li>
+        <li>30-day countdown begins</li>
+      </ul>
+      <div class="goal">→ 5,000 waitlist · beta + PR lined up</div>
+    </div>
+    <div class="phase p4"><span class="tp">P4 · Dec 15–21</span><h3>Go loud</h3><div class="when">Launch week · peak Dec 19</div>
+      <ul>
+        <li>Daily countdown content</li>
+        <li>Launch-day blast: email + WhatsApp + LinkedIn/X + PR live</li>
+        <li>Product Hunt / launch platforms + live demo</li>
+        <li>Creator posts + press same day</li>
+        <li>Launch offers + referral incentives</li>
+      </ul>
+      <div class="goal">→ Public launch · first paying users</div>
+    </div>
+  </div>
+
+  <!-- CHANNELS + CONTENT ENGINE -->
+  <div class="sec-label">📡 Channel mix &amp; the founder engine</div>
+  <div class="grid2">
+    <div class="panel">
+      <h3>Channels</h3>
+      <div class="chan"><span class="ic">💼</span><div><div class="nm">LinkedIn (founder)</div><div class="role">Thought leadership · corporates · CAs</div></div><span class="pill pri">primary</span></div>
+      <div class="chan"><span class="ic">𝕏</span><div><div class="nm">X / Twitter</div><div class="role">Build-in-public · founder voice</div></div><span class="pill pri">primary</span></div>
+      <div class="chan"><span class="ic">▶️</span><div><div class="nm">YouTube + Reels</div><div class="role">Buyer/seller education · reach</div></div></div>
+      <div class="chan"><span class="ic">💬</span><div><div class="nm">WhatsApp communities</div><div class="role">India-native engagement + retention</div></div></div>
+      <div class="chan"><span class="ic">🔍</span><div><div class="nm">SEO blog (EN + Hindi)</div><div class="role">Compounding inbound</div></div></div>
+      <div class="chan"><span class="ic">✉️</span><div><div class="nm">Email newsletter</div><div class="role">Nurture waitlist → activation</div></div></div>
+      <div class="chan"><span class="ic">🤝</span><div><div class="nm">Creator collabs</div><div class="role">Entrepreneur audiences</div></div><span class="pill paid">paid</span></div>
+      <div class="chan"><span class="ic">📰</span><div><div class="nm">PR</div><div class="role">YourStory · Inc42 · ET · Mint</div></div></div>
+      <div class="chan"><span class="ic">🎯</span><div><div class="nm">Paid ads</div><div class="role">LinkedIn + Meta + retargeting</div></div><span class="pill paid">paid</span></div>
+    </div>
+    <div class="panel">
+      <h3>Founder content pillars</h3>
+      <div class="pillar"><b>1 · Build-in-public</b> — shipping, metrics, lessons, the solo-founder journey</div>
+      <div class="pillar"><b>2 · M&amp;A education</b> — how to buy, sell &amp; value a business in India</div>
+      <div class="pillar"><b>3 · Real stories</b> — buyer wins &amp; seller exits (case studies)</div>
+      <div class="pillar"><b>4 · Market insights</b> — MSME data, deal stats, the ₹-opportunity</div>
+      <div class="pillar"><b>5 · Hot takes</b> — “you don’t have to start from zero — buy a business”</div>
+      <div class="cad">
+        <span>LinkedIn 4–5×/wk</span><span>X daily</span><span>1 long video/wk</span><span>2–3 Reels/wk</span><span>Weekly newsletter</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- HYPE + BUDGET -->
+  <div class="sec-label">🔥 Hype mechanics &amp; budget</div>
+  <div class="grid2">
+    <div class="panel">
+      <h3>How the hype compounds</h3>
+      <ul class="hype">
+        <li><span class="ic">🪜</span> Waitlist referral — “skip the line” &amp; unlock perks for inviting friends</li>
+        <li><span class="ic">🏅</span> Founding-member badges + lifetime perks for the first 500</li>
+        <li><span class="ic">🎁</span> “First 100 listings free” — pulls in seller supply</li>
+        <li><span class="ic">🔒</span> Limited beta seats — exclusivity drives FOMO</li>
+        <li><span class="ic">⏳</span> 30-day public countdown to Dec 19</li>
+        <li><span class="ic">🛠️</span> Build-in-public milestone reveals keep momentum between phases</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h3>Budget allocation (~₹3L mid)</h3>
+      <div class="bud">
+        <div class="budrow"><div class="top"><span class="l">Creator collabs / sponsorships</span><span class="v">30%</span></div><div class="track"><div class="fill" style="width:30%;background:#8B5CF6;"></div></div></div>
+        <div class="budrow"><div class="top"><span class="l">Paid ads (LinkedIn + Meta)</span><span class="v">30%</span></div><div class="track"><div class="fill" style="width:30%;background:#38BDF8;"></div></div></div>
+        <div class="budrow"><div class="top"><span class="l">Content production (video/design)</span><span class="v">18%</span></div><div class="track"><div class="fill" style="width:18%;background:#34D399;"></div></div></div>
+        <div class="budrow"><div class="top"><span class="l">PR &amp; outreach</span><span class="v">12%</span></div><div class="track"><div class="fill" style="width:12%;background:#FBBF24;"></div></div></div>
+        <div class="budrow"><div class="top"><span class="l">Tools (email, scheduling, analytics)</span><span class="v">10%</span></div><div class="track"><div class="fill" style="width:10%;background:#F472B6;"></div></div></div>
+      </div>
+      <p style="font-size:11px;color:var(--dim);margin-top:12px;line-height:1.5;">Front-load tools + organic in P1–P2 (cheap), shift weight to creators + paid + PR in P3–P4 when the wave needs amplifying.</p>
+    </div>
+  </div>
+
+  <!-- FUNNEL KPIs -->
+  <div class="sec-label">🎯 Waitlist &amp; funnel targets</div>
+  <div class="panel">
+    <table>
+      <thead><tr><th>Month</th><th>Waitlist</th><th>Community</th><th>Founder reach</th><th>Focus</th></tr></thead>
+      <tbody>
+        <tr><td>Jun</td><td class="m">100 → 500</td><td>300</td><td>Baseline</td><td>Foundation, narrative</td></tr>
+        <tr><td>Jul</td><td class="m">800</td><td>700</td><td>3k followers</td><td>Content systems live</td></tr>
+        <tr><td>Aug</td><td class="m">1,200</td><td>1.5k</td><td>6k</td><td>CA partners, collabs</td></tr>
+        <tr><td>Sep</td><td class="m">2,000</td><td>3k</td><td>10k</td><td>Email nurture, SEO</td></tr>
+        <tr><td>Oct</td><td class="m">3,500</td><td>5k</td><td>18k</td><td>Paid + PR + founding members</td></tr>
+        <tr><td>Nov</td><td class="m">5,000</td><td>7k</td><td>25k</td><td>Beta + countdown</td></tr>
+        <tr><td>Dec</td><td class="m">🚀 Launch</td><td>—</td><td>—</td><td>Go loud · first paying users</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:11px;color:var(--dim);margin-top:10px;">Indicative targets for a solo founder on a moderate budget — adjust as channels prove out.</p>
+  </div>
+
+  <!-- LAUNCH WEEK -->
+  <div class="sec-label">🚀 Launch week runbook (Dec 15–21)</div>
+  <div class="runbook">
+    <h3>Peak: Dec 19</h3>
+    <li><span>📅</span> <b>Dec 15–18:</b> daily countdown teasers · email “2 days left” · prime the communities · brief creators &amp; press on timing</li>
+    <li><span>🚀</span> <b>Dec 19 (launch):</b> founder launch story (LinkedIn/X) at 9am · email blast to full waitlist · WhatsApp drop · Product Hunt + launch platforms · PR articles go live · creator posts scheduled · live demo / AMA webinar midday</li>
+    <li><span>🎁</span> <b>Launch offer:</b> founding-member pricing + referral bonus, 72-hour window</li>
+    <li><span>📊</span> <b>Dec 20–21:</b> thank-you + momentum posts · share day-1 numbers (build-in-public) · convert beta + waitlist to paid · respond to every comment/DM</li>
+  </div>
+
+  <div class="foot">Skyquire · Marketing Road Path · generated Jun 18, 2026 · pair with the Launch plan &amp; Whiteboard</div>
+</body>
+</html>
