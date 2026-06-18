@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Skyquire — Planning Workspace</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Bricolage+Grotesque:wght@600;700;800&display=swap" rel="stylesheet" />
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  :root{--sky:#38BDF8;--violet:#8B5CF6;--green:#34D399;--orange:#FB923C;--red:#F87171;--text:#EAF1FB;--soft:rgba(234,241,251,.62);--dim:rgba(234,241,251,.4);--line:rgba(255,255,255,.09);--bg:#070E1B;--panel:#0A1424;}
+  html,body{height:100%;}
+  body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overflow:hidden;}
+  h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif;letter-spacing:-.02em;}
+  a{color:inherit;text-decoration:none;}
+
+  .app{display:grid;grid-template-columns:248px 1fr;height:100vh;}
+
+  /* sidebar */
+  .side{background:linear-gradient(180deg,#0b1730,#070e1b);border-right:1px solid var(--line);display:flex;flex-direction:column;overflow-y:auto;}
+  .side .brand{display:flex;align-items:center;gap:9px;padding:18px 18px 14px;}
+  .side .brand .logo{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:18px;}
+  .side .brand .logo span{color:var(--sky);}
+  .side .tagline{font-size:10.5px;color:var(--dim);padding:0 18px 14px;line-height:1.4;}
+  .grp{padding:12px 12px 4px;}
+  .grp-label{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);font-weight:700;padding:6px 8px;}
+  .navbtn{display:flex;align-items:center;gap:10px;width:100%;text-align:left;border:0;background:transparent;color:var(--soft);font-family:'Inter',sans-serif;font-size:13.5px;font-weight:500;padding:9px 10px;border-radius:9px;cursor:pointer;transition:all .15s;}
+  .navbtn:hover{background:rgba(255,255,255,.05);color:var(--text);}
+  .navbtn.active{background:rgba(56,189,248,.12);color:#bae6fd;box-shadow:inset 0 0 0 1px rgba(56,189,248,.25);}
+  .navbtn .ic{width:18px;text-align:center;font-size:15px;}
+  .navbtn.seller.active{background:rgba(251,146,60,.14);color:#fdba74;box-shadow:inset 0 0 0 1px rgba(251,146,60,.3);}
+  .side .foot{margin-top:auto;padding:14px 18px;font-size:10.5px;color:var(--dim);border-top:1px solid var(--line);}
+
+  /* main */
+  .main{display:flex;flex-direction:column;min-width:0;}
+  .topbar{height:54px;flex:none;display:flex;align-items:center;gap:12px;padding:0 18px;border-bottom:1px solid var(--line);background:rgba(7,14,27,.7);backdrop-filter:blur(10px);}
+  .topbar .crumb{font-size:13px;color:var(--dim);}
+  .topbar .crumb b{color:var(--text);font-weight:600;}
+  .topbar .spacer{flex:1;}
+  .topbar a.ext{font-size:12px;color:var(--sky);border:1px solid rgba(56,189,248,.3);border-radius:8px;padding:6px 12px;}
+  .topbar a.ext:hover{background:rgba(56,189,248,.08);}
+  .stage{flex:1;position:relative;min-height:0;}
+  iframe{width:100%;height:100%;border:0;display:block;background:var(--bg);}
+
+  /* overview */
+  .overview{position:absolute;inset:0;overflow-y:auto;padding:36px;display:none;}
+  .overview.show{display:block;}
+  .ov-wrap{max-width:1000px;margin:0 auto;}
+  .ov-wrap h1{font-size:32px;font-weight:800;}
+  .ov-sub{color:var(--soft);font-size:15px;margin-top:8px;max-width:640px;line-height:1.5;}
+  .count{display:inline-flex;align-items:center;gap:10px;margin-top:16px;border:1px solid rgba(248,113,113,.3);background:rgba(248,113,113,.08);border-radius:12px;padding:9px 15px;font-size:13px;}
+  .count b{font-family:'Bricolage Grotesque',sans-serif;color:#fca5a5;font-size:15px;}
+  .ov-label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);font-weight:600;margin:30px 0 14px;display:flex;align-items:center;gap:12px;}
+  .ov-label::after{content:'';flex:1;height:1px;background:var(--line);}
+  .ov-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .ov-card{border:1px solid var(--line);border-radius:16px;padding:18px;background:rgba(255,255,255,.025);cursor:pointer;transition:all .2s;}
+  .ov-card:hover{transform:translateY(-4px);border-color:rgba(56,189,248,.4);}
+  .ov-card .ci{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:21px;background:linear-gradient(135deg,rgba(56,189,248,.16),rgba(139,92,246,.12));border:1px solid var(--line);}
+  .ov-card.sell .ci{background:linear-gradient(135deg,rgba(251,146,60,.2),rgba(234,88,12,.14));}
+  .ov-card h3{font-size:16px;margin-top:14px;}
+  .ov-card p{font-size:12.5px;color:var(--soft);margin-top:6px;line-height:1.45;}
+
+  /* mobile */
+  @media(max-width:820px){
+    body{overflow:auto;}
+    .app{grid-template-columns:1fr;height:auto;}
+    .side{flex-direction:row;flex-wrap:wrap;align-items:center;gap:4px;border-right:0;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10;}
+    .side .brand{padding:12px 14px;} .side .tagline,.grp-label,.side .foot{display:none;}
+    .grp{display:flex;flex-wrap:wrap;padding:6px;gap:4px;} .navbtn{width:auto;padding:7px 10px;font-size:12px;}
+    .main{height:auto;} .stage{height:78vh;} .overview{position:relative;height:auto;}
+    .ov-cards{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+<div class="app">
+  <!-- SIDEBAR -->
+  <aside class="side">
+    <div class="brand"><span class="logo">Sky<span>quire</span></span></div>
+    <div class="tagline">Planning workspace · everything in one place</div>
+
+    <div class="grp">
+      <div class="grp-label">Start</div>
+      <button class="navbtn active" data-view="overview"><span class="ic">🏠</span> Overview</button>
+    </div>
+
+    <div class="grp">
+      <div class="grp-label">🚀 Launch plan · Dec 19</div>
+      <button class="navbtn" data-src="launch/launch-whiteboard.html" data-title="Launch · Roadmap"><span class="ic">🧭</span> Roadmap</button>
+      <button class="navbtn" data-src="launch/launch-timeline.html" data-title="Launch · Timeline"><span class="ic">📅</span> Timeline / Gantt</button>
+      <button class="navbtn" data-src="launch/launch-schema.html" data-title="Launch · Schema"><span class="ic">🗺️</span> Target Schema</button>
+      <button class="navbtn" data-src="launch/launch-jira.html" data-title="Launch · Jira Roadmap"><span class="ic">📋</span> Jira Roadmap</button>
+      <button class="navbtn" data-src="launch/launch-checklist.html" data-title="Launch · Checklist"><span class="ic">✅</span> Checklist</button>
+    </div>
+
+    <div class="grp">
+      <div class="grp-label">🏷️ Products</div>
+      <button class="navbtn seller" data-src="seller-platform.html" data-title="Seller Platform"><span class="ic">🏷️</span> Seller Platform</button>
+    </div>
+
+    <div class="grp">
+      <div class="grp-label">⚡ 3-day sprint</div>
+      <button class="navbtn" data-src="whiteboard.html" data-title="Sprint · Whiteboard"><span class="ic">🧠</span> Whiteboard</button>
+      <button class="navbtn" data-src="schema.html" data-title="Sprint · Schema"><span class="ic">🔧</span> Schema</button>
+      <button class="navbtn" data-src="jira-board.html" data-title="Sprint · Board"><span class="ic">🗂️</span> Kanban Board</button>
+    </div>
+
+    <div class="foot">Skyquire · Jun 18, 2026</div>
+  </aside>
+
+  <!-- MAIN -->
+  <div class="main">
+    <div class="topbar">
+      <span class="crumb">Skyquire Planning / <b id="crumb">Overview</b></span>
+      <span class="spacer"></span>
+      <a class="ext" id="openExt" href="#" target="_blank" style="display:none;">Open full page ↗</a>
+    </div>
+    <div class="stage">
+      <!-- OVERVIEW -->
+      <div class="overview show" id="overview">
+        <div class="ov-wrap">
+          <h1>Planning Workspace</h1>
+          <p class="ov-sub">Every plan for taking Skyquire from a hardened MVP to a full public launch — all on this one page. Use the sidebar, or pick a board below.</p>
+          <div class="count">🚀 Launch target: <b>Sat 19 Dec 2026</b> · solo founder + AI · full platform + seller platform</div>
+
+          <div class="ov-label">🚀 Launch plan</div>
+          <div class="ov-cards">
+            <div class="ov-card" data-go="launch/launch-whiteboard.html|Launch · Roadmap"><div class="ci">🧭</div><h3>Roadmap</h3><p>6 phases, milestones, success criteria, the solo-founder reality check.</p></div>
+            <div class="ov-card" data-go="launch/launch-timeline.html|Launch · Timeline"><div class="ci">📅</div><h3>Timeline / Gantt</h3><p>Month-by-month workstreams Jun → Dec 19, including the seller track.</p></div>
+            <div class="ov-card" data-go="launch/launch-schema.html|Launch · Schema"><div class="ci">🗺️</div><h3>Target Schema</h3><p>Full-platform architecture &amp; data model, tagged by build phase.</p></div>
+            <div class="ov-card" data-go="launch/launch-jira.html|Launch · Jira Roadmap"><div class="ci">📋</div><h3>Jira Roadmap</h3><p>21 epics across 6 phases plus the seller-platform track.</p></div>
+            <div class="ov-card" data-go="launch/launch-checklist.html|Launch · Checklist"><div class="ci">✅</div><h3>Checklist</h3><p>Registration → launch, interactive, saves your checkmarks.</p></div>
+          </div>
+
+          <div class="ov-label">🏷️ Separate product</div>
+          <div class="ov-cards">
+            <div class="ov-card sell" data-go="seller-platform.html|Seller Platform"><div class="ci">🏷️</div><h3>Seller Platform</h3><p>Standalone seller app → team verification → approved listings publish live to the main marketplace.</p></div>
+          </div>
+
+          <div class="ov-label">⚡ This week — 3-day sprint</div>
+          <div class="ov-cards">
+            <div class="ov-card" data-go="whiteboard.html|Sprint · Whiteboard"><div class="ci">🧠</div><h3>Whiteboard</h3><p>Ship / Build / GTM swim lanes with goals and metrics.</p></div>
+            <div class="ov-card" data-go="schema.html|Sprint · Schema"><div class="ci">🔧</div><h3>Schema</h3><p>What the 3-day work touches, changes highlighted.</p></div>
+            <div class="ov-card" data-go="jira-board.html|Sprint · Board"><div class="ci">🗂️</div><h3>Kanban Board</h3><p>Drag tickets across Backlog → Done.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- IFRAME -->
+      <iframe id="frame" title="Plan view" style="display:none;"></iframe>
+    </div>
+  </div>
+</div>
+
+<script>
+  const frame=document.getElementById('frame');
+  const overview=document.getElementById('overview');
+  const crumb=document.getElementById('crumb');
+  const openExt=document.getElementById('openExt');
+  const btns=Array.from(document.querySelectorAll('.navbtn'));
+
+  function activateBtn(b){ btns.forEach(x=>x.classList.remove('active')); if(b) b.classList.add('active'); }
+
+  function showView(src,title){
+    if(!src){ // overview
+      overview.classList.add('show'); frame.style.display='none'; openExt.style.display='none';
+      crumb.textContent='Overview'; return;
+    }
+    overview.classList.remove('show');
+    frame.src=src; frame.style.display='block';
+    crumb.textContent=title; openExt.href=src; openExt.style.display='inline-block';
+  }
+
+  btns.forEach(b=>b.addEventListener('click',()=>{
+    activateBtn(b);
+    showView(b.dataset.src, b.dataset.title);
+  }));
+
+  // overview cards
+  document.querySelectorAll('.ov-card').forEach(c=>c.addEventListener('click',()=>{
+    const [src,title]=c.dataset.go.split('|');
+    const btn=btns.find(b=>b.dataset.src===src);
+    activateBtn(btn);
+    showView(src,title);
+  }));
+</script>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Skyquire — Sprint Board (3-Day)</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Bricolage+Grotesque:wght@600;700;800&display=swap" rel="stylesheet" />
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  :root{--sky:#38BDF8;--violet:#8B5CF6;--green:#34D399;--amber:#FBBF24;--red:#F87171;--text:#EAF1FB;--soft:rgba(234,241,251,.62);--dim:rgba(234,241,251,.4);--line:rgba(255,255,255,.1);--card:#0F1E36;}
+  body{font-family:'Inter',sans-serif;background:radial-gradient(ellipse 90% 50% at 50% -10%,#10213c,#070E1B);color:var(--text);min-height:100vh;padding:28px;}
+  h1,h2{font-family:'Bricolage Grotesque',sans-serif;letter-spacing:-.02em;}
+  .top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;margin-bottom:6px;}
+  .brand{font-weight:800;font-size:14px;} .brand span{color:var(--sky);}
+  h1{font-size:24px;font-weight:800;}
+  .meta{color:var(--soft);font-size:13px;margin-top:2px;}
+  .stats{display:flex;gap:10px;flex-wrap:wrap;}
+  .stat{border:1px solid var(--line);border-radius:10px;padding:8px 13px;background:rgba(255,255,255,.03);font-size:12px;color:var(--soft);}
+  .stat b{font-family:'Bricolage Grotesque',sans-serif;color:var(--text);font-size:15px;}
+  .hint{font-size:11.5px;color:var(--dim);margin:14px 0 16px;}
+  .board{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+  .col{background:rgba(255,255,255,.02);border:1px solid var(--line);border-radius:14px;padding:12px;min-height:200px;}
+  .col.over{border-color:var(--sky);background:rgba(56,189,248,.06);}
+  .col-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
+  .col-h .name{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--soft);font-weight:600;display:flex;align-items:center;gap:8px;}
+  .col-h .dotc{width:8px;height:8px;border-radius:50%;}
+  .c-backlog{background:#64748b;} .c-todo{background:var(--sky);} .c-prog{background:var(--amber);} .c-done{background:var(--green);}
+  .count{font-size:11px;color:var(--dim);background:rgba(255,255,255,.06);border-radius:100px;padding:2px 9px;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:12px;margin-bottom:10px;cursor:grab;transition:border-color .2s,transform .1s;}
+  .card:hover{border-color:rgba(56,189,248,.4);}
+  .card:active{cursor:grabbing;transform:scale(.99);}
+  .card.dragging{opacity:.4;}
+  .card .title{font-size:13px;font-weight:500;line-height:1.4;margin:7px 0 10px;}
+  .ctype{font-size:10px;font-weight:700;padding:2px 7px;border-radius:5px;display:inline-flex;align-items:center;gap:4px;}
+  .t-epic{background:rgba(139,92,246,.2);color:#c4b5fd;} .t-story{background:rgba(52,211,153,.18);color:#6ee7b7;} .t-task{background:rgba(56,189,248,.18);color:#7dd3fc;} .t-bug{background:rgba(248,113,113,.18);color:#fca5a5;}
+  .cfoot{display:flex;align-items:center;gap:7px;}
+  .key{font-family:ui-monospace,Menlo,monospace;font-size:10.5px;color:var(--dim);}
+  .pri{font-size:13px;margin-left:auto;} .pri.hi{color:var(--red);} .pri.med{color:var(--amber);} .pri.lo{color:var(--dim);}
+  .pts{font-size:10px;font-weight:700;width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;color:var(--soft);}
+  .day{font-size:9.5px;font-weight:700;padding:2px 6px;border-radius:5px;}
+  .day1{background:rgba(56,189,248,.16);color:var(--sky);} .day2{background:rgba(139,92,246,.18);color:#c4b5fd;} .day3{background:rgba(52,211,153,.16);color:#6ee7b7;}
+  .av{width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#04121f;background:linear-gradient(135deg,#38bdf8,#0ea5e9);}
+  .foot{margin-top:20px;color:var(--dim);font-size:11.5px;text-align:center;}
+  @media(max-width:900px){.board{grid-template-columns:1fr 1fr;}}
+  @media(max-width:560px){.board{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<nav style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;padding:9px 14px;margin-bottom:20px;background:rgba(7,14,27,.6);border:1px solid rgba(255,255,255,.1);border-radius:12px;font-family:'Inter',sans-serif;">
+<a href="index.html" style="font-weight:800;font-size:13px;color:#EAF1FB;text-decoration:none;">Sky<span style="color:#38BDF8;">quire</span></a>
+<span style="color:rgba(234,241,251,.25);font-size:12px;margin-right:4px;">/ 3-Day Sprint</span>
+<a href="whiteboard.html" style="font-size:12px;color:rgba(234,241,251,.62);text-decoration:none;padding:4px 9px;border-radius:7px;">Whiteboard</a>
+<a href="schema.html" style="font-size:12px;color:rgba(234,241,251,.62);text-decoration:none;padding:4px 9px;border-radius:7px;">Schema</a>
+<a href="jira-board.html" style="font-size:12px;color:rgba(234,241,251,.62);text-decoration:none;padding:4px 9px;border-radius:7px;">Board</a>
+<a href="launch/launch-whiteboard.html" style="font-size:12px;color:rgba(234,241,251,.62);text-decoration:none;padding:4px 9px;border-radius:7px;">Launch plan</a>
+<a href="index.html" style="margin-left:auto;font-size:12px;color:#38BDF8;text-decoration:none;">All plans →</a>
+</nav>
+  <div class="top">
+    <div>
+      <div class="brand">Sky<span>quire</span></div>
+      <h1>Sprint Board — 3-Day Balanced Sprint</h1>
+      <div class="meta">Jun 18–20, 2026 · Ship · Build · GTM</div>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>23</b> tickets</div>
+      <div class="stat"><b>27</b> pts committed</div>
+      <div class="stat"><b id="doneCount">4</b> done</div>
+    </div>
+  </div>
+  <div class="hint">💡 Tip: drag cards between columns to update status — counts refresh automatically.</div>
+
+  <div class="board" id="board">
+    <!-- BACKLOG -->
+    <div class="col" data-col="backlog">
+      <div class="col-h"><span class="name"><i class="dotc c-backlog"></i> Backlog</span><span class="count">0</span></div>
+      <div class="card" draggable="true"><div><span class="ctype t-epic">⛰ EPIC</span></div><div class="title">Razorpay payments — listing fees, subscriptions, success fees</div><div class="cfoot"><span class="key">SKY-19</span><span class="pri lo">▽</span><span class="pts">8</span></div></div>
+      <div class="card" draggable="true"><div><span class="ctype t-epic">⛰ EPIC</span></div><div class="title">eSign deal room — Aadhaar eSign for NDAs/LOIs</div><div class="cfoot"><span class="key">SKY-20</span><span class="pri lo">▽</span><span class="pts">8</span></div></div>
+      <div class="card" draggable="true"><div><span class="ctype t-epic">⛰ EPIC</span></div><div class="title">Escrow integration (Cashfree/Escrowpay)</div><div class="cfoot"><span class="key">SKY-21</span><span class="pri lo">▽</span><span class="pts">5</span></div></div>
+      <div class="card" draggable="true"><div><span class="ctype t-story">▣ STORY</span></div><div class="title">WhatsApp notifications (Interakt/WATI)</div><div class="cfoot"><span class="key">SKY-22</span><span class="pri lo">▽</span><span class="pts">3</span></div></div>
+      <div class="card" draggable="true"><div><span class="ctype t-epic">⛰ EPIC</span></div><div class="title">Mobile app — App Store + Play submission</div><div class="cfoot"><span class="key">SKY-23</span><span class="pri lo">▽</span><span class="pts">8</span></div></div>
+    </div>
+
+    <!-- TO DO -->
+    <div class="col" data-col="todo">
+      <div class="col-h"><span class="name"><i class="dotc c-todo"></i> To Do</span><span class="count">0</span></div>
+      <div class="card" draggable="true"><div><span class="ctype t-task">◆ TASK</span> <span class="day day1">Day 1</span></div><div class="title">Set INQUIRY_NOTIFY_EMAIL env var in Vercel</div><div class="cfoot"><span class="key">SKY-7</span><span class="pri med">◇</span><span class="pts">1</span><span class="av">AK</span></div></div>
+      <div class="card" draggable="true"><div><span class="ctype t-task">◆ TASK</span> <span class="day day1">Day 1</span></div><div class="title">Connect Chrome + run production smoke tests (401s, reset, routing, inquiry email)</div><div class="cfoot"><span class="key">SKY-8</span><span class="pri hi">△</span><span class="pts">2</span><span class="av">AK</span></div></div>
+      <div class="card" draggable="true"><div><span class="ctype t-story">▣ STORY</span> <span class="day day1">Day 1</span></div><div class="title">Accessibility pass — aria labels, clickable cards → buttons</div><div class="cfoot"><span class="key">SKY-9</span><span class="pri med">◇</span><span class="pts">2</span><span class="av">AK</span></div></div>
+      <div class="card" draggable="true"><div><span class="ctype t-story">▣ STORY</span> <span class="day day2">Day 2</span></div><div class="title">Drag-and-drop pipeline — move deals across stages, update DB, fire email</div><div class="cfoot"><span class="key">SKY-10</span><span class="pri hi">△</span><span class="pts">5</span><span class="av">AK</span></div></div>
+      <div class="card" draggable="true"><div><span class="ctype t-story">▣ STORY</span> <span class="day day2">Day 2</span></div><div class="title">Custom SVG icon set — replace emoji icons (landing + app)</div><div class="cfoot"><span class="key">SKY-11</span><span class="pri med">◇</span><span class="pts">3</span><span class="av">AK</span></div></div>
+      <div class="card" draggable="true"><div><span class="ctype t-task">◆ TASK</span> <span class="day day2">Day 2</span></div><div class="title">zod input validation on all API routes</div><div class="cfoot"><span class="key">SKY-12</span><span class="pri med">◇</span><span class="pts">2</span><span class="av">AK</span></div></div>
+      <div class="card" draggable="true"><div><span class="ctype t-task">◆ TASK</span> <span class="day day2">Day 2</span></div><div class="title">Upstash Redis rate limiting (replace in-memory)</div><div class="cfoot"><span class="key">SKY-13</span><span class="pri med">◇</span><span class="pts">2</span><span class="av">AK</span></div></div>
+      <div class="card" draggable="true"><div><span class="ctype t-story">▣ STORY</span> <span class="day day3">Day 3</span></div><div class="title">pgvector embeddings + similarity pre-filter for AI match</div><div class="cfoot"><span class="key">SKY-14</span><span class="pri hi">△</span><span class="pts">5</span><span class="av">AK</span></div></div>
+      <div class="card" draggable="true"><div><span class="ctype t-task">◆ TASK</span> <span class="day day3">Day 3</span></div><div class="title">Waitlist launch — LinkedIn post + WhatsApp community seed</div><div class="cfoot"><span class="key">SKY-15</span><span class="pri hi">△</span><span class="pts">2</span><span class="av">AK</span></div></div>
+      <div class="card" draggable="true"><div><span class="ctype t-task">◆ TASK</span> <span class="day day3">Day 3</span></div><div class="title">CA outreach list — 20 chartered accountants</div><div class="cfoot"><span class="key">SKY-16</span><span class="pri med">◇</span><span class="pts">1</span><span class="av">AK</span></div></div>
+      <div class="card" draggable="true"><div><span class="ctype t-task">◆ TASK</span> <span class="day day3">Day 3</span></div><div class="title">Book 5 user interviews (3 corp dev/CFO + 2 SMB buyers)</div><div class="cfoot"><span class="key">SKY-17</span><span class="pri med">◇</span><span class="pts">1</span><span class="av">AK</span></div></div>
+      <div class="card" draggable="true"><div><span class="ctype t-story">▣ STORY</span> <span class="day day3">Day 3</span></div><div class="title">Pitch deck v0 — problem, market, product, traction, ask</div><div class="cfoot"><span class="key">SKY-18</span><span class="pri med">◇</span><span class="pts">3</span><span class="av">AK</span></div></div>
+    </div>
+
+    <!-- IN PROGRESS -->
+    <div class="col" data-col="prog">
+      <div class="col-h"><span class="name"><i class="dotc c-prog"></i> In Progress</span><span class="count">0</span></div>
+      <div class="card" draggable="true"><div><span class="ctype t-task">◆ TASK</span> <span class="day day1">Day 1</span></div><div class="title">Deploy landing redesign — push to main → host rebuild</div><div class="cfoot"><span class="key">SKY-5</span><span class="pri hi">△</span><span class="pts">1</span><span class="av">AK</span></div></div>
+      <div class="card" draggable="true"><div><span class="ctype t-task">◆ TASK</span> <span class="day day1">Day 1</span></div><div class="title">Commit RLS migration doc to repo</div><div class="cfoot"><span class="key">SKY-6</span><span class="pri med">◇</span><span class="pts">1</span><span class="av">AK</span></div></div>
+    </div>
+
+    <!-- DONE -->
+    <div class="col" data-col="done">
+      <div class="col-h"><span class="name"><i class="dotc c-done"></i> Done</span><span class="count">0</span></div>
+      <div class="card" draggable="true"><div><span class="ctype t-bug">🐞 BUG</span></div><div class="title">Deal-room RLS hardening — scoped to owner/admin/participant (applied + verified)</div><div class="cfoot"><span class="key">SKY-3</span><span class="pri hi">△</span><span class="pts">5</span><span class="av">AK</span></div></div>
+      <div class="card" draggable="true"><div><span class="ctype t-bug">🐞 BUG</span></div><div class="title">Secure open API endpoints (send-email, invite-participant)</div><div class="cfoot"><span class="key">SKY-1</span><span class="pri hi">△</span><span class="pts">3</span><span class="av">AK</span></div></div>
+      <div class="card" draggable="true"><div><span class="ctype t-story">▣ STORY</span></div><div class="title">Fix buyer-facing bugs (express interest, save, Google routing, register)</div><div class="cfoot"><span class="key">SKY-2</span><span class="pri med">◇</span><span class="pts">3</span><span class="av">AK</span></div></div>
+      <div class="card" draggable="true"><div><span class="ctype t-story">▣ STORY</span></div><div class="title">Landing redesign — premium fintech + restored intro + enhanced graphics</div><div class="cfoot"><span class="key">SKY-4</span><span class="pri med">◇</span><span class="pts">5</span><span class="av">AK</span></div></div>
+    </div>
+  </div>
+
+  <div class="foot">Skyquire · Sprint Board · generated Jun 18, 2026 · pair with the Whiteboard and Schema</div>
+
+<script>
+  const board = document.getElementById('board');
+  let dragging = null;
+
+  function refreshCounts(){
+    board.querySelectorAll('.col').forEach(col=>{
+      const n = col.querySelectorAll('.card').length;
+      col.querySelector('.count').textContent = n;
+    });
+    const done = board.querySelector('[data-col="done"]').querySelectorAll('.card').length;
+    document.getElementById('doneCount').textContent = done;
+  }
+
+  board.querySelectorAll('.card').forEach(card=>{
+    card.addEventListener('dragstart', ()=>{ dragging = card; card.classList.add('dragging'); });
+    card.addEventListener('dragend', ()=>{ card.classList.remove('dragging'); dragging=null; refreshCounts(); });
+  });
+
+  board.querySelectorAll('.col').forEach(col=>{
+    col.addEventListener('dragover', e=>{ e.preventDefault(); col.classList.add('over'); });
+    col.addEventListener('dragleave', ()=> col.classList.remove('over'));
+    col.addEventListener('drop', e=>{
+      e.preventDefault(); col.classList.remove('over');
+      if (dragging) col.appendChild(dragging);
+      refreshCounts();
+    });
+  });
+
+  refreshCounts();
+</script>
+</body>
+</html>

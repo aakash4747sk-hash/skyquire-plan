@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Skyquire — Registration → Launch Checklist</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Bricolage+Grotesque:wght@600;700;800&display=swap" rel="stylesheet" />
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  :root{--sky:#38BDF8;--violet:#8B5CF6;--green:#34D399;--amber:#FBBF24;--red:#F87171;--text:#EAF1FB;--soft:rgba(234,241,251,.62);--dim:rgba(234,241,251,.4);--line:rgba(255,255,255,.1);}
+  body{font-family:'Inter',sans-serif;background:radial-gradient(ellipse 90% 50% at 50% -10%,#10213c,#070E1B);color:var(--text);min-height:100vh;padding:30px;}
+  h1,h2{font-family:'Bricolage Grotesque',sans-serif;letter-spacing:-.02em;}
+  .brand{font-weight:800;font-size:14px;} .brand span{color:var(--sky);}
+  h1{font-size:27px;font-weight:800;margin-top:6px;}
+  .sub{color:var(--soft);font-size:13px;margin:4px 0 18px;}
+  .progwrap{position:sticky;top:0;background:rgba(7,14,27,.9);backdrop-filter:blur(10px);padding:14px 0;margin-bottom:8px;border-bottom:1px solid var(--line);z-index:5;}
+  .progrow{display:flex;align-items:center;gap:14px;}
+  .bar{flex:1;height:10px;border-radius:100px;background:rgba(255,255,255,.08);overflow:hidden;}
+  .fill{height:100%;width:0;background:linear-gradient(90deg,#38bdf8,#34d399);transition:width .35s ease;}
+  .pct{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:18px;min-width:54px;text-align:right;}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:14px;}
+  .sec{border:1px solid var(--line);border-radius:16px;padding:18px;background:rgba(255,255,255,.025);}
+  .sec h2{font-size:16px;display:flex;align-items:center;gap:9px;margin-bottom:4px;}
+  .sec .sc{font-size:11px;color:var(--dim);margin-bottom:12px;}
+  label.item{display:flex;gap:11px;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--line);font-size:13px;color:var(--soft);cursor:pointer;line-height:1.4;}
+  label.item:last-child{border-bottom:0;}
+  label.item input{appearance:none;flex:none;width:18px;height:18px;border:1.5px solid var(--line);border-radius:6px;margin-top:1px;cursor:pointer;transition:all .15s;position:relative;}
+  label.item input:checked{background:linear-gradient(135deg,#38bdf8,#0ea5e9);border-color:#38bdf8;}
+  label.item input:checked::after{content:'✓';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:12px;color:#04121f;font-weight:800;}
+  label.item input:checked + span{color:var(--dim);text-decoration:line-through;}
+  .tag{font-size:9px;font-weight:700;padding:1px 6px;border-radius:5px;margin-left:6px;white-space:nowrap;}
+  .t-now{background:rgba(248,113,113,.18);color:#fca5a5;} .t-vendor{background:rgba(251,191,36,.18);color:#fcd34d;}
+  .reset{font-size:11px;color:var(--dim);background:none;border:1px solid var(--line);border-radius:8px;padding:6px 12px;cursor:pointer;}
+  .reset:hover{color:var(--soft);border-color:var(--soft);}
+  .foot{margin-top:20px;color:var(--dim);font-size:11.5px;text-align:center;}
+  @media(max-width:820px){.grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<nav style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;padding:9px 14px;margin-bottom:20px;background:rgba(7,14,27,.6);border:1px solid rgba(255,255,255,.1);border-radius:12px;font-family:'Inter',sans-serif;">
+<a href="../index.html" style="font-weight:800;font-size:13px;color:#EAF1FB;text-decoration:none;">Sky<span style="color:#38BDF8;">quire</span></a>
+<span style="color:rgba(234,241,251,.25);font-size:12px;margin-right:4px;">/ Launch Plan</span>
+<a href="launch-whiteboard.html" style="font-size:12px;color:rgba(234,241,251,.62);text-decoration:none;padding:4px 9px;border-radius:7px;">Roadmap</a>
+<a href="launch-timeline.html" style="font-size:12px;color:rgba(234,241,251,.62);text-decoration:none;padding:4px 9px;border-radius:7px;">Timeline</a>
+<a href="launch-schema.html" style="font-size:12px;color:rgba(234,241,251,.62);text-decoration:none;padding:4px 9px;border-radius:7px;">Schema</a>
+<a href="launch-jira.html" style="font-size:12px;color:rgba(234,241,251,.62);text-decoration:none;padding:4px 9px;border-radius:7px;">Jira</a>
+<a href="launch-checklist.html" style="font-size:12px;color:rgba(234,241,251,.62);text-decoration:none;padding:4px 9px;border-radius:7px;">Checklist</a>
+<a href="../index.html" style="margin-left:auto;font-size:12px;color:#38BDF8;text-decoration:none;">All plans →</a>
+</nav>
+  <div class="brand">Sky<span>quire</span></div>
+  <h1>Registration → Launch Checklist</h1>
+  <div class="sub">Everything from incorporation to go-live on Dec 19, 2026 · <span class="tag t-now">NOW</span> = do early · <span class="tag t-vendor">VENDOR</span> = buy, don't build</div>
+
+  <div class="progwrap">
+    <div class="progrow">
+      <div class="bar"><div class="fill" id="fill"></div></div>
+      <div class="pct" id="pct">0%</div>
+      <button class="reset" id="reset">Reset</button>
+    </div>
+  </div>
+
+  <div class="grid" id="grid">
+    <div class="sec">
+      <h2>⚖️ Legal, Company &amp; Compliance</h2>
+      <div class="sc">Get the entity and the rules right — mostly front-loaded</div>
+      <label class="item"><input type="checkbox"><span>Finalise company name &amp; complete Pvt Ltd incorporation (CoI, PAN, TAN)<span class="tag t-now">NOW</span></span></label>
+      <label class="item"><input type="checkbox"><span>Open current account in the company name</span></label>
+      <label class="item"><input type="checkbox"><span>GST registration (register early to issue tax invoices)</span></label>
+      <label class="item"><input type="checkbox"><span>Startup India (DPIIT) registration — tax + credibility</span></label>
+      <label class="item"><input type="checkbox"><span>Engage a CA + lawyer on retainer<span class="tag t-now">NOW</span></span></label>
+      <label class="item"><input type="checkbox"><span>DPDP Act 2023: privacy policy, consent flows, data localisation</span></label>
+      <label class="item"><input type="checkbox"><span>Terms of Service + fee agreement (gated at NDA step)</span></label>
+      <label class="item"><input type="checkbox"><span>SEBI check: keep advisory deals &lt; ₹25Cr unlisted threshold; confirm with CA</span></label>
+      <label class="item"><input type="checkbox"><span>Trademark "Skyquire" (classes 36 &amp; 42)</span></label>
+    </div>
+
+    <div class="sec">
+      <h2>🛠️ Product &amp; Engineering</h2>
+      <div class="sc">Both verticals + mobile, hardened</div>
+      <label class="item"><input type="checkbox"><span>Verify web + landing deploys live (done)</span></label>
+      <label class="item"><input type="checkbox"><span>Sentry monitoring + CI/CD + secrets management</span></label>
+      <label class="item"><input type="checkbox"><span>SMB marketplace shipped (listings, onboarding, discovery)</span></label>
+      <label class="item"><input type="checkbox"><span>Corporate M&amp;A shipped (pipeline, deal rooms, valuation, DD)</span></label>
+      <label class="item"><input type="checkbox"><span>Drag-and-drop pipeline + stage-change emails</span></label>
+      <label class="item"><input type="checkbox"><span>Accessibility pass + &lt;3s mobile load times</span></label>
+      <label class="item"><input type="checkbox"><span>Mobile app (iOS + Android) builds + store submission</span></label>
+      <label class="item"><input type="checkbox"><span>Security review + RLS audit + dependency scan</span></label>
+      <label class="item"><input type="checkbox"><span>Load testing + backups / disaster recovery</span></label>
+    </div>
+
+    <div class="sec">
+      <h2>🤖 AI &amp; Data</h2>
+      <div class="sc">The intelligence moat</div>
+      <label class="item"><input type="checkbox"><span>AI business health score (0–100) live</span></label>
+      <label class="item"><input type="checkbox"><span>Aria matchmaker + pgvector semantic matching</span></label>
+      <label class="item"><input type="checkbox"><span>AI due-diligence assistant (beta)</span></label>
+      <label class="item"><input type="checkbox"><span>zod input validation — close prompt-injection surface</span></label>
+      <label class="item"><input type="checkbox"><span>Analytics (Mixpanel) + anonymised deal-comps base</span></label>
+    </div>
+
+    <div class="sec">
+      <h2>💳 Payments, Money &amp; Trust</h2>
+      <div class="sc">Regulated — integrate vendors, never custom</div>
+      <label class="item"><input type="checkbox"><span>Razorpay live (KYC approved) — listing fees + subscriptions<span class="tag t-vendor">VENDOR</span></span></label>
+      <label class="item"><input type="checkbox"><span>Automated GST invoicing (18% on services)</span></label>
+      <label class="item"><input type="checkbox"><span>Escrow integrated (Cashfree / Escrowpay)<span class="tag t-vendor">VENDOR</span></span></label>
+      <label class="item"><input type="checkbox"><span>Aadhaar eSign integrated (Leegality / SignDesk)<span class="tag t-vendor">VENDOR</span></span></label>
+      <label class="item"><input type="checkbox"><span>Verified-listings program (GSTIN / MCA badges)</span></label>
+      <label class="item"><input type="checkbox"><span>Refund &amp; cancellation policy published</span></label>
+    </div>
+
+    <div class="sec">
+      <h2>📣 GTM &amp; Growth</h2>
+      <div class="sc">Demand ready on day one</div>
+      <label class="item"><input type="checkbox"><span>Waitlist to 500+ signups</span></label>
+      <label class="item"><input type="checkbox"><span>50+ verified business listings seeded</span></label>
+      <label class="item"><input type="checkbox"><span>20+ CA / advisor partnerships</span></label>
+      <label class="item"><input type="checkbox"><span>Content engine running (LinkedIn, SEO, WhatsApp)</span></label>
+      <label class="item"><input type="checkbox"><span>PR lined up (YourStory, Inc42, ET, Mint)</span></label>
+      <label class="item"><input type="checkbox"><span>Launch landing + demo video + pricing page</span></label>
+    </div>
+
+    <div class="sec">
+      <h2>🏷️ Seller Platform (separate product)</h2>
+      <div class="sc">Submit → verify → publish live to main app</div>
+      <label class="item"><input type="checkbox"><span>Seller app: sign up + submission wizard + doc upload + status tracker</span></label>
+      <label class="item"><input type="checkbox"><span>Verification console (internal): queue + checkpoint workflow + doc viewer</span></label>
+      <label class="item"><input type="checkbox"><span>Auto checks: GSTIN + MCA21 + PAN validation, AI anomaly flags</span></label>
+      <label class="item"><input type="checkbox"><span>Publish pipeline: approve → business_listings (Active) — dynamic, no redeploy</span></label>
+      <label class="item"><input type="checkbox"><span>RLS: a seller sees only their own submissions</span></label>
+      <label class="item"><input type="checkbox"><span>New tables: seller_accounts · business_submissions · submission_documents · verification_checkpoints</span></label>
+      <label class="item"><input type="checkbox"><span>Seller mobile app (fast-follow after launch)</span></label>
+    </div>
+
+    <div class="sec">
+      <h2>🚀 Launch-Day Runbook · Dec 19</h2>
+      <div class="sc">The final 48 hours</div>
+      <label class="item"><input type="checkbox"><span>Final QA + bug bash complete (2-week buffer)</span></label>
+      <label class="item"><input type="checkbox"><span>Payments + escrow + eSign smoke-tested in prod</span></label>
+      <label class="item"><input type="checkbox"><span>Status page + alerting (solo on-call) set up</span></label>
+      <label class="item"><input type="checkbox"><span>Rollback plan ready</span></label>
+      <label class="item"><input type="checkbox"><span>Launch posts scheduled (LinkedIn, PR, WhatsApp, email)</span></label>
+      <label class="item"><input type="checkbox"><span>Support inbox + FAQ live</span></label>
+      <label class="item"><input type="checkbox"><span>Monitor first 48h · then celebrate 🎉</span></label>
+    </div>
+  </div>
+
+  <div class="foot">Skyquire · Registration → Launch Checklist · generated Jun 18, 2026 · your checkmarks save in this browser</div>
+
+<script>
+  const boxes = Array.from(document.querySelectorAll('input[type=checkbox]'));
+  const fill = document.getElementById('fill'), pct = document.getElementById('pct');
+  const KEY = 'skyquire-launch-checklist';
+
+  // assign stable ids by index
+  boxes.forEach((b,i)=> b.dataset.k = 'c'+i);
+
+  function load(){
+    try { const s = JSON.parse(localStorage.getItem(KEY)||'{}'); boxes.forEach(b=>{ if(s[b.dataset.k]) b.checked=true; }); } catch(e){}
+  }
+  function save(){
+    try { const s={}; boxes.forEach(b=>{ if(b.checked) s[b.dataset.k]=1; }); localStorage.setItem(KEY, JSON.stringify(s)); } catch(e){}
+  }
+  function refresh(){
+    const done = boxes.filter(b=>b.checked).length;
+    const p = Math.round(done/boxes.length*100);
+    fill.style.width = p+'%'; pct.textContent = p+'%';
+  }
+  boxes.forEach(b=> b.addEventListener('change', ()=>{ save(); refresh(); }));
+  document.getElementById('reset').addEventListener('click', ()=>{ boxes.forEach(b=>b.checked=false); save(); refresh(); });
+  load(); refresh();
+</script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Skyquire — Launch Roadmap Whiteboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Bricolage+Grotesque:wght@600;700;800&display=swap" rel="stylesheet" />
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  :root{--sky:#38BDF8;--violet:#8B5CF6;--green:#34D399;--amber:#FBBF24;--red:#F87171;--text:#EAF1FB;--soft:rgba(234,241,251,.62);--dim:rgba(234,241,251,.4);--line:rgba(255,255,255,.1);--card:rgba(255,255,255,.03);}
+  body{font-family:'Inter',sans-serif;background:radial-gradient(ellipse 90% 55% at 50% -10%,#10213c,#070E1B);color:var(--text);min-height:100vh;padding:32px;}
+  h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif;letter-spacing:-.02em;}
+  .brand{font-weight:800;font-size:14px;} .brand span{color:var(--sky);}
+  h1{font-size:32px;font-weight:800;margin-top:6px;}
+  .sub{color:var(--soft);font-size:14px;margin-top:4px;}
+  .countdown{display:inline-flex;align-items:center;gap:10px;margin-top:14px;border:1px solid rgba(248,113,113,.3);background:rgba(248,113,113,.08);border-radius:12px;padding:10px 16px;font-size:13px;}
+  .countdown b{font-family:'Bricolage Grotesque',sans-serif;color:#fca5a5;font-size:16px;}
+  .mission{margin:20px 0;border:1px solid rgba(56,189,248,.25);background:linear-gradient(120deg,rgba(56,189,248,.1),rgba(139,92,246,.08));border-radius:18px;padding:20px 24px;}
+  .mission .k{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--sky);font-weight:600;}
+  .mission p{font-size:18px;font-weight:600;margin-top:8px;max-width:920px;line-height:1.45;font-family:'Bricolage Grotesque',sans-serif;}
+  .phases{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:10px;}
+  .phase{border:1px solid var(--line);border-radius:14px;padding:14px;background:var(--card);position:relative;}
+  .phase .mo{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);font-weight:600;}
+  .phase h3{font-size:14px;margin:5px 0 4px;}
+  .phase .ms{font-size:11px;color:var(--soft);line-height:1.5;}
+  .phase .tp{position:absolute;top:-9px;left:14px;font-size:9.5px;font-weight:700;padding:2px 8px;border-radius:100px;background:#0ea5e9;color:#04121f;}
+  .phase.launch{border-color:rgba(248,113,113,.45);background:linear-gradient(160deg,rgba(248,113,113,.1),var(--card));}
+  .phase.launch .tp{background:var(--red);color:#fff;}
+  .barwrap{margin:24px 0 8px;}
+  .bar{height:10px;border-radius:100px;background:rgba(255,255,255,.06);overflow:hidden;display:flex;}
+  .seg{height:100%;} .s0{background:#64748b;flex:1;} .s1{background:#38bdf8;flex:1;} .s2{background:#8b5cf6;flex:1;} .s3{background:#fbbf24;flex:1;} .s4{background:#34d399;flex:1;} .s5{background:#f87171;flex:1;}
+  .barlabels{display:flex;justify-content:space-between;font-size:10.5px;color:var(--dim);margin-top:6px;}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px;}
+  .panel{border:1px solid var(--line);border-radius:16px;padding:18px;background:var(--card);}
+  .panel h3{font-size:15px;margin-bottom:12px;}
+  .panel li{list-style:none;font-size:13px;color:var(--soft);padding:7px 0;border-bottom:1px solid var(--line);display:flex;gap:9px;line-height:1.4;}
+  .panel li:last-child{border:0;}
+  .panel .ic{flex:none;}
+  .reality{margin-top:20px;border:1px solid rgba(251,191,36,.35);background:rgba(251,191,36,.07);border-radius:16px;padding:16px 18px;font-size:13px;color:var(--soft);line-height:1.6;}
+  .reality b{color:#fcd34d;}
+  .foot{margin-top:22px;color:var(--dim);font-size:11.5px;text-align:center;}
+  @media(max-width:900px){.phases{grid-template-columns:1fr 1fr 1fr;}.grid2{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<nav style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;padding:9px 14px;margin-bottom:20px;background:rgba(7,14,27,.6);border:1px solid rgba(255,255,255,.1);border-radius:12px;font-family:'Inter',sans-serif;">
+<a href="../index.html" style="font-weight:800;font-size:13px;color:#EAF1FB;text-decoration:none;">Sky<span style="color:#38BDF8;">quire</span></a>
+<span style="color:rgba(234,241,251,.25);font-size:12px;margin-right:4px;">/ Launch Plan</span>
+<a href="launch-whiteboard.html" style="font-size:12px;color:rgba(234,241,251,.62);text-decoration:none;padding:4px 9px;border-radius:7px;">Roadmap</a>
+<a href="launch-timeline.html" style="font-size:12px;color:rgba(234,241,251,.62);text-decoration:none;padding:4px 9px;border-radius:7px;">Timeline</a>
+<a href="launch-schema.html" style="font-size:12px;color:rgba(234,241,251,.62);text-decoration:none;padding:4px 9px;border-radius:7px;">Schema</a>
+<a href="launch-jira.html" style="font-size:12px;color:rgba(234,241,251,.62);text-decoration:none;padding:4px 9px;border-radius:7px;">Jira</a>
+<a href="launch-checklist.html" style="font-size:12px;color:rgba(234,241,251,.62);text-decoration:none;padding:4px 9px;border-radius:7px;">Checklist</a>
+<a href="../index.html" style="margin-left:auto;font-size:12px;color:#38BDF8;text-decoration:none;">All plans →</a>
+</nav>
+  <div class="brand">Sky<span>quire</span></div>
+  <h1>Launch Roadmap — to Dec 19, 2026</h1>
+  <div class="sub">Solo founder + AI · Full platform (SMB marketplace + Corporate M&amp;A) · ~26 weeks</div>
+  <div class="countdown">🚀 Launch day: <b>Sat 19 Dec 2026</b> · ~<b>26 weeks</b> from today (Jun 18)</div>
+
+  <div class="mission">
+    <div class="k">North star</div>
+    <p>Go from a hardened MVP to a fully launched, paid, two-sided M&amp;A platform — corporates closing deals and entrepreneurs buying businesses — live and earning revenue on Dec 19.</p>
+  </div>
+
+  <div class="phases">
+    <div class="phase"><span class="tp">P0 · Jun–Jul</span><div class="mo" style="margin-top:6px;">Foundation</div><h3>Lock &amp; validate</h3><div class="ms">Finish incorporation, lock architecture, harden MVP, 20 interviews, waitlist 100+, brand/domain.</div></div>
+    <div class="phase"><span class="tp">P1 · Aug</span><div class="mo" style="margin-top:6px;">Build I</div><h3>SMB marketplace</h3><div class="ms">Listings, seller onboarding, buyer discovery, AI health score, Aria + pgvector matching, Razorpay listing fees.</div></div>
+    <div class="phase"><span class="tp">P2 · Sep</span><div class="mo" style="margin-top:6px;">Build II</div><h3>Corporate M&amp;A</h3><div class="ms">Deal pipeline (drag-drop), deal rooms, valuation tools, DD checklists, SaaS subscriptions, target screening.</div></div>
+    <div class="phase"><span class="tp">P3 · Oct</span><div class="mo" style="margin-top:6px;">Trust</div><h3>Transactions</h3><div class="ms">Aadhaar eSign, escrow, GST invoicing, verified listings, advisor marketplace, WhatsApp + email.</div></div>
+    <div class="phase"><span class="tp">P4 · Nov</span><div class="mo" style="margin-top:6px;">Scale</div><h3>Mobile + harden</h3><div class="ms">React Native parity, push, security audit, analytics/big-data base, load testing, closed beta.</div></div>
+    <div class="phase launch"><span class="tp">P5 · Dec</span><div class="mo" style="margin-top:6px;">Launch</div><h3>🚀 Go live Dec 19</h3><div class="ms">Waitlist beta, bug bash, marketing assets, PR, launch runbook, public GA + GTM blast.</div></div>
+  </div>
+
+  <div class="barwrap">
+    <div class="bar"><div class="seg s0"></div><div class="seg s1"></div><div class="seg s2"></div><div class="seg s3"></div><div class="seg s4"></div><div class="seg s5"></div></div>
+    <div class="barlabels"><span>Jun 18</span><span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span><span>Nov</span><span>Dec 19 🚀</span></div>
+  </div>
+
+  <div class="grid2">
+    <div class="panel">
+      <h3>🎯 Launch-day success criteria</h3>
+      <li><span class="ic">✅</span> Both verticals live &amp; payable (Razorpay + escrow working)</li>
+      <li><span class="ic">📈</span> 500+ waitlist · 50+ verified business listings seeded</li>
+      <li><span class="ic">🤝</span> 20+ CA partnerships · 10 paying users in first week</li>
+      <li><span class="ic">📱</span> Web + mobile apps live on stores</li>
+      <li><span class="ic">🔒</span> Security review passed · DPDP compliant · eSign legal</li>
+      <li><span class="ic">📰</span> PR live (YourStory/Inc42) · launch content shipped</li>
+      <li><span class="ic">🏷️</span> Seller platform: submission + verification live · approved listings auto-publish</li>
+    </div>
+    <div class="panel">
+      <h3>🧭 Monthly milestones</h3>
+      <li><span class="ic">🟦</span> <b>M0 · end Jul</b> — Co. registered, MVP hardened, demand validated</li>
+      <li><span class="ic">🟩</span> <b>M1 · end Aug</b> — SMB marketplace usable end-to-end</li>
+      <li><span class="ic">🟪</span> <b>M2 · end Sep</b> — Corporate M&amp;A suite usable end-to-end</li>
+      <li><span class="ic">🟨</span> <b>M3 · end Oct</b> — Payments, eSign, escrow integrated</li>
+      <li><span class="ic">🟧</span> <b>M4 · end Nov</b> — Mobile live, security audit, closed beta</li>
+      <li><span class="ic">🟥</span> <b>M5 · Dec 19</b> — 🚀 Public launch</li>
+    </div>
+  </div>
+
+  <div style="margin-top:18px;border:1px solid rgba(251,146,60,.35);background:rgba(251,146,60,.07);border-radius:16px;padding:16px 18px;">
+    <div style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#fdba74;font-weight:600;">Parallel track · separate product</div>
+    <h3 style="font-size:16px;margin:6px 0 6px;">🏷️ Seller Platform</h3>
+    <p style="font-size:13px;color:var(--soft);line-height:1.55;">Standalone seller web + mobile app. Owners submit their business → your team verifies it through review checkpoints → approved listings publish <b>live</b> into the main buyer marketplace via the shared Supabase backend (a data change, no redeploy). Build the <b>submission flow + verification console in P1–P2</b> so real listings flow in; the polished <b>seller mobile app is a fast-follow</b>. Full detail on the Seller Platform page.</p>
+  </div>
+
+  <div class="reality">
+    <b>Solo-founder reality check:</b> shipping <i>both</i> verticals + mobile + payments + eSign + escrow in 26 weeks alone is very aggressive. To de-risk: (1) lean hard on AI for code + content, (2) ship each vertical to an internal milestone before polishing, (3) buy don't build for compliance — engage a <b>CA/company-secretary</b> for incorporation/GST and a <b>vendor</b> for eSign/escrow rather than custom work, (4) consider one <b>contract React Native dev</b> for the Nov mobile push, and (5) keep a 2-week buffer before Dec 19 for bug bash. If timelines slip, the cut line is: launch SMB marketplace fully + Corporate M&amp;A in beta.
+  </div>
+
+  <div class="foot">Skyquire · Launch Roadmap Whiteboard · generated Jun 18, 2026 · pair with Timeline, Schema, Jira &amp; Checklist</div>
+</body>
+</html>

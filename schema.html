@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Skyquire — System &amp; Data Schema (3-Day Sprint)</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Bricolage+Grotesque:wght@600;700;800&display=swap" rel="stylesheet" />
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  :root{--sky:#38BDF8;--violet:#8B5CF6;--green:#34D399;--amber:#FBBF24;--text:#EAF1FB;--soft:rgba(234,241,251,.62);--dim:rgba(234,241,251,.4);--line:rgba(255,255,255,.1);--card:rgba(255,255,255,.03);}
+  body{font-family:'Inter',sans-serif;background:radial-gradient(ellipse 90% 60% at 50% -10%,#10213c,#070E1B);color:var(--text);min-height:100vh;padding:34px;}
+  h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif;letter-spacing:-.02em;}
+  .brand{font-weight:800;font-size:15px;} .brand span{color:var(--sky);}
+  h1{font-size:30px;font-weight:800;margin-top:6px;}
+  .sub{color:var(--soft);font-size:14px;margin-top:4px;margin-bottom:8px;}
+  .legend{display:flex;gap:16px;flex-wrap:wrap;margin:16px 0 26px;font-size:12px;color:var(--soft);}
+  .legend span{display:inline-flex;align-items:center;gap:7px;}
+  .sw{width:13px;height:13px;border-radius:4px;display:inline-block;}
+  .sw.new{background:linear-gradient(135deg,#34d399,#059669);} .sw.touch{background:linear-gradient(135deg,#fbbf24,#d97706);} .sw.base{background:rgba(255,255,255,.12);}
+
+  .tier-label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin:22px 0 10px;font-weight:600;}
+  .row{display:flex;gap:14px;flex-wrap:wrap;}
+  .box{flex:1;min-width:150px;border:1px solid var(--line);border-radius:14px;padding:14px 16px;background:var(--card);position:relative;}
+  .box h3{font-size:14px;display:flex;align-items:center;gap:8px;}
+  .box p{font-size:12px;color:var(--dim);margin-top:5px;line-height:1.45;}
+  .box.new{border-color:rgba(52,211,153,.4);background:linear-gradient(160deg,rgba(52,211,153,.1),var(--card));}
+  .box.touch{border-color:rgba(251,191,36,.38);background:linear-gradient(160deg,rgba(251,191,36,.08),var(--card));}
+  .chip{position:absolute;top:-9px;right:12px;font-size:9.5px;font-weight:700;padding:2px 8px;border-radius:100px;}
+  .chip.new{background:#059669;color:#eafff5;} .chip.touch{background:#d97706;color:#fff7ed;}
+  .flowarrow{text-align:center;color:var(--dim);font-size:18px;margin:6px 0;}
+
+  .domains{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px;}
+  .domain{border:1px solid var(--line);border-radius:16px;padding:16px;background:var(--card);}
+  .domain h3{font-size:14px;margin-bottom:4px;} .domain .dh{font-size:11px;color:var(--dim);margin-bottom:12px;}
+  .tbl{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-bottom:9px;background:rgba(255,255,255,.025);}
+  .tbl .tn{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:space-between;gap:8px;}
+  .tbl .cols{font-size:11px;color:var(--dim);margin-top:4px;font-family:ui-monospace,Menlo,monospace;line-height:1.5;}
+  .pill{font-size:9px;font-weight:700;padding:2px 7px;border-radius:100px;white-space:nowrap;}
+  .pill.rls{background:rgba(56,189,248,.16);color:var(--sky);} .pill.new{background:rgba(52,211,153,.18);color:#6ee7b7;} .pill.touch{background:rgba(251,191,36,.18);color:#fcd34d;}
+  .note{margin-top:22px;border:1px solid var(--line);border-radius:14px;padding:16px 18px;background:var(--card);font-size:13px;color:var(--soft);line-height:1.6;}
+  .note b{color:var(--text);}
+  .foot{margin-top:22px;color:var(--dim);font-size:11.5px;text-align:center;}
+  @media(max-width:840px){.domains{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<nav style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;padding:9px 14px;margin-bottom:20px;background:rgba(7,14,27,.6);border:1px solid rgba(255,255,255,.1);border-radius:12px;font-family:'Inter',sans-serif;">
+<a href="index.html" style="font-weight:800;font-size:13px;color:#EAF1FB;text-decoration:none;">Sky<span style="color:#38BDF8;">quire</span></a>
+<span style="color:rgba(234,241,251,.25);font-size:12px;margin-right:4px;">/ 3-Day Sprint</span>
+<a href="whiteboard.html" style="font-size:12px;color:rgba(234,241,251,.62);text-decoration:none;padding:4px 9px;border-radius:7px;">Whiteboard</a>
+<a href="schema.html" style="font-size:12px;color:rgba(234,241,251,.62);text-decoration:none;padding:4px 9px;border-radius:7px;">Schema</a>
+<a href="jira-board.html" style="font-size:12px;color:rgba(234,241,251,.62);text-decoration:none;padding:4px 9px;border-radius:7px;">Board</a>
+<a href="launch/launch-whiteboard.html" style="font-size:12px;color:rgba(234,241,251,.62);text-decoration:none;padding:4px 9px;border-radius:7px;">Launch plan</a>
+<a href="index.html" style="margin-left:auto;font-size:12px;color:#38BDF8;text-decoration:none;">All plans →</a>
+</nav>
+  <div class="brand">Sky<span>quire</span></div>
+  <h1>System &amp; Data Schema</h1>
+  <div class="sub">Architecture + data model, with the 3-day sprint's changes highlighted</div>
+  <div class="legend">
+    <span><i class="sw base"></i> Existing</span>
+    <span><i class="sw touch"></i> Touched this sprint</span>
+    <span><i class="sw new"></i> New this sprint</span>
+  </div>
+
+  <!-- ARCHITECTURE TIERS -->
+  <div class="tier-label">Clients</div>
+  <div class="row">
+    <div class="box touch"><span class="chip touch">redesign live</span><h3>🌐 Landing</h3><p>Static HTML · waitlist → Supabase + Formspree</p></div>
+    <div class="box"><h3>💻 Web app</h3><p>Next.js 14 · corporate + buyer + admin dashboards</p></div>
+    <div class="box"><h3>📱 Mobile</h3><p>Expo / React Native · buyer + corporate screens</p></div>
+  </div>
+  <div class="flowarrow">▼</div>
+
+  <div class="tier-label">Edge / Auth</div>
+  <div class="row">
+    <div class="box touch"><span class="chip touch">hardened</span><h3>🛡️ Middleware</h3><p>JWT check · login redirect · admin gate · API guards</p></div>
+    <div class="box"><h3>🔑 Supabase Auth</h3><p>Email + Google OAuth · cookie &amp; Bearer sessions</p></div>
+  </div>
+  <div class="flowarrow">▼</div>
+
+  <div class="tier-label">API routes (Next.js)</div>
+  <div class="row">
+    <div class="box touch"><span class="chip touch">+ zod</span><h3>🤖 /api/ai/*</h3><p>analyze · match · onboarding · models</p></div>
+    <div class="box touch"><span class="chip touch">authed</span><h3>✉️ /api/send-email</h3><p>inquiry · stage · doc · participant</p></div>
+    <div class="box touch"><span class="chip touch">authed</span><h3>🔗 /api/invite-participant</h3><p>owner-gated invite links</p></div>
+  </div>
+  <div class="flowarrow">▼</div>
+
+  <div class="tier-label">Data &amp; services</div>
+  <div class="row">
+    <div class="box"><h3>🗄️ Supabase Postgres</h3><p>14 tables · RLS on all · realtime on messages</p></div>
+    <div class="box new"><span class="chip new">sprint</span><h3>🧠 pgvector</h3><p>Embeddings on business_listings → match pre-filter</p></div>
+    <div class="box new"><span class="chip new">sprint</span><h3>⚡ Upstash Redis</h3><p>Distributed rate limiting</p></div>
+    <div class="box"><h3>🔌 External</h3><p>Anthropic · Resend · Formspree · (Razorpay→)</p></div>
+  </div>
+
+  <!-- DATA MODEL -->
+  <div class="tier-label" style="margin-top:30px;">Data model — by domain</div>
+  <div class="domains">
+    <div class="domain">
+      <h3>🏢 Deals domain</h3>
+      <div class="dh">Corporate M&amp;A side</div>
+      <div class="tbl"><div class="tn">deals <span class="pill touch">DnD: stage</span></div><div class="cols">id · user_id · company · sector · size · <b>stage</b> · priority · owner</div></div>
+      <div class="tbl"><div class="tn">deal_room_documents <span class="pill rls">RLS fixed</span></div><div class="cols">id · deal_id · name · file_path · uploaded_by</div></div>
+      <div class="tbl"><div class="tn">deal_room_notes <span class="pill rls">RLS fixed</span></div><div class="cols">id · deal_id · content · author_name</div></div>
+      <div class="tbl"><div class="tn">deal_room_activity <span class="pill rls">RLS fixed</span></div><div class="cols">id · deal_id · action · actor · metadata</div></div>
+      <div class="tbl"><div class="tn">deal_room_participants <span class="pill rls">RLS fixed</span></div><div class="cols">id · deal_id · email · role · access_level</div></div>
+    </div>
+    <div class="domain">
+      <h3>🛒 Buyer domain</h3>
+      <div class="dh">SMB acquisition side</div>
+      <div class="tbl"><div class="tn">business_listings <span class="pill new">+ embedding</span></div><div class="cols">id · name · sector · asking_price · revenue · ebitda · highlights</div></div>
+      <div class="tbl"><div class="tn">buyer_profiles</div><div class="cols">user_id · risk_appetite · sectors · buying_mode</div></div>
+      <div class="tbl"><div class="tn">buyer_matches <span class="pill touch">pgvector</span></div><div class="cols">user_id · listing_id · score · fit_summary · reasons</div></div>
+      <div class="tbl"><div class="tn">inquiries</div><div class="cols">id · user_id · listing_id · status</div></div>
+      <div class="tbl"><div class="tn">saved_listings</div><div class="cols">id · user_id · listing_id</div></div>
+    </div>
+    <div class="domain">
+      <h3>⚙️ System &amp; comms</h3>
+      <div class="dh">Cross-cutting</div>
+      <div class="tbl"><div class="tn">admin_users</div><div class="cols">user_id · created_at</div></div>
+      <div class="tbl"><div class="tn">messages <span class="pill rls">realtime</span></div><div class="cols">id · inquiry_id · sender_id · sender_role · body</div></div>
+      <div class="tbl"><div class="tn">waitlist <span class="pill touch">landing</span></div><div class="cols">id · email · source · created_at</div></div>
+      <div class="tbl"><div class="tn">can_access_deal() <span class="pill new">fn</span></div><div class="cols">security-definer · owner | admin | participant</div></div>
+      <div class="tbl"><div class="tn">is_admin() <span class="pill new">fn</span></div><div class="cols">security-definer helper</div></div>
+    </div>
+  </div>
+
+  <div class="note">
+    <b>Sprint data work:</b> add the <code>vector</code> extension and an <code>embedding vector(1024)</code> column on <b>business_listings</b>, backfill embeddings, then pre-filter candidates by cosine similarity before the AI match scores them (keeps the prompt small as listings grow). The <b>deals.stage</b> column is the write target for the new drag-and-drop pipeline — debounce updates on drop and fire the stage-change email via <code>/api/send-email</code>. All deal-room RLS is already scoped to owner / admin / participant via <code>can_access_deal()</code>.
+  </div>
+
+  <div class="foot">Skyquire · System &amp; Data Schema · generated Jun 18, 2026 · pair with the Whiteboard and Jira board</div>
+</body>
+</html>

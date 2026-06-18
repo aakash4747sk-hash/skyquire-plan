@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Skyquire — 3-Day Whiteboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Bricolage+Grotesque:wght@600;700;800&display=swap" rel="stylesheet" />
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  :root{--bg:#0A1424;--sky:#38BDF8;--violet:#8B5CF6;--green:#34D399;--amber:#FBBF24;--text:#EAF1FB;--soft:rgba(234,241,251,.62);--dim:rgba(234,241,251,.4);--line:rgba(255,255,255,.1);}
+  body{font-family:'Inter',sans-serif;background:radial-gradient(ellipse 90% 60% at 50% -10%,#10213c,#070E1B);color:var(--text);min-height:100vh;padding:34px;}
+  h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif;letter-spacing:-.02em;}
+  .head{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:8px;}
+  .brand{font-weight:800;font-size:15px;letter-spacing:-.4px;} .brand span{color:var(--sky);}
+  .head h1{font-size:34px;font-weight:800;margin-top:6px;}
+  .head .sub{color:var(--soft);font-size:14px;margin-top:4px;}
+  .dates{display:flex;gap:8px;}
+  .date-chip{border:1px solid var(--line);border-radius:10px;padding:8px 14px;font-size:12.5px;color:var(--soft);background:rgba(255,255,255,.03);}
+  .date-chip b{color:var(--text);font-family:'Bricolage Grotesque',sans-serif;}
+  .mission{margin:22px 0;border:1px solid rgba(56,189,248,.25);background:linear-gradient(120deg,rgba(56,189,248,.1),rgba(139,92,246,.08));border-radius:18px;padding:22px 26px;}
+  .mission .k{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--sky);font-weight:600;}
+  .mission p{font-size:19px;font-weight:600;margin-top:8px;max-width:900px;line-height:1.4;font-family:'Bricolage Grotesque',sans-serif;}
+  .lanes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:8px;}
+  .lane{border:1px solid var(--line);border-radius:18px;padding:18px;background:rgba(255,255,255,.025);}
+  .lane.ship{border-top:3px solid var(--sky);} .lane.build{border-top:3px solid var(--violet);} .lane.gtm{border-top:3px solid var(--green);}
+  .lane h2{font-size:17px;display:flex;align-items:center;gap:9px;}
+  .lane .badge{font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:100px;}
+  .ship .badge{background:rgba(56,189,248,.16);color:var(--sky);} .build .badge{background:rgba(139,92,246,.18);color:#c4b5fd;} .gtm .badge{background:rgba(52,211,153,.16);color:var(--green);}
+  .lane .lane-sub{color:var(--dim);font-size:12px;margin:4px 0 14px;}
+  .note{border-radius:12px;padding:12px 13px;margin-bottom:9px;font-size:13px;line-height:1.45;position:relative;border:1px solid var(--line);background:rgba(255,255,255,.04);}
+  .note b{font-weight:600;}
+  .note .tag{display:inline-block;font-size:10px;font-weight:700;padding:2px 7px;border-radius:6px;margin-top:7px;}
+  .d1{background:rgba(56,189,248,.16);color:var(--sky);} .d2{background:rgba(139,92,246,.18);color:#c4b5fd;} .d3{background:rgba(52,211,153,.16);color:var(--green);}
+  .sticky{transform:rotate(-.5deg);} .sticky:nth-child(even){transform:rotate(.6deg);}
+  .grid2{display:grid;grid-template-columns:1.3fr 1fr;gap:18px;margin-top:18px;}
+  .panel{border:1px solid var(--line);border-radius:18px;padding:20px;background:rgba(255,255,255,.025);}
+  .panel h3{font-size:15px;margin-bottom:14px;}
+  .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+  .metric{border:1px solid var(--line);border-radius:12px;padding:14px;background:rgba(255,255,255,.03);text-align:center;}
+  .metric .v{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:26px;background:linear-gradient(120deg,#7dd3fc,#38bdf8);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+  .metric .l{font-size:11.5px;color:var(--dim);margin-top:5px;}
+  .risks li{list-style:none;font-size:13px;color:var(--soft);padding:8px 0;border-bottom:1px solid var(--line);display:flex;gap:9px;}
+  .risks li:last-child{border:0;} .risks .dot{flex:none;width:7px;height:7px;border-radius:50%;margin-top:6px;background:var(--amber);}
+  .foot{margin-top:22px;color:var(--dim);font-size:11.5px;text-align:center;}
+  @media(max-width:840px){.lanes,.grid2,.metrics{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<nav style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;padding:9px 14px;margin-bottom:20px;background:rgba(7,14,27,.6);border:1px solid rgba(255,255,255,.1);border-radius:12px;font-family:'Inter',sans-serif;">
+<a href="index.html" style="font-weight:800;font-size:13px;color:#EAF1FB;text-decoration:none;">Sky<span style="color:#38BDF8;">quire</span></a>
+<span style="color:rgba(234,241,251,.25);font-size:12px;margin-right:4px;">/ 3-Day Sprint</span>
+<a href="whiteboard.html" style="font-size:12px;color:rgba(234,241,251,.62);text-decoration:none;padding:4px 9px;border-radius:7px;">Whiteboard</a>
+<a href="schema.html" style="font-size:12px;color:rgba(234,241,251,.62);text-decoration:none;padding:4px 9px;border-radius:7px;">Schema</a>
+<a href="jira-board.html" style="font-size:12px;color:rgba(234,241,251,.62);text-decoration:none;padding:4px 9px;border-radius:7px;">Board</a>
+<a href="launch/launch-whiteboard.html" style="font-size:12px;color:rgba(234,241,251,.62);text-decoration:none;padding:4px 9px;border-radius:7px;">Launch plan</a>
+<a href="index.html" style="margin-left:auto;font-size:12px;color:#38BDF8;text-decoration:none;">All plans →</a>
+</nav>
+  <div class="head">
+    <div>
+      <div class="brand">Sky<span>quire</span></div>
+      <h1>3-Day Execution Whiteboard</h1>
+      <div class="sub">Balanced sprint · Ship in-flight work, build one headline feature, kick off GTM</div>
+    </div>
+    <div class="dates">
+      <div class="date-chip">Day 1 · <b>Thu Jun 18</b></div>
+      <div class="date-chip">Day 2 · <b>Fri Jun 19</b></div>
+      <div class="date-chip">Day 3 · <b>Sat Jun 20</b></div>
+    </div>
+  </div>
+
+  <div class="mission">
+    <div class="k">North star for these 3 days</div>
+    <p>Get the platform fully live and secure, ship the drag-and-drop pipeline so the product feels real, and light the first GTM fire — waitlist, CAs, and a pitch story.</p>
+  </div>
+
+  <div class="lanes">
+    <div class="lane ship">
+      <h2>🚀 Ship &amp; Harden <span class="badge">Day 1</span></h2>
+      <div class="lane-sub">Everything live, nothing leaking</div>
+      <div class="note sticky">Push &amp; verify the <b>landing redesign</b> deploy · confirm intro, chart, aurora render live <span class="tag d1">Day 1</span></div>
+      <div class="note sticky">Set <b>INQUIRY_NOTIFY_EMAIL</b> env var in Vercel <span class="tag d1">Day 1</span></div>
+      <div class="note sticky">Commit the <b>RLS migration</b> doc; confirm deal-room lockdown live <span class="tag d1">Day 1</span></div>
+      <div class="note sticky">Connect Chrome → run <b>prod smoke tests</b>: 401s, forgot-password, buyer routing, inquiry email <span class="tag d1">Day 1</span></div>
+      <div class="note sticky"><b>Accessibility pass</b>: aria labels on icons, real buttons for clickable cards <span class="tag d1">Day 1</span></div>
+    </div>
+
+    <div class="lane build">
+      <h2>🛠️ Build <span class="badge">Day 2</span></h2>
+      <div class="lane-sub">Make the product feel real</div>
+      <div class="note sticky"><b>Drag-and-drop pipeline</b>: move deals across stages → update DB → fire stage-change email <span class="tag d2">Day 2</span></div>
+      <div class="note sticky"><b>Custom SVG icon set</b> — replace emoji icons across landing + app <span class="tag d2">Day 2</span></div>
+      <div class="note sticky"><b>Input validation (zod)</b> on all API routes — close the prompt-injection surface <span class="tag d2">Day 2</span></div>
+      <div class="note sticky"><b>Upstash Redis</b> rate limiting — replace in-memory limiter <span class="tag d2">Day 2</span></div>
+      <div class="note sticky"><b>pgvector matching</b> spike — embeddings pre-filter for AI match <span class="tag d3">Day 3</span></div>
+    </div>
+
+    <div class="lane gtm">
+      <h2>📣 GTM &amp; Fundraise <span class="badge">Day 3</span></h2>
+      <div class="lane-sub">First traction + the story</div>
+      <div class="note sticky"><b>Waitlist push</b>: LinkedIn launch post + WhatsApp community seed <span class="tag d3">Day 3</span></div>
+      <div class="note sticky"><b>CA outreach list</b> — 20 chartered accountants, first distribution channel <span class="tag d3">Day 3</span></div>
+      <div class="note sticky">Book <b>5 user interviews</b> (3 corp dev/CFO + 2 SMB buyers) <span class="tag d3">Day 3</span></div>
+      <div class="note sticky"><b>Pitch deck v0</b> outline: problem, market, product, traction, ask <span class="tag d3">Day 3</span></div>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="panel">
+      <h3>🎯 Definition of done — by Sat night</h3>
+      <div class="metrics">
+        <div class="metric"><div class="v">Live</div><div class="l">Redesigned landing deployed &amp; verified</div></div>
+        <div class="metric"><div class="v">0</div><div class="l">Open security holes in prod</div></div>
+        <div class="metric"><div class="v">DnD</div><div class="l">Pipeline drag-and-drop shipped</div></div>
+        <div class="metric"><div class="v">50+</div><div class="l">New waitlist signups</div></div>
+        <div class="metric"><div class="v">5</div><div class="l">User interviews booked</div></div>
+        <div class="metric"><div class="v">v0</div><div class="l">Pitch deck outline drafted</div></div>
+      </div>
+    </div>
+    <div class="panel">
+      <h3>⚠️ Watch-outs</h3>
+      <ul class="risks">
+        <li><span class="dot"></span>Git pushes must come from your terminal (sandbox can't use SSH) — don't let deploys stall.</li>
+        <li><span class="dot"></span>Test the RLS change end-to-end with a real participant login before trusting it.</li>
+        <li><span class="dot"></span>Drag-and-drop + realtime can conflict — debounce DB writes on drop.</li>
+        <li><span class="dot"></span>Keep the 13s intro optional; long gate can hurt waitlist conversion.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="foot">Skyquire · 3-Day Whiteboard · generated Jun 18, 2026 · pair with the Schema and Jira board</div>
+</body>
+</html>

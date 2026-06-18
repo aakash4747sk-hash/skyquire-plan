@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Skyquire — Seller Platform (separate product)</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Bricolage+Grotesque:wght@600;700;800&display=swap" rel="stylesheet" />
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  :root{--sky:#38BDF8;--violet:#8B5CF6;--green:#34D399;--amber:#FBBF24;--red:#F87171;--orange:#FB923C;--text:#EAF1FB;--soft:rgba(234,241,251,.62);--dim:rgba(234,241,251,.4);--line:rgba(255,255,255,.1);--card:rgba(255,255,255,.03);}
+  body{font-family:'Inter',sans-serif;background:radial-gradient(ellipse 90% 55% at 50% -10%,#1a1410,#0b0906);color:var(--text);min-height:100vh;padding:30px;}
+  h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif;letter-spacing:-.02em;}
+  .brand{font-weight:800;font-size:14px;} .brand span{color:var(--orange);}
+  h1{font-size:30px;font-weight:800;margin-top:6px;}
+  .sub{color:var(--soft);font-size:14px;margin:4px 0 8px;max-width:760px;line-height:1.5;}
+  .pill{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(251,146,60,.3);background:rgba(251,146,60,.08);border-radius:100px;padding:6px 13px;font-size:12px;color:#fdba74;margin-top:10px;}
+  .sec-label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);font-weight:600;margin:30px 0 14px;display:flex;align-items:center;gap:12px;}
+  .sec-label::after{content:'';flex:1;height:1px;background:var(--line);}
+
+  /* pipeline */
+  .pipe{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;}
+  .step{border:1px solid var(--line);border-radius:12px;padding:12px;background:var(--card);position:relative;}
+  .step .n{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:12px;width:26px;height:26px;border-radius:8px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#fb923c,#ea580c);color:#1a0e03;}
+  .step h3{font-size:12.5px;margin:9px 0 4px;line-height:1.2;}
+  .step p{font-size:10.5px;color:var(--dim);line-height:1.4;}
+  .step.publish{border-color:rgba(52,211,153,.4);background:linear-gradient(160deg,rgba(52,211,153,.1),var(--card));}
+  .step.publish .n{background:linear-gradient(135deg,#34d399,#059669);color:#04210f;}
+
+  /* arch flow */
+  .flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:center;gap:10px;}
+  .node{border:1px solid var(--line);border-radius:14px;padding:16px;background:var(--card);text-align:center;}
+  .node.seller{border-color:rgba(251,146,60,.35);background:linear-gradient(160deg,rgba(251,146,60,.1),var(--card));}
+  .node.shared{border-color:rgba(56,189,248,.35);background:linear-gradient(160deg,rgba(56,189,248,.1),var(--card));}
+  .node.main{border-color:rgba(139,92,246,.35);background:linear-gradient(160deg,rgba(139,92,246,.1),var(--card));}
+  .node h3{font-size:14px;} .node p{font-size:11px;color:var(--dim);margin-top:6px;line-height:1.45;}
+  .arrow{font-size:22px;color:var(--dim);text-align:center;}
+  .arrow small{display:block;font-size:9px;color:var(--soft);}
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .panel{border:1px solid var(--line);border-radius:16px;padding:18px;background:var(--card);}
+  .panel h3{font-size:15px;margin-bottom:10px;}
+  .panel li{list-style:none;font-size:13px;color:var(--soft);padding:7px 0;border-bottom:1px solid var(--line);display:flex;gap:9px;line-height:1.4;}
+  .panel li:last-child{border-bottom:0;}
+  .tbl{border:1px solid var(--line);border-radius:9px;padding:9px 12px;margin-bottom:8px;background:rgba(255,255,255,.025);}
+  .tbl .tn{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:12.5px;}
+  .tbl .cols{font-size:10.5px;color:var(--dim);margin-top:3px;font-family:ui-monospace,Menlo,monospace;line-height:1.5;}
+  .tag{font-size:9px;font-weight:700;padding:1px 6px;border-radius:5px;margin-left:6px;}
+  .t-new{background:rgba(251,146,60,.2);color:#fdba74;} .t-shared{background:rgba(56,189,248,.18);color:#7dd3fc;}
+  .callout{margin-top:14px;border:1px solid rgba(56,189,248,.3);background:rgba(56,189,248,.07);border-radius:14px;padding:16px 18px;font-size:13px;color:var(--soft);line-height:1.6;}
+  .callout b{color:#7dd3fc;}
+  .warn{margin-top:14px;border:1px solid rgba(251,191,36,.3);background:rgba(251,191,36,.07);border-radius:14px;padding:16px 18px;font-size:13px;color:var(--soft);line-height:1.6;}
+  .warn b{color:#fcd34d;}
+  .foot{margin-top:22px;color:var(--dim);font-size:11.5px;text-align:center;}
+  @media(max-width:900px){.pipe{grid-template-columns:1fr 1fr;}.flow{grid-template-columns:1fr;}.arrow{transform:rotate(90deg);}.grid2{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<nav style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;padding:9px 14px;margin-bottom:20px;background:rgba(11,9,6,.7);border:1px solid rgba(255,255,255,.1);border-radius:12px;font-family:'Inter',sans-serif;">
+<a href="index.html" style="font-weight:800;font-size:13px;color:#EAF1FB;text-decoration:none;">Sky<span style="color:#FB923C;">quire</span></a>
+<span style="color:rgba(234,241,251,.25);font-size:12px;margin-right:4px;">/ Seller Platform</span>
+<a href="index.html" style="font-size:12px;color:rgba(234,241,251,.62);text-decoration:none;padding:4px 9px;border-radius:7px;">Hub</a>
+<a href="launch/launch-whiteboard.html" style="font-size:12px;color:rgba(234,241,251,.62);text-decoration:none;padding:4px 9px;border-radius:7px;">Launch plan</a>
+<a href="index.html" style="margin-left:auto;font-size:12px;color:#FB923C;text-decoration:none;">All plans →</a>
+</nav>
+
+  <div class="brand">Sky<span>quire</span> Sellers</div>
+  <h1>Seller Platform — separate product</h1>
+  <div class="sub">A standalone web + mobile app where business owners submit their company for sale. Your team verifies legitimacy through review checkpoints, and only <b>approved</b> listings get published into the main buyer marketplace.</div>
+  <div class="pill">🏷️ Independent apps · feeds verified listings into the main platform</div>
+
+  <!-- VERIFICATION PIPELINE -->
+  <div class="sec-label">🔍 Verification pipeline — submit → verify → publish</div>
+  <div class="pipe">
+    <div class="step"><div class="n">1</div><h3>Seller signs up</h3><p>Seller-only account on the seller app (own auth).</p></div>
+    <div class="step"><div class="n">2</div><h3>Submit business</h3><p>Details, asking price, sector, story.</p></div>
+    <div class="step"><div class="n">3</div><h3>Upload docs</h3><p>P&amp;L, balance sheet, bank statements, GST returns, ITR, incorporation.</p></div>
+    <div class="step"><div class="n">4</div><h3>Auto checks</h3><p>GSTIN + MCA21 + PAN validation; statement sanity (AI-assisted).</p></div>
+    <div class="step"><div class="n">5</div><h3>Team review</h3><p>Analyst works the checkpoints, flags anomalies, confirms it's legit.</p></div>
+    <div class="step"><div class="n">6</div><h3>Decision</h3><p>Approve · request more info · reject — with a verified-badge tier.</p></div>
+    <div class="step publish"><div class="n">7</div><h3>Publish → main app</h3><p>Approved listing goes live in the buyer marketplace.</p></div>
+  </div>
+
+  <!-- ARCHITECTURE / DATA FLOW -->
+  <div class="sec-label">🧩 How it connects — shared backend = dynamic, live in production</div>
+  <div class="flow">
+    <div class="node seller"><h3>🏷️ Seller apps</h3><p>Separate web (Next.js) + mobile (Expo). Own UI &amp; seller auth.</p></div>
+    <div class="arrow">→<small>submit + docs</small></div>
+    <div class="node shared"><h3>🗄️ Shared Supabase</h3><p><b>business_submissions</b> (pending) → Verification Console → on approve, upsert into <b>business_listings</b> (status: Active).</p></div>
+    <div class="arrow">→<small>live read</small></div>
+    <div class="node main"><h3>💻 Main buyer app</h3><p>Reads <b>business_listings</b> in real time. Approved listing appears instantly — no redeploy.</p></div>
+  </div>
+
+  <div class="callout">
+    <b>"Will it be dynamic / live in production?"</b> &nbsp;Yes. Because the seller app and the main app share the same Supabase database, publishing is a <b>data</b> change, not a code change. The moment your team flips a submission to <code>approved</code>, the row lands in <code>business_listings</code> with <code>status = 'Active'</code> — and the production buyer app, which queries that table live (even via Supabase realtime), shows it to buyers instantly. No rebuild, no deploy, no waiting. The two apps stay separate <i>products</i>; they just meet at one shared listings table.
+  </div>
+
+  <!-- DATA MODEL + SCREENS -->
+  <div class="sec-label">📐 What gets built</div>
+  <div class="grid2">
+    <div class="panel">
+      <h3>🗃️ New data (shared backend)</h3>
+      <div class="tbl"><div class="tn">seller_accounts <span class="tag t-new">new</span></div><div class="cols">id · name · phone · kyc_status</div></div>
+      <div class="tbl"><div class="tn">business_submissions <span class="tag t-new">new</span></div><div class="cols">id · seller_id · status(submitted/in_review/needs_info/approved/rejected) · fields · asking_price</div></div>
+      <div class="tbl"><div class="tn">submission_documents <span class="tag t-new">new</span></div><div class="cols">submission_id · type · file_path · verified</div></div>
+      <div class="tbl"><div class="tn">verification_checkpoints <span class="tag t-new">new</span></div><div class="cols">submission_id · checkpoint · status · reviewer · notes</div></div>
+      <div class="tbl"><div class="tn">business_listings <span class="tag t-shared">shared · existing</span></div><div class="cols">on approve → upsert here · status='Active' · verified_badge</div></div>
+    </div>
+    <div class="panel">
+      <h3>📱 Screens to build</h3>
+      <li><span>🏷️</span> <b>Seller web + mobile:</b> sign up, submission wizard, document upload, status tracker, "verified" badge, inquiry notifications</li>
+      <li><span>🛡️</span> <b>Verification Console (internal):</b> submission queue, checkpoint workflow, doc viewer, AI anomaly flags, approve/reject + publish</li>
+      <li><span>🔔</span> Seller notifications: in review → needs info → approved/published → buyer interest</li>
+      <li><span>🔗</span> Shared: same Supabase, same storage bucket, RLS so a seller sees only their own submissions</li>
+    </div>
+  </div>
+
+  <div class="warn">
+    <b>Scope &amp; sequencing note (solo + AI):</b> this is essentially a second product — separate web + mobile apps + an internal verification console. For the Dec 19 launch, the lean path is: ship the <b>seller submission flow + the verification console</b> first (so you can onboard and verify real listings), publish approved ones into the main app, and treat the polished standalone <b>seller mobile app</b> as a fast-follow. That keeps launch listings flowing without doubling the build before launch. If both seller web + mobile must launch on Dec 19 too, plan for a contractor — it roughly doubles engineering load.
+  </div>
+
+  <div class="foot">Skyquire · Seller Platform plan · generated Jun 18, 2026 · separate product · shared listings backend</div>
+</body>
+</html>

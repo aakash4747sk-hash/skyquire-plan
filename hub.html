@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Skyquire — Planning Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Bricolage+Grotesque:wght@600;700;800&display=swap" rel="stylesheet" />
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  :root{--sky:#38BDF8;--violet:#8B5CF6;--green:#34D399;--amber:#FBBF24;--red:#F87171;--text:#EAF1FB;--soft:rgba(234,241,251,.62);--dim:rgba(234,241,251,.4);--line:rgba(255,255,255,.1);--card:rgba(255,255,255,.03);}
+  body{font-family:'Inter',sans-serif;background:radial-gradient(ellipse 90% 55% at 50% -10%,#10213c,#070E1B);color:var(--text);min-height:100vh;padding:42px 28px;}
+  h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif;letter-spacing:-.02em;}
+  .wrap{max-width:1080px;margin:0 auto;}
+  .brand{font-weight:800;font-size:15px;} .brand span{color:var(--sky);}
+  h1{font-size:38px;font-weight:800;margin-top:8px;}
+  .sub{color:var(--soft);font-size:15px;margin-top:8px;max-width:620px;line-height:1.5;}
+  .countdown{display:inline-flex;align-items:center;gap:10px;margin-top:18px;border:1px solid rgba(248,113,113,.3);background:rgba(248,113,113,.08);border-radius:12px;padding:10px 16px;font-size:13px;}
+  .countdown b{font-family:'Bricolage Grotesque',sans-serif;color:#fca5a5;font-size:16px;}
+  .sec-label{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);font-weight:600;margin:38px 0 16px;display:flex;align-items:center;gap:12px;}
+  .sec-label::after{content:'';flex:1;height:1px;background:var(--line);}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  .card{display:block;text-decoration:none;color:inherit;border:1px solid var(--line);border-radius:18px;padding:22px;background:var(--card);position:relative;overflow:hidden;transition:transform .25s,border-color .25s,box-shadow .25s;}
+  .card::after{content:'';position:absolute;inset:0;border-radius:inherit;background:radial-gradient(400px circle at var(--mx,50%) var(--my,0%),rgba(56,189,248,.1),transparent 60%);opacity:0;transition:opacity .3s;pointer-events:none;}
+  .card:hover{transform:translateY(-5px);border-color:var(--hairline-2,rgba(255,255,255,.2));box-shadow:0 24px 50px -24px rgba(0,0,0,.7);}
+  .card:hover::after{opacity:1;}
+  .ic{width:50px;height:50px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:24px;border:1px solid var(--line);background:linear-gradient(135deg,rgba(56,189,248,.16),rgba(139,92,246,.12));}
+  .card h3{font-size:18px;margin-top:18px;}
+  .card p{color:var(--soft);font-size:13.5px;margin-top:8px;line-height:1.5;}
+  .card .go{margin-top:16px;font-size:13px;font-weight:600;color:var(--sky);}
+  .badge{position:absolute;top:18px;right:18px;font-size:10px;font-weight:700;padding:3px 9px;border-radius:100px;}
+  .b-launch{background:rgba(248,113,113,.16);color:#fca5a5;} .b-sprint{background:rgba(56,189,248,.16);color:#7dd3fc;}
+  .foot{margin-top:42px;color:var(--dim);font-size:12px;text-align:center;}
+  @media(max-width:840px){.cards{grid-template-columns:1fr;} h1{font-size:30px;}}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="brand">Sky<span>quire</span></div>
+    <h1>Planning Hub</h1>
+    <p class="sub">Every plan for getting Skyquire from a hardened MVP to a full public launch — roadmaps, timelines, schema, sprint boards and the launch checklist, all in one place.</p>
+    <div class="countdown">🚀 Launch target: <b>Sat 19 Dec 2026</b> · solo founder + AI · full platform</div>
+
+    <div class="sec-label">🚀 Launch plan — to Dec 19, 2026</div>
+    <div class="cards">
+      <a class="card" href="launch/launch-whiteboard.html"><span class="badge b-launch">Roadmap</span><div class="ic">🧭</div><h3>Roadmap Whiteboard</h3><p>The 6-phase plan, monthly milestones, launch-day success criteria and the solo-founder reality check.</p><div class="go">Open →</div></a>
+      <a class="card" href="launch/launch-timeline.html"><span class="badge b-launch">Gantt</span><div class="ic">📅</div><h3>Timeline / Gantt</h3><p>Month-by-month bars across Legal, Product, AI, GTM and Fundraise — Jun through Dec 19.</p><div class="go">Open →</div></a>
+      <a class="card" href="launch/launch-schema.html"><span class="badge b-launch">Architecture</span><div class="ic">🗺️</div><h3>Target Schema</h3><p>Full-platform architecture and data model, tagged by the build phase that ships each piece.</p><div class="go">Open →</div></a>
+      <a class="card" href="launch/launch-jira.html"><span class="badge b-launch">Epics</span><div class="ic">📋</div><h3>Jira Roadmap</h3><p>18 epics and their stories across the 6 phases, with status from now to launch.</p><div class="go">Open →</div></a>
+      <a class="card" href="launch/launch-checklist.html"><span class="badge b-launch">Checklist</span><div class="ic">✅</div><h3>Launch Checklist</h3><p>Registration to go-live — interactive, with a progress bar that remembers your checkmarks.</p><div class="go">Open →</div></a>
+    </div>
+
+    <div class="sec-label">⚡ This week — 3-day sprint</div>
+    <div class="cards">
+      <a class="card" href="whiteboard.html"><span class="badge b-sprint">Board</span><div class="ic">🧠</div><h3>Sprint Whiteboard</h3><p>The balanced 3-day plan — Ship, Build and GTM swim lanes with goals and metrics.</p><div class="go">Open →</div></a>
+      <a class="card" href="schema.html"><span class="badge b-sprint">Schema</span><div class="ic">🔧</div><h3>Sprint Schema</h3><p>The system and data the 3-day work touches, with new and changed pieces highlighted.</p><div class="go">Open →</div></a>
+      <a class="card" href="jira-board.html"><span class="badge b-sprint">Kanban</span><div class="ic">🗂️</div><h3>Sprint Board</h3><p>An interactive kanban — drag tickets across Backlog → To&nbsp;Do → In&nbsp;Progress → Done.</p><div class="go">Open →</div></a>
+    </div>
+
+    <div class="sec-label">🏷️ Seller platform — separate product</div>
+    <div class="cards">
+      <a class="card" href="seller-platform.html" style="grid-column:span 2;"><span class="badge" style="background:rgba(251,146,60,.18);color:#fdba74;">New product</span><div class="ic" style="background:linear-gradient(135deg,rgba(251,146,60,.2),rgba(234,88,12,.14));">🏷️</div><h3>Seller Platform</h3><p>A standalone seller web + mobile app: owners submit their business, your team verifies it through review checkpoints, and approved listings publish live into the main buyer marketplace via a shared backend.</p><div class="go" style="color:#fdba74;">Open →</div></a>
+    </div>
+
+    <div class="foot">Skyquire · Planning Hub · generated Jun 18, 2026</div>
+  </div>
+
+<script>
+  document.querySelectorAll('.card').forEach(c=>{
+    c.addEventListener('mousemove',e=>{const r=c.getBoundingClientRect();c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px');});
+  });
+</script>
+</body>
+</html>

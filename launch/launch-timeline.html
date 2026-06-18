@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Skyquire — Launch Timeline (Gantt)</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Bricolage+Grotesque:wght@600;700;800&display=swap" rel="stylesheet" />
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  :root{--sky:#38BDF8;--violet:#8B5CF6;--green:#34D399;--amber:#FBBF24;--red:#F87171;--slate:#64748b;--text:#EAF1FB;--soft:rgba(234,241,251,.62);--dim:rgba(234,241,251,.4);--line:rgba(255,255,255,.1);}
+  body{font-family:'Inter',sans-serif;background:radial-gradient(ellipse 90% 55% at 50% -10%,#10213c,#070E1B);color:var(--text);min-height:100vh;padding:30px;}
+  h1{font-family:'Bricolage Grotesque',sans-serif;font-size:28px;font-weight:800;letter-spacing:-.02em;margin-top:6px;}
+  .brand{font-weight:800;font-size:14px;} .brand span{color:var(--sky);}
+  .sub{color:var(--soft);font-size:13px;margin:4px 0 22px;}
+  .legend{display:flex;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--soft);margin-bottom:18px;}
+  .legend span{display:inline-flex;align-items:center;gap:6px;}
+  .sw{width:12px;height:12px;border-radius:3px;}
+  .chart{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:rgba(255,255,255,.02);}
+  .months{display:grid;grid-template-columns:170px repeat(7,1fr);border-bottom:1px solid var(--line);}
+  .months div{padding:11px 8px;font-size:12px;font-weight:600;color:var(--soft);text-align:center;border-left:1px solid var(--line);}
+  .months div:first-child{border-left:0;text-align:left;color:var(--dim);font-size:11px;letter-spacing:.08em;text-transform:uppercase;}
+  .months .launchcol{color:#fca5a5;}
+  .lane{display:grid;grid-template-columns:170px 1fr;border-bottom:1px solid var(--line);}
+  .lane:last-child{border-bottom:0;}
+  .lane-label{padding:12px 10px;font-size:12.5px;font-weight:600;display:flex;align-items:center;gap:8px;}
+  .lane-label .d{width:9px;height:9px;border-radius:50%;flex:none;}
+  .track{position:relative;display:grid;grid-template-columns:repeat(7,1fr);grid-auto-rows:26px;gap:5px;padding:9px 0;
+    background-image:repeating-linear-gradient(90deg, transparent, transparent calc(100%/7 - 1px), var(--line) calc(100%/7 - 1px), var(--line) calc(100%/7));}
+  .bar{border-radius:7px;font-size:10.5px;font-weight:600;color:#04121f;display:flex;align-items:center;padding:0 9px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;box-shadow:inset 0 1px 0 rgba(255,255,255,.25);}
+  .b-legal{background:linear-gradient(135deg,#94a3b8,#64748b);color:#0b1220;}
+  .b-prod{background:linear-gradient(135deg,#5cc8fb,#0ea5e9);}
+  .b-ai{background:linear-gradient(135deg,#a78bfa,#7c3aed);color:#fff;}
+  .b-gtm{background:linear-gradient(135deg,#4ade80,#16a34a);color:#04210f;}
+  .b-ops{background:linear-gradient(135deg,#fbbf24,#d97706);}
+  .b-seller{background:linear-gradient(135deg,#fdba74,#ea580c);color:#1a0e03;}
+  .b-soft{opacity:.55;}
+  .milestones{display:grid;grid-template-columns:170px 1fr;border-bottom:1px solid var(--line);background:rgba(56,189,248,.03);}
+  .ms-track{position:relative;display:grid;grid-template-columns:repeat(7,1fr);align-items:center;height:46px;}
+  .ms{grid-row:1;justify-self:end;transform:translateX(50%);text-align:center;}
+  .ms .dia{width:14px;height:14px;background:var(--sky);transform:rotate(45deg);margin:0 auto 4px;border:1px solid #fff3;}
+  .ms.launch .dia{background:var(--red);width:18px;height:18px;}
+  .ms .lab{font-size:9.5px;color:var(--soft);font-weight:600;white-space:nowrap;}
+  .ms.launch .lab{color:#fca5a5;}
+  .foot{margin-top:20px;color:var(--dim);font-size:11.5px;text-align:center;}
+  @media(max-width:760px){body{padding:14px;} .lane-label,.months div:first-child{font-size:11px;}}
+</style>
+</head>
+<body>
+<nav style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;padding:9px 14px;margin-bottom:20px;background:rgba(7,14,27,.6);border:1px solid rgba(255,255,255,.1);border-radius:12px;font-family:'Inter',sans-serif;">
+<a href="../index.html" style="font-weight:800;font-size:13px;color:#EAF1FB;text-decoration:none;">Sky<span style="color:#38BDF8;">quire</span></a>
+<span style="color:rgba(234,241,251,.25);font-size:12px;margin-right:4px;">/ Launch Plan</span>
+<a href="launch-whiteboard.html" style="font-size:12px;color:rgba(234,241,251,.62);text-decoration:none;padding:4px 9px;border-radius:7px;">Roadmap</a>
+<a href="launch-timeline.html" style="font-size:12px;color:rgba(234,241,251,.62);text-decoration:none;padding:4px 9px;border-radius:7px;">Timeline</a>
+<a href="launch-schema.html" style="font-size:12px;color:rgba(234,241,251,.62);text-decoration:none;padding:4px 9px;border-radius:7px;">Schema</a>
+<a href="launch-jira.html" style="font-size:12px;color:rgba(234,241,251,.62);text-decoration:none;padding:4px 9px;border-radius:7px;">Jira</a>
+<a href="launch-checklist.html" style="font-size:12px;color:rgba(234,241,251,.62);text-decoration:none;padding:4px 9px;border-radius:7px;">Checklist</a>
+<a href="../index.html" style="margin-left:auto;font-size:12px;color:#38BDF8;text-decoration:none;">All plans →</a>
+</nav>
+  <div class="brand">Sky<span>quire</span></div>
+  <h1>Launch Timeline — Jun → Dec 19, 2026</h1>
+  <div class="sub">Workstream Gantt · solo founder + AI · ◆ = milestone</div>
+  <div class="legend">
+    <span><i class="sw b-legal"></i> Legal &amp; Compliance</span>
+    <span><i class="sw b-prod"></i> Product &amp; Eng</span>
+    <span><i class="sw b-ai"></i> AI &amp; Data</span>
+    <span><i class="sw b-gtm"></i> GTM &amp; Growth</span>
+    <span><i class="sw b-ops"></i> Fundraise &amp; Ops</span>
+    <span><i class="sw b-seller"></i> Seller Platform</span>
+  </div>
+
+  <div class="chart">
+    <div class="months">
+      <div>Workstream</div><div>Jun</div><div>Jul</div><div>Aug</div><div>Sep</div><div>Oct</div><div>Nov</div><div class="launchcol">Dec 🚀</div>
+    </div>
+
+    <!-- milestones -->
+    <div class="milestones">
+      <div class="lane-label" style="color:var(--dim);font-size:11px;text-transform:uppercase;letter-spacing:.08em;">Milestones</div>
+      <div class="ms-track">
+        <div class="ms" style="grid-column:2;"><div class="dia"></div><div class="lab">M0 · registered + validated</div></div>
+        <div class="ms" style="grid-column:3;"><div class="dia"></div><div class="lab">M1 · SMB live</div></div>
+        <div class="ms" style="grid-column:4;"><div class="dia"></div><div class="lab">M2 · Corporate live</div></div>
+        <div class="ms" style="grid-column:5;"><div class="dia"></div><div class="lab">M3 · pay/eSign/escrow</div></div>
+        <div class="ms" style="grid-column:6;"><div class="dia"></div><div class="lab">M4 · mobile + beta</div></div>
+        <div class="ms launch" style="grid-column:7;"><div class="dia"></div><div class="lab">M5 · LAUNCH Dec 19</div></div>
+      </div>
+    </div>
+
+    <!-- Legal -->
+    <div class="lane">
+      <div class="lane-label"><span class="d" style="background:#64748b;"></span>Legal &amp; Compliance</div>
+      <div class="track">
+        <div class="bar b-legal" style="grid-column:1/3;grid-row:1;">Finish Pvt Ltd · GST · Startup India</div>
+        <div class="bar b-legal" style="grid-column:2/4;grid-row:2;">DPDP policy · ToS · contracts</div>
+        <div class="bar b-legal" style="grid-column:4/6;grid-row:1;">eSign + escrow vendor · SEBI note</div>
+        <div class="bar b-legal" style="grid-column:7/8;grid-row:2;">Launch legal review</div>
+      </div>
+    </div>
+
+    <!-- Product -->
+    <div class="lane">
+      <div class="lane-label"><span class="d" style="background:#0ea5e9;"></span>Product &amp; Eng</div>
+      <div class="track">
+        <div class="bar b-prod" style="grid-column:1/3;grid-row:1;">Harden MVP · lock architecture</div>
+        <div class="bar b-prod" style="grid-column:3/4;grid-row:2;">SMB marketplace</div>
+        <div class="bar b-prod" style="grid-column:4/5;grid-row:1;">Corporate M&amp;A suite</div>
+        <div class="bar b-prod" style="grid-column:5/6;grid-row:2;">Pay · eSign · escrow integ</div>
+        <div class="bar b-prod" style="grid-column:6/7;grid-row:1;">Mobile · perf · security</div>
+        <div class="bar b-prod" style="grid-column:7/8;grid-row:2;">Beta · bug bash · GA</div>
+      </div>
+    </div>
+
+    <!-- AI -->
+    <div class="lane">
+      <div class="lane-label"><span class="d" style="background:#7c3aed;"></span>AI &amp; Data</div>
+      <div class="track">
+        <div class="bar b-ai" style="grid-column:3/4;grid-row:1;">AI health score · Aria</div>
+        <div class="bar b-ai" style="grid-column:3/5;grid-row:2;">pgvector matching</div>
+        <div class="bar b-ai" style="grid-column:5/7;grid-row:1;">AI due-diligence assistant (beta)</div>
+        <div class="bar b-ai b-soft" style="grid-column:6/7;grid-row:2;">Analytics / big-data base</div>
+      </div>
+    </div>
+
+    <!-- GTM -->
+    <div class="lane">
+      <div class="lane-label"><span class="d" style="background:#16a34a;"></span>GTM &amp; Growth</div>
+      <div class="track">
+        <div class="bar b-gtm" style="grid-column:1/3;grid-row:1;">Validation · 20 interviews</div>
+        <div class="bar b-gtm" style="grid-column:2/8;grid-row:2;">Waitlist + content engine (LinkedIn, SEO, WhatsApp)</div>
+        <div class="bar b-gtm" style="grid-column:3/8;grid-row:3;">CA &amp; advisor partnerships</div>
+        <div class="bar b-gtm" style="grid-column:6/8;grid-row:1;">PR + launch campaign</div>
+      </div>
+    </div>
+
+    <!-- Ops/Fundraise -->
+    <div class="lane">
+      <div class="lane-label"><span class="d" style="background:#d97706;"></span>Fundraise &amp; Ops</div>
+      <div class="track">
+        <div class="bar b-ops b-soft" style="grid-column:1/8;grid-row:1;">Bootstrap · track metrics · weekly reviews</div>
+        <div class="bar b-ops" style="grid-column:5/7;grid-row:2;">Pre-seed prep + deck</div>
+        <div class="bar b-ops" style="grid-column:6/8;grid-row:3;">Investor conversations</div>
+      </div>
+    </div>
+
+    <!-- Seller Platform -->
+    <div class="lane">
+      <div class="lane-label"><span class="d" style="background:#ea580c;"></span>Seller Platform</div>
+      <div class="track">
+        <div class="bar b-seller" style="grid-column:3/5;grid-row:1;">Seller submission app + doc upload</div>
+        <div class="bar b-seller" style="grid-column:3/5;grid-row:2;">Verification console + publish pipeline</div>
+        <div class="bar b-seller b-soft" style="grid-column:6/8;grid-row:1;">Seller mobile app (fast-follow)</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">Skyquire · Launch Timeline (Gantt) · generated Jun 18, 2026 · faded bars = stretch/parallel work</div>
+</body>
+</html>
