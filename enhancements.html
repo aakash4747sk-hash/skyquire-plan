@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Skyquire — Enhancement Roadmap</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Bricolage+Grotesque:wght@600;700;800&display=swap" rel="stylesheet" />
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  :root{--sky:#38BDF8;--violet:#8B5CF6;--green:#34D399;--amber:#FBBF24;--pink:#F472B6;--red:#F87171;--text:#EAF1FB;--soft:rgba(234,241,251,.62);--dim:rgba(234,241,251,.4);--line:rgba(255,255,255,.1);--card:rgba(255,255,255,.03);}
+  body{font-family:'Inter',sans-serif;background:radial-gradient(ellipse 90% 55% at 50% -10%,#10213c,#070E1B);color:var(--text);min-height:100vh;padding:32px;}
+  h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif;letter-spacing:-.02em;}
+  .brand{font-weight:800;font-size:14px;} .brand span{color:var(--sky);}
+  h1{font-size:30px;font-weight:800;margin-top:6px;}
+  .sub{color:var(--soft);font-size:14px;margin:4px 0 8px;max-width:760px;line-height:1.5;}
+  .legend{display:flex;gap:12px;flex-wrap:wrap;margin:14px 0 4px;font-size:11.5px;color:var(--soft);}
+  .pr{font-size:9.5px;font-weight:700;padding:2px 8px;border-radius:100px;}
+  .p1{background:rgba(52,211,153,.18);color:#6ee7b7;} .p2{background:rgba(56,189,248,.16);color:#7dd3fc;} .p3{background:rgba(148,163,184,.2);color:#cbd5e1;} .later{background:rgba(251,146,60,.18);color:#fdba74;}
+
+  .deferred{margin:18px 0;border:1px solid rgba(251,146,60,.3);background:rgba(251,146,60,.07);border-radius:14px;padding:14px 18px;font-size:13px;color:var(--soft);line-height:1.55;}
+  .deferred b{color:#fdba74;}
+
+  .quick{margin:18px 0 8px;border:1px solid rgba(52,211,153,.3);background:rgba(52,211,153,.07);border-radius:16px;padding:18px;}
+  .quick h3{font-size:15px;margin-bottom:10px;color:#6ee7b7;}
+  .quick .row{display:flex;flex-wrap:wrap;gap:8px;}
+  .quick .chip{font-size:12px;border:1px solid var(--line);background:var(--card);border-radius:10px;padding:7px 12px;color:var(--soft);}
+
+  .sec-label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin:28px 0 14px;font-weight:600;display:flex;align-items:center;gap:12px;}
+  .sec-label::after{content:'';flex:1;height:1px;background:var(--line);}
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+  .theme{border:1px solid var(--line);border-radius:16px;padding:18px;background:var(--card);}
+  .theme h3{font-size:15px;display:flex;align-items:center;gap:8px;margin-bottom:12px;}
+  .item{padding:9px 0;border-bottom:1px solid var(--line);}
+  .item:last-child{border-bottom:0;}
+  .item .t{display:flex;align-items:center;gap:8px;}
+  .item .nm{font-size:13.5px;font-weight:600;color:var(--text);}
+  .item .pr{margin-left:auto;}
+  .item .d{font-size:12px;color:var(--dim);margin-top:3px;line-height:1.45;}
+  .top{margin-top:8px;border:1px solid rgba(56,189,248,.25);background:linear-gradient(120deg,rgba(56,189,248,.08),rgba(139,92,246,.06));border-radius:16px;padding:18px;}
+  .top h3{font-size:15px;margin-bottom:12px;}
+  .top ol{margin:0;padding-left:20px;} .top li{font-size:13.5px;color:var(--soft);padding:4px 0;} .top li b{color:var(--text);}
+  .foot{margin-top:22px;color:var(--dim);font-size:11.5px;text-align:center;}
+  @media(max-width:840px){.grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+  <div class="brand">Sky<span>quire</span></div>
+  <h1>Enhancement Roadmap</h1>
+  <div class="sub">What makes the product better, prioritized. Payments deferred for now — these are the build priorities in the meantime.</div>
+  <div class="legend">
+    <span><i class="pr p1">P1</i> do next</span>
+    <span><i class="pr p2">P2</i> soon</span>
+    <span><i class="pr p3">P3</i> later / nice-to-have</span>
+    <span><i class="pr later">LATER</i> deferred</span>
+  </div>
+
+  <div class="deferred"><b>Deferred — Razorpay payments.</b> Parked for now by choice. Keep the KYC moving in the background so it's ready when you pick it up; everything below earns its place before payments.</div>
+
+  <!-- TOP 5 -->
+  <div class="top">
+    <h3>🎯 The next 5, in order</h3>
+    <ol>
+      <li><b>Notifications engine</b> (WhatsApp + email) — your highest retention lever</li>
+      <li><b>AI natural-language search</b> — wire pgvector to a search bar; quick &amp; differentiating</li>
+      <li><b>Auto-embed on listing create</b> — matching always covers every listing</li>
+      <li><b>Verified-listings badges</b> (GSTIN / MCA) — trust is the marketplace's currency</li>
+      <li><b>AI due-diligence assistant</b> — upload financials → red flags + growth levers</li>
+    </ol>
+  </div>
+
+  <!-- QUICK WINS -->
+  <div class="quick">
+    <h3>⚡ Quick wins (small effort, real value)</h3>
+    <div class="row">
+      <span class="chip">Auto-embed new listings</span>
+      <span class="chip">Natural-language search bar</span>
+      <span class="chip">zod input validation</span>
+      <span class="chip">Accessibility pass</span>
+      <span class="chip">Unify sector lists</span>
+      <span class="chip">Sentry error monitoring</span>
+    </div>
+  </div>
+
+  <!-- THEMES -->
+  <div class="sec-label">By theme</div>
+  <div class="grid">
+    <div class="theme">
+      <h3>🛡️ Trust &amp; compliance</h3>
+      <div class="item"><div class="t"><span class="nm">Verified-listings badges</span><span class="pr p1">P1</span></div><div class="d">GSTIN + MCA21 checks → "Verified Financials" badge.</div></div>
+      <div class="item"><div class="t"><span class="nm">Aadhaar eSign (NDAs, LOIs)</span><span class="pr p2">P2</span></div><div class="d">Leegality/SignDesk — legally valid signing.</div></div>
+      <div class="item"><div class="t"><span class="nm">Escrow-backed transactions</span><span class="pr p2">P2</span></div><div class="d">Cashfree/Escrowpay milestone release.</div></div>
+      <div class="item"><div class="t"><span class="nm">GST invoicing</span><span class="pr p2">P2</span></div><div class="d">Automated 18% invoices/receipts.</div></div>
+    </div>
+
+    <div class="theme">
+      <h3>🔔 Engagement &amp; retention</h3>
+      <div class="item"><div class="t"><span class="nm">Notifications engine</span><span class="pr p1">P1</span></div><div class="d">WhatsApp + email on match, inquiry, stage change, approval.</div></div>
+      <div class="item"><div class="t"><span class="nm">Saved searches + alerts</span><span class="pr p2">P2</span></div><div class="d">Buyers set criteria → pinged on new matches.</div></div>
+      <div class="item"><div class="t"><span class="nm">Seller listing analytics</span><span class="pr p2">P2</span></div><div class="d">Views + inquiry counts; a reason to return.</div></div>
+      <div class="item"><div class="t"><span class="nm">Referral system</span><span class="pr p2">P2</span></div><div class="d">Waitlist "skip the line" + in-app referrals.</div></div>
+    </div>
+
+    <div class="theme">
+      <h3>🧠 AI &amp; data moat</h3>
+      <div class="item"><div class="t"><span class="nm">Natural-language search</span><span class="pr p1">P1</span></div><div class="d">"profitable manufacturing in Pune under ₹5Cr" via pgvector.</div></div>
+      <div class="item"><div class="t"><span class="nm">Auto-embed on create</span><span class="pr p1">P1</span></div><div class="d">New/edited listings embed automatically.</div></div>
+      <div class="item"><div class="t"><span class="nm">AI due-diligence assistant</span><span class="pr p2">P2</span></div><div class="d">Financials → red flags + growth roadmap.</div></div>
+      <div class="item"><div class="t"><span class="nm">Deal comps / market intel</span><span class="pr p3">P3</span></div><div class="d">"What are businesses in your sector selling for?" — paid later.</div></div>
+    </div>
+
+    <div class="theme">
+      <h3>✨ Core UX</h3>
+      <div class="item"><div class="t"><span class="nm">"Make an offer" + offers</span><span class="pr p2">P2</span></div><div class="d">Structured offer flow buyer → seller.</div></div>
+      <div class="item"><div class="t"><span class="nm">In-app messaging</span><span class="pr p2">P2</span></div><div class="d">Seller ↔ buyer ↔ advisor threads.</div></div>
+      <div class="item"><div class="t"><span class="nm">Auto-valuation on submission</span><span class="pr p2">P2</span></div><div class="d">Run seller numbers through the valuation engine → suggested asking price.</div></div>
+      <div class="item"><div class="t"><span class="nm">Team invites + roles</span><span class="pr p3">P3</span></div><div class="d">Corporate workspaces with colleagues.</div></div>
+      <div class="item"><div class="t"><span class="nm">Financing pre-qualification</span><span class="pr p3">P3</span></div><div class="d">MSME loan / NBFC partner pre-check.</div></div>
+    </div>
+
+    <div class="theme">
+      <h3>🛠️ Quality &amp; hardening</h3>
+      <div class="item"><div class="t"><span class="nm">zod input validation</span><span class="pr p1">P1</span></div><div class="d">Validate API bodies; close prompt-injection surface.</div></div>
+      <div class="item"><div class="t"><span class="nm">Accessibility pass</span><span class="pr p1">P1</span></div><div class="d">Aria labels, real buttons, focus states.</div></div>
+      <div class="item"><div class="t"><span class="nm">Upstash Redis rate limiting</span><span class="pr p2">P2</span></div><div class="d">Replace the in-memory limiter.</div></div>
+      <div class="item"><div class="t"><span class="nm">Sentry + tests + CI/CD</span><span class="pr p2">P2</span></div><div class="d">Monitoring and a safety net.</div></div>
+      <div class="item"><div class="t"><span class="nm">Unify sector lists</span><span class="pr p1">P1</span></div><div class="d">One shared constant across the apps.</div></div>
+    </div>
+
+    <div class="theme">
+      <h3>📱 Mobile &amp; reach</h3>
+      <div class="item"><div class="t"><span class="nm">Mobile app parity</span><span class="pr p2">P2</span></div><div class="d">Feed, listings, pipeline, messages.</div></div>
+      <div class="item"><div class="t"><span class="nm">Push + biometric</span><span class="pr p2">P2</span></div><div class="d">Native notifications + Face ID / fingerprint.</div></div>
+      <div class="item"><div class="t"><span class="nm">Move mobile keys to env</span><span class="pr p1">P1</span></div><div class="d">Stop hardcoding Supabase keys inline.</div></div>
+      <div class="item"><div class="t"><span class="nm">Seller mobile app</span><span class="pr p3">P3</span></div><div class="d">Fast-follow after the seller web app.</div></div>
+    </div>
+  </div>
+
+  <div class="foot">Skyquire · Enhancement Roadmap · generated Jun 25, 2026 · payments deferred · pair with the Launch plan</div>
+</body>
+</html>
