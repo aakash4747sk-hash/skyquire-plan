@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Skyquire — Dec 19 Launch Scope</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Bricolage+Grotesque:wght@600;700;800&display=swap" rel="stylesheet" />
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  :root{--sky:#38BDF8;--violet:#8B5CF6;--green:#34D399;--amber:#FBBF24;--red:#F87171;--pink:#F472B6;--text:#EAF1FB;--soft:rgba(234,241,251,.62);--dim:rgba(234,241,251,.4);--line:rgba(255,255,255,.1);}
+  body{font-family:'Inter',sans-serif;background:radial-gradient(ellipse 90% 50% at 50% -10%,#10213c,#070E1B);color:var(--text);min-height:100vh;padding:30px;}
+  h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif;letter-spacing:-.02em;}
+  .brand{font-weight:800;font-size:14px;} .brand span{color:var(--sky);}
+  h1{font-size:27px;font-weight:800;margin-top:6px;}
+  .sub{color:var(--soft);font-size:13px;margin:4px 0 6px;max-width:760px;line-height:1.55;}
+  .decided{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 22px;}
+  .pill{font-size:11.5px;font-weight:600;padding:5px 11px;border-radius:100px;border:1px solid var(--line);color:var(--soft);background:rgba(255,255,255,.025);}
+  .pill b{color:var(--text);font-weight:700;}
+  .cols{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;}
+  .col{border:1px solid var(--line);border-radius:16px;padding:18px;background:rgba(255,255,255,.025);}
+  .col.v1{border-color:rgba(52,211,153,.35);}
+  .col.v15{border-color:rgba(56,189,248,.28);}
+  .col.v2{border-color:rgba(148,163,184,.25);}
+  .col h2{font-size:16px;display:flex;align-items:center;gap:9px;margin-bottom:3px;}
+  .chip{font-size:9.5px;font-weight:800;padding:2px 8px;border-radius:6px;letter-spacing:.04em;}
+  .c-v1{background:rgba(52,211,153,.16);color:#6ee7b7;}
+  .c-v15{background:rgba(56,189,248,.16);color:#7dd3fc;}
+  .c-v2{background:rgba(148,163,184,.16);color:#cbd5e1;}
+  .when{font-size:11px;color:var(--dim);margin-bottom:13px;}
+  .item{display:flex;gap:9px;align-items:flex-start;padding:7px 0;border-bottom:1px solid var(--line);font-size:12.5px;color:var(--soft);line-height:1.42;}
+  .item:last-child{border-bottom:0;}
+  .item .ic{flex:none;margin-top:1px;}
+  .item b{color:var(--text);font-weight:600;}
+  .why{margin-top:24px;border:1px solid var(--line);border-radius:16px;padding:18px 20px;background:rgba(56,189,248,.04);}
+  .why h3{font-size:14px;margin-bottom:10px;}
+  .why p{font-size:12.5px;color:var(--soft);line-height:1.6;margin-bottom:9px;}
+  .why p:last-child{margin-bottom:0;}
+  .why b{color:var(--text);}
+  .risk{border-left:3px solid var(--amber);padding-left:12px;}
+  .foot{margin-top:20px;color:var(--dim);font-size:11.5px;text-align:center;}
+  @media(max-width:880px){.cols{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<nav style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;padding:9px 14px;margin-bottom:20px;background:rgba(7,14,27,.6);border:1px solid rgba(255,255,255,.1);border-radius:12px;">
+<a href="../index.html" style="font-weight:800;font-size:13px;color:#EAF1FB;text-decoration:none;">Sky<span style="color:#38BDF8;">quire</span></a>
+<span style="color:rgba(234,241,251,.25);font-size:12px;margin-right:4px;">/ Launch Plan</span>
+<a href="launch-scope.html" style="font-size:12px;color:#6ee7b7;text-decoration:none;padding:4px 9px;border-radius:7px;background:rgba(52,211,153,.12);">Scope</a>
+<a href="launch-whiteboard.html" style="font-size:12px;color:rgba(234,241,251,.62);text-decoration:none;padding:4px 9px;border-radius:7px;">Roadmap</a>
+<a href="launch-timeline.html" style="font-size:12px;color:rgba(234,241,251,.62);text-decoration:none;padding:4px 9px;border-radius:7px;">Timeline</a>
+<a href="launch-schema.html" style="font-size:12px;color:rgba(234,241,251,.62);text-decoration:none;padding:4px 9px;border-radius:7px;">Schema</a>
+<a href="launch-jira.html" style="font-size:12px;color:rgba(234,241,251,.62);text-decoration:none;padding:4px 9px;border-radius:7px;">Jira</a>
+<a href="launch-checklist.html" style="font-size:12px;color:rgba(234,241,251,.62);text-decoration:none;padding:4px 9px;border-radius:7px;">Checklist</a>
+<a href="../index.html" style="margin-left:auto;font-size:12px;color:#38BDF8;text-decoration:none;">All plans →</a>
+</nav>
+
+  <div class="brand">Sky<span>quire</span></div>
+  <h1>Dec 19 Launch Scope — what's in, what waits</h1>
+  <div class="sub">The locked cut for go-live. v1 is everything that must work on launch day; v1.x ships within weeks and is announced as "coming"; v2 is the post-launch quarter. The discipline: cut anything regulated-and-slow, platform-slow, or supply-irrelevant — none of it blocks first listings or first matched deals.</div>
+
+  <div class="decided">
+    <span class="pill">Verticals: <b>Both — SMB + Corporate M&amp;A, equal weight</b></span>
+    <span class="pill">Surface: <b>Web + native mobile (iOS &amp; Android), both polished</b></span>
+    <span class="pill">Pricing: <b>Free at launch — seed supply first</b></span>
+    <span class="pill">Ops: <b>Manual / mediated, admin console web-only</b></span>
+  </div>
+
+  <div class="cols">
+    <!-- V1 -->
+    <div class="col v1">
+      <h2><span class="chip c-v1">IN V1</span> Must work Dec 19</h2>
+      <div class="when">Public launch · web + native mobile</div>
+      <div class="item"><span class="ic">🛒</span><span><b>SMB marketplace</b> — browse, filter, listing detail, buyer onboarding &amp; profile</span></div>
+      <div class="item"><span class="ic">🏢</span><span><b>Corporate M&amp;A suite</b> — target discovery, deal pipeline, deal rooms, valuation, DD assistant</span></div>
+      <div class="item"><span class="ic">💬</span><span><b>Inquiries + mediated messaging</b> — buyer↔team↔seller relay, confidentiality preserved</span></div>
+      <div class="item"><span class="ic">🏷️</span><span><b>Seller platform</b> — submit → verify → publish pipeline (your supply funnel)</span></div>
+      <div class="item"><span class="ic">🤖</span><span><b>AI that's already solid</b> — health score, Aria + pgvector matching, smart search</span></div>
+      <div class="item"><span class="ic">🛡️</span><span><b>Manual trust layer</b> — you verify each listing &amp; mediate each deal (a feature at launch volume)</span></div>
+      <div class="item"><span class="ic">📄</span><span><b>Click-wrap NDA + ToS</b> gating contact; DPDP-compliant privacy &amp; consent</span></div>
+      <div class="item"><span class="ic">📱</span><span><b>Native mobile (Expo/RN)</b> — consumer flows: browse, match, inquire, chat, submit, status, notifications</span></div>
+      <div class="item"><span class="ic">🚀</span><span><b>Launch surface</b> — landing, pricing page, demo video, waitlist conversion</span></div>
+    </div>
+
+    <!-- V1.x -->
+    <div class="col v15">
+      <h2><span class="chip c-v15">v1.x</span> Weeks after</h2>
+      <div class="when">"Coming soon" — not a launch blocker</div>
+      <div class="item"><span class="ic">💳</span><span><b>Razorpay</b> — listing fees + subscriptions once there's liquidity (KYC off the critical path)</span></div>
+      <div class="item"><span class="ic">🧾</span><span><b>Automated GST invoicing</b> (18% on services)</span></div>
+      <div class="item"><span class="ic">🩺</span><span><b>DD assistant → GA</b> — promote from beta once battle-tested</span></div>
+      <div class="item"><span class="ic">✅</span><span><b>Verified-listings program</b> — GSTIN / MCA badges</span></div>
+      <div class="item"><span class="ic">🔔</span><span><b>Email + WhatsApp notifications</b> on match / inquiry / status (vendor key)</span></div>
+      <div class="item"><span class="ic">🔎</span><span><b>Saved searches + alerts</b>, make-an-offer</span></div>
+    </div>
+
+    <!-- V2 -->
+    <div class="col v2">
+      <h2><span class="chip c-v2">v2</span> Post-launch quarter</h2>
+      <div class="when">Regulated / heavy — do when money flows</div>
+      <div class="item"><span class="ic">🔐</span><span><b>Escrow</b> (Cashfree / Escrowpay) — regulated vendor, gated on KYC + volume</span></div>
+      <div class="item"><span class="ic">✍️</span><span><b>Aadhaar eSign</b> (Leegality / SignDesk) for NDAs &amp; LOIs</span></div>
+      <div class="item"><span class="ic">📊</span><span><b>Big-data / analytics base</b> — anonymised deal-comps, Mixpanel funnels</span></div>
+      <div class="item"><span class="ic">🤝</span><span><b>Investor round</b> — pre-seed deck + conversations</span></div>
+      <div class="item"><span class="ic">⚙️</span><span><b>Scale ops</b> — automate parts of verification once volume demands it</span></div>
+    </div>
+  </div>
+
+  <div class="why">
+    <h3>Why this cut</h3>
+    <p><b>Free at launch</b> keeps Razorpay KYC <i>and</i> Apple/Google in-app-billing rules off the critical path, and free/founder pricing is the fastest way to seed the supply a marketplace needs to be worth anything.</p>
+    <p><b>Escrow + eSign are deliberately v2</b> — both are regulated vendor integrations whose timelines you don't control; nothing about them blocks a first listing or a first matched deal.</p>
+    <p><b>Admin console stays web-only</b> — you run verification &amp; mediation from a laptop. Mobile mirrors the consumer surface, not the whole platform — that's what keeps "perfect mobile" achievable solo.</p>
+    <p class="risk"><b>The honest risk:</b> two full verticals across web <i>and</i> two native apps, solo, is the most ambitious version. It survives only on <b>sequencing</b> — web + backend feature-stable by the September gate so Oct–Nov is mobile build + polish, hitting a mid-November app-store freeze with buffer. And it doubles the cold-start problem: you must seed <b>two</b> kinds of inventory (SMBs <i>and</i> corporate mandates). Supply, not code, is the make-or-break.</p>
+  </div>
+
+  <div class="foot">Skyquire · Dec 19 Launch Scope · locked Jun 25, 2026 · see Timeline for the sequenced critical path</div>
+</body>
+</html>
