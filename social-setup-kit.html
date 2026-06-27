@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Skyquire — Social Media Setup Kit</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Bricolage+Grotesque:wght@600;700;800&display=swap" rel="stylesheet" />
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  :root{--sky:#38BDF8;--violet:#8B5CF6;--green:#34D399;--amber:#FBBF24;--pink:#F472B6;--text:#EAF1FB;--soft:rgba(234,241,251,.66);--dim:rgba(234,241,251,.42);--line:rgba(255,255,255,.1);--card:rgba(255,255,255,.03);}
+  body{font-family:'Inter',sans-serif;background:radial-gradient(ellipse 90% 55% at 50% -10%,#1a1033,#070E1B);color:var(--text);min-height:100vh;padding:30px;}
+  h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif;letter-spacing:-.02em;}
+  .brand{font-weight:800;font-size:14px;} .brand span{color:var(--violet);}
+  h1{font-size:29px;font-weight:800;margin-top:6px;}
+  .sub{color:var(--soft);font-size:14px;margin:4px 0 8px;max-width:780px;line-height:1.5;}
+  .meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;}
+  .chip{font-size:12px;border:1px solid var(--line);background:var(--card);border-radius:100px;padding:6px 13px;color:var(--soft);}
+  .chip b{color:var(--text);}
+  .sec-label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);font-weight:600;margin:30px 0 14px;display:flex;align-items:center;gap:12px;}
+  .sec-label::after{content:'';flex:1;height:1px;background:var(--line);}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .panel{border:1px solid var(--line);border-radius:16px;padding:18px;background:var(--card);}
+  .panel h3{font-size:15px;margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+  .panel h3 .pf{font-size:9px;font-weight:700;padding:2px 7px;border-radius:6px;margin-left:auto;}
+  .li{background:rgba(56,189,248,.16);color:#7dd3fc;}
+  .ig{background:rgba(244,114,182,.18);color:#f9a8d4;}
+  .x{background:rgba(255,255,255,.12);color:#e2e8f0;}
+  .wa{background:rgba(52,211,153,.18);color:#6ee7b7;}
+  .yt{background:rgba(248,113,113,.18);color:#fca5a5;}
+  .field{margin-bottom:13px;}
+  .field .lab{font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--dim);font-weight:600;margin-bottom:5px;}
+  .copy{font-size:13px;color:var(--soft);line-height:1.5;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:10px;padding:10px 12px;white-space:pre-wrap;}
+  .copy b{color:var(--text);font-weight:600;}
+  .hint{font-size:11px;color:var(--dim);margin-top:5px;line-height:1.4;}
+  ul.clean{list-style:none;}
+  ul.clean li{font-size:12.5px;color:var(--soft);padding:7px 0;border-bottom:1px solid var(--line);display:flex;gap:9px;line-height:1.42;}
+  ul.clean li:last-child{border:0;}
+  ul.clean li .ic{flex:none;}
+  .do b,.dont b{font-family:'Bricolage Grotesque',sans-serif;}
+  .twocol{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .tag{font-size:9.5px;font-weight:700;padding:2px 7px;border-radius:5px;}
+  table{width:100%;border-collapse:collapse;font-size:12.5px;}
+  th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top;}
+  th{font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--dim);font-weight:600;}
+  td{color:var(--soft);} td.m{color:var(--text);font-weight:600;}
+  .swatch{display:inline-block;width:13px;height:13px;border-radius:4px;vertical-align:-2px;margin-right:6px;border:1px solid rgba(255,255,255,.2);}
+  .note{font-size:12px;color:var(--soft);background:rgba(139,92,246,.08);border:1px solid rgba(139,92,246,.25);border-radius:12px;padding:12px 14px;line-height:1.5;}
+  .foot{margin-top:24px;color:var(--dim);font-size:11.5px;text-align:center;}
+  @media(max-width:880px){.grid2,.grid3,.twocol{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+  <div class="brand">Sky<span>quire</span> · Marketing</div>
+  <h1>Social Media Setup Kit</h1>
+  <div class="sub">Everything to create and fill out the accounts — handles, profile copy, banner text, brand voice, and a per-platform checklist. Copy-paste ready. Pairs with the <b>Marketing Road Path</b> and <b>Phase&nbsp;1 Content Calendar</b>; ready posts live in <b>Launch Posts</b>.</div>
+  <div class="meta">
+    <span class="chip">Brand <b>Skyquire</b></span>
+    <span class="chip">Voice <b>Founder-led</b></span>
+    <span class="chip">Market <b>India-first · EN + Hindi</b></span>
+    <span class="chip">Note <b>You create the accounts — I can't</b></span>
+  </div>
+
+  <!-- BRAND BASICS -->
+  <div class="sec-label">① Brand basics — lock these once, reuse everywhere</div>
+  <div class="grid2">
+    <div class="panel">
+      <h3>🪪 Names &amp; handles</h3>
+      <div class="field">
+        <div class="lab">Preferred handle (claim everywhere)</div>
+        <div class="copy"><b>@skyquire</b>  —  fall-backs: @skyquire.in · @skyquireHQ · @getskyquire · @joinskyquire</div>
+        <div class="hint">Check availability on each platform first; pick ONE handle and keep it identical across all so people find you. Grab the ones you're not using yet too (defensive).</div>
+      </div>
+      <div class="field">
+        <div class="lab">Display name pattern</div>
+        <div class="copy">Company: <b>Skyquire</b>
+Founder: <b>Aakash · Building Skyquire</b></div>
+        <div class="hint">A founder account + a company account on LinkedIn. Lead with the founder — people follow people, especially pre-launch.</div>
+      </div>
+      <div class="field">
+        <div class="lab">One-liner (use in every bio)</div>
+        <div class="copy">India's marketplace to <b>buy &amp; sell businesses</b>.</div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h3>✏️ Taglines &amp; link strategy</h3>
+      <div class="field">
+        <div class="lab">Tagline options (pick one, stay consistent)</div>
+        <div class="copy">• Buy &amp; sell businesses in India.
+• Where Indian businesses change hands.
+• Don't start from zero. Buy a business.
+• 63 million MSMEs. One marketplace.</div>
+      </div>
+      <div class="field">
+        <div class="lab">Link in bio</div>
+        <div class="copy">Point every bio to <b>skyquire.in</b> (or your waitlist URL). One link, everywhere. Use a simple link page only if you need 2+ (waitlist + WhatsApp community).</div>
+        <div class="hint">Add a UTM so you can see which platform drives signups, e.g. <b>?utm_source=linkedin</b>.</div>
+      </div>
+      <div class="field">
+        <div class="lab">Pinned post (every profile)</div>
+        <div class="copy">Pin the <b>"I'm building Skyquire"</b> founder post so first-time visitors instantly get what you do + can join the waitlist.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VOICE -->
+  <div class="sec-label">② Brand voice — how Skyquire sounds</div>
+  <div class="grid2">
+    <div class="panel">
+      <h3>🎙️ Voice in one breath</h3>
+      <p class="sub" style="margin:0 0 10px;">Clear, credible, and a little contrarian. You're the sharp operator who demystifies M&amp;A for normal people — not a suit, not a hype-man. Teach first, sell second. Indian context always (₹, MSME, GST, tier-2 cities, real examples).</p>
+      <table>
+        <tr><th>Dial</th><th>Where Skyquire sits</th></tr>
+        <tr><td class="m">Formal ↔ Casual</td><td>70% casual — like explaining to a smart friend</td></tr>
+        <tr><td class="m">Serious ↔ Playful</td><td>Mostly serious, occasional wit</td></tr>
+        <tr><td class="m">Jargon ↔ Plain</td><td>Plain. Define any M&amp;A term you use</td></tr>
+        <tr><td class="m">Humble ↔ Bold</td><td>Bold on the mission, humble on the journey</td></tr>
+      </table>
+    </div>
+    <div class="panel">
+      <h3>✅ Do / 🚫 Don't</h3>
+      <div class="twocol">
+        <ul class="clean do">
+          <li><span class="ic">✅</span> Lead with a number or a sharp claim</li>
+          <li><span class="ic">✅</span> Tell real deal stories (anonymised)</li>
+          <li><span class="ic">✅</span> Use ₹ and Indian examples</li>
+          <li><span class="ic">✅</span> Teach something usable in every post</li>
+          <li><span class="ic">✅</span> Short lines. White space. One idea.</li>
+        </ul>
+        <ul class="clean dont">
+          <li><span class="ic">🚫</span> Corporate buzzwords ("synergies", "ecosystem")</li>
+          <li><span class="ic">🚫</span> Hype with no substance</li>
+          <li><span class="ic">🚫</span> Investment advice, return promises, or guarantees</li>
+          <li><span class="ic">🚫</span> Walls of text</li>
+          <li><span class="ic">🚫</span> Emoji spam (1–3 max, purposeful)</li>
+        </ul>
+      </div>
+      <div class="note" style="margin-top:12px;">⚖️ Compliance reflex: never promise returns or give investment advice. Frame as <b>"a marketplace + tools"</b>, not "advice". Add "not investment advice" on anything that discusses numbers/valuation.</div>
+    </div>
+  </div>
+
+  <!-- VISUAL -->
+  <div class="sec-label">③ Visual identity — keep it recognisable</div>
+  <div class="grid2">
+    <div class="panel">
+      <h3>🎨 Colours &amp; assets</h3>
+      <ul class="clean">
+        <li><span class="swatch" style="background:#0EA5E9;"></span> <b style="color:var(--text)">Sky&nbsp;#0EA5E9</b> — primary accent (the brand "rise")</li>
+        <li><span class="swatch" style="background:#8B5CF6;"></span> <b style="color:var(--text)">Violet&nbsp;#8B5CF6</b> — secondary (AI / smart features)</li>
+        <li><span class="swatch" style="background:#071223;"></span> <b style="color:var(--text)">Ink&nbsp;#071223</b> — dark backgrounds</li>
+        <li><span class="ic">🔆</span> Profile pic: the Skyquire mark on ink, centred, high-contrast. Same image on every platform.</li>
+        <li><span class="ic">🖼️</span> Banner: dark bg + tagline + "Join the waitlist → skyquire.in".</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h3>🏞️ Banner / header copy</h3>
+      <div class="field">
+        <div class="lab">LinkedIn / X banner (headline + sub)</div>
+        <div class="copy"><b>Buy &amp; sell businesses in India.</b>
+The marketplace + AI tools for acquiring or exiting a business — verified listings, smart matching, guided deals.  →  skyquire.in</div>
+      </div>
+      <div class="field">
+        <div class="lab">YouTube banner</div>
+        <div class="copy"><b>Skyquire</b> — How to buy &amp; sell businesses in India. New videos weekly.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROFILE COPY -->
+  <div class="sec-label">④ Profile copy — paste straight in</div>
+  <div class="grid2">
+    <div class="panel">
+      <h3>LinkedIn — Company Page <span class="pf li">LinkedIn</span></h3>
+      <div class="field">
+        <div class="lab">Tagline (120 chars)</div>
+        <div class="copy">India's marketplace to buy &amp; sell businesses — verified listings, AI matching, guided deals.</div>
+      </div>
+      <div class="field">
+        <div class="lab">About</div>
+        <div class="copy">Skyquire is India's marketplace for buying and selling businesses.
+
+Most Indians who want to own a business start from scratch — when they could buy one that's already profitable. And most owners who want to exit have no clean way to find a serious buyer. Skyquire fixes both.
+
+We bring verified business listings, AI-powered matching, and guided, mediated deals into one platform — for first-time buyers, seasoned acquirers, and owners ready to sell.
+
+🔹 Verified listings  🔹 AI matchmaking  🔹 Built-in valuation &amp; due-diligence tools  🔹 India-first
+
+Join the waitlist → skyquire.in</div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h3>LinkedIn — Founder <span class="pf li">LinkedIn</span></h3>
+      <div class="field">
+        <div class="lab">Headline (220 chars)</div>
+        <div class="copy">Building Skyquire — India's marketplace to buy &amp; sell businesses | Helping Indians own businesses without starting from zero</div>
+      </div>
+      <div class="field">
+        <div class="lab">About</div>
+        <div class="copy">I'm building Skyquire — India's marketplace to buy and sell businesses.
+
+63 million MSMEs in India, and no real place to buy or sell one. I'm changing that: verified listings, AI matching, and guided deals so a profitable business can actually change hands.
+
+I post about buying &amp; selling businesses in India, what I'm learning building this, and the occasional deal teardown.
+
+Building in public → follow along. Waitlist: skyquire.in</div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h3>Instagram <span class="pf ig">Instagram</span></h3>
+      <div class="field">
+        <div class="lab">Name field (searchable — use keywords)</div>
+        <div class="copy">Skyquire · Buy &amp; Sell Businesses</div>
+      </div>
+      <div class="field">
+        <div class="lab">Bio (150 chars)</div>
+        <div class="copy">India's marketplace to buy &amp; sell businesses 🇮🇳
+Don't start from zero — buy a profitable one.
+Verified listings · AI matching
+👇 Join the waitlist</div>
+      </div>
+      <div class="hint">Switch to a Professional (Business) account for insights + the link sticker. Category: "Financial service" or "Internet company".</div>
+    </div>
+
+    <div class="panel">
+      <h3>X / Twitter <span class="pf x">X</span></h3>
+      <div class="field">
+        <div class="lab">Bio (160 chars)</div>
+        <div class="copy">Building @skyquire — India's marketplace to buy &amp; sell businesses. Verified listings + AI matching. Don't start from zero. Building in public 👇</div>
+      </div>
+      <div class="hint">Location: India. Pin the "I'm building Skyquire" thread. Add the waitlist link to the URL field.</div>
+    </div>
+
+    <div class="panel">
+      <h3>WhatsApp — Channel / Communities <span class="pf wa">WhatsApp</span></h3>
+      <div class="field">
+        <div class="lab">Channel name + description</div>
+        <div class="copy"><b>Skyquire — Buy &amp; Sell Businesses (India)</b>
+New verified listings, deal tips, and the occasional business you can actually buy. India-first. Join free.</div>
+      </div>
+      <div class="hint">Run TWO communities from Phase 1: "India Business Buyers" and "Business Owners (Sellers)". Seed each with 5–10 contacts. Use a Channel for one-way drops (new listings), Communities for discussion.</div>
+    </div>
+
+    <div class="panel">
+      <h3>YouTube <span class="pf yt">YouTube</span></h3>
+      <div class="field">
+        <div class="lab">Channel description (About)</div>
+        <div class="copy">Skyquire — how to buy and sell businesses in India.
+
+Explainers, demos, and real teardowns: how to value a business, spot red flags, finance a deal, and find serious buyers. For first-time buyers and owners ready to exit.
+
+New video every week. Join the waitlist → skyquire.in</div>
+      </div>
+      <div class="hint">Keywords for discoverability: "buy a business India", "sell my business", "business valuation India", "MSME acquisition".</div>
+    </div>
+  </div>
+
+  <!-- PLATFORM ROLES -->
+  <div class="sec-label">⑤ Platform roles — what each one is for</div>
+  <div class="panel">
+    <table>
+      <tr><th>Platform</th><th>Primary role</th><th>Who you reach</th><th>Cadence</th><th>Priority</th></tr>
+      <tr><td class="m">LinkedIn</td><td>Credibility engine + deal-side trust. Your #1.</td><td>Owners, acquirers, CAs, advisors, investors</td><td>4–5×/week</td><td><span class="tag li">Primary</span></td></tr>
+      <tr><td class="m">X / Twitter</td><td>Build-in-public, founder voice, fast reach</td><td>Startup + finance India</td><td>Daily</td><td><span class="tag li">Primary</span></td></tr>
+      <tr><td class="m">Instagram</td><td>Brand + aspiring/first-time buyers &amp; sellers</td><td>Younger SMB audience</td><td>3–4 posts + Reels/wk</td><td><span class="tag ig">Support</span></td></tr>
+      <tr><td class="m">WhatsApp</td><td>Distribution + community — listings &amp; alerts</td><td>Warm, high-intent</td><td>2–3 drops/week</td><td><span class="tag wa">Support</span></td></tr>
+      <tr><td class="m">YouTube</td><td>Evergreen SEO + deep trust (demos/explainers)</td><td>Researchers, high-intent</td><td>1 video/week</td><td><span class="tag yt">Slow burn</span></td></tr>
+    </table>
+    <div class="note" style="margin-top:14px;">📌 Content pillars (rotate across all platforms): <b>1) How to buy a business</b> · <b>2) How to sell / exit</b> · <b>3) Build-in-public</b> (the Skyquire journey) · <b>4) Deal teardowns &amp; market data</b> · <b>5) Product</b> (features, verified listings, AI). Full cadence &amp; 30-day plan live in the <b>Phase 1 Content Calendar</b>.</div>
+  </div>
+
+  <!-- CHECKLIST -->
+  <div class="sec-label">⑥ Setup checklist — do this in order (≈ one afternoon)</div>
+  <div class="grid2">
+    <div class="panel">
+      <h3>🚀 Day-0 account setup</h3>
+      <ul class="clean">
+        <li><span class="ic">1️⃣</span> Claim <b>@skyquire</b> on LinkedIn, X, Instagram, YouTube, WhatsApp (+ grab fallbacks)</li>
+        <li><span class="ic">2️⃣</span> Set the same profile pic + banner everywhere</li>
+        <li><span class="ic">3️⃣</span> Paste the bios above; add the waitlist link (with UTM)</li>
+        <li><span class="ic">4️⃣</span> LinkedIn: create both <b>founder</b> + <b>company</b> page; link them</li>
+        <li><span class="ic">5️⃣</span> Instagram → switch to Professional account</li>
+        <li><span class="ic">6️⃣</span> Create the 2 WhatsApp communities; seed 5–10 contacts each</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h3>🧰 Tools &amp; first posts</h3>
+      <ul class="clean">
+        <li><span class="ic">7️⃣</span> Pick a scheduler — <b>Buffer</b> or <b>Typefully</b> (X) — batch week 1</li>
+        <li><span class="ic">8️⃣</span> Turn on the landing-page <b>waitlist + "skip the line" referral</b></li>
+        <li><span class="ic">9️⃣</span> Publish + <b>pin</b> the "I'm building Skyquire" post (see Launch Posts)</li>
+        <li><span class="ic">🔟</span> Set the newsletter (Resend/Substack) + welcome email</li>
+        <li><span class="ic">📊</span> Add UTMs so you can see what drives signups</li>
+        <li><span class="ic">🗓️</span> Block 30 min/day for replies &amp; comments — engagement &gt; posting</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="foot">Skyquire · Social Media Setup Kit · pairs with Marketing Road Path + Phase 1 Content Calendar · ready posts in Launch Posts</div>
+</body>
+</html>
