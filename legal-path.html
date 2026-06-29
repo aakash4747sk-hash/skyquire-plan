@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Skyquire — Legal Critical Path</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Bricolage+Grotesque:wght@600;700;800&display=swap" rel="stylesheet" />
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  :root{--sky:#38BDF8;--violet:#8B5CF6;--green:#34D399;--amber:#FBBF24;--pink:#F472B6;--red:#F87171;--text:#EAF1FB;--soft:rgba(234,241,251,.66);--dim:rgba(234,241,251,.42);--line:rgba(255,255,255,.1);--card:rgba(255,255,255,.03);}
+  body{font-family:'Inter',sans-serif;background:radial-gradient(ellipse 90% 55% at 50% -10%,#10213c,#070E1B);color:var(--text);min-height:100vh;padding:30px;}
+  h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif;letter-spacing:-.02em;}
+  .brand{font-weight:800;font-size:14px;} .brand span{color:var(--sky);}
+  h1{font-size:29px;font-weight:800;margin-top:6px;}
+  .sub{color:var(--soft);font-size:14px;margin:4px 0 8px;max-width:820px;line-height:1.55;}
+  .disclaimer{font-size:12.5px;color:#fcd34d;background:rgba(251,191,36,.08);border:1px solid rgba(251,191,36,.3);border-radius:12px;padding:12px 15px;line-height:1.55;margin:14px 0 4px;}
+  .meta{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 4px;}
+  .chip{font-size:12px;border:1px solid var(--line);background:var(--card);border-radius:100px;padding:6px 13px;color:var(--soft);}
+  .chip b{color:var(--text);}
+  .sec-label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);font-weight:600;margin:30px 0 14px;display:flex;align-items:center;gap:12px;}
+  .sec-label::after{content:'';flex:1;height:1px;background:var(--line);}
+  .lanes{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .lane{border:1px solid var(--line);border-radius:16px;padding:16px;background:var(--card);}
+  .lane h3{font-size:15px;display:flex;align-items:center;gap:8px;margin-bottom:2px;}
+  .lane .when{font-size:11px;color:var(--dim);margin-bottom:10px;}
+  .lane.now{border-color:rgba(248,113,113,.4);} .lane.pre{border-color:rgba(56,189,248,.32);} .lane.post{border-color:rgba(148,163,184,.28);}
+  ul.clean{list-style:none;}
+  ul.clean li{font-size:12.5px;color:var(--soft);padding:7px 0;border-bottom:1px solid var(--line);display:flex;gap:9px;line-height:1.45;}
+  ul.clean li:last-child{border:0;}
+  ul.clean li .ic{flex:none;}
+  ul.clean li b{color:var(--text);font-weight:600;}
+  .panel{border:1px solid var(--line);border-radius:16px;padding:18px;background:var(--card);}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .q{border-left:3px solid var(--amber);padding:6px 0 6px 12px;margin-bottom:12px;}
+  .q .qt{font-size:13px;font-weight:700;color:var(--text);font-family:'Bricolage Grotesque',sans-serif;}
+  .q .qd{font-size:12px;color:var(--soft);line-height:1.5;margin-top:3px;}
+  table{width:100%;border-collapse:collapse;font-size:12.5px;}
+  th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top;}
+  th{font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--dim);font-weight:600;}
+  td{color:var(--soft);} td.m{color:var(--text);font-weight:600;}
+  .pill{font-size:9px;font-weight:700;padding:1px 7px;border-radius:5px;}
+  .p-now{background:rgba(248,113,113,.18);color:#fca5a5;} .p-pre{background:rgba(56,189,248,.18);color:#7dd3fc;} .p-post{background:rgba(148,163,184,.18);color:#cbd5e1;}
+  .note{font-size:12.5px;color:var(--soft);background:rgba(56,189,248,.06);border:1px solid rgba(56,189,248,.25);border-radius:12px;padding:13px 15px;line-height:1.55;}
+  .foot{margin-top:24px;color:var(--dim);font-size:11.5px;text-align:center;}
+  @media(max-width:900px){.lanes,.grid2{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+  <div class="brand">Sky<span>quire</span> · Legal &amp; Compliance</div>
+  <h1>Legal Critical Path</h1>
+  <div class="sub">Everything from incorporation to a clean Dec&nbsp;19 launch, sequenced by urgency. The gating risk isn't paperwork (that runs on a timeline) — it's the <b>one regulatory question</b> that could reshape your fee model. Resolve it first.</div>
+  <div class="disclaimer">⚖️ <b>Not legal advice.</b> This is a planning roadmap, not a legal opinion. Engage a <b>CA</b> (entity/tax/GST) and a <b>company-secretary / lawyer</b> (securities, contracts, IP) on retainer now, and confirm every regulatory item below with them before acting — especially anything involving fees, securities, or handling money.</div>
+  <div class="meta">
+    <span class="chip">Owner <b>Founder + CA + lawyer</b></span>
+    <span class="chip">Entity <b>Pvt Ltd (in progress)</b></span>
+    <span class="chip">Gating item <b>Intermediary/SEBI question</b></span>
+    <span class="chip">Market <b>India · DPDP Act 2023</b></span>
+  </div>
+
+  <!-- THREE LANES -->
+  <div class="sec-label">① Sequenced by urgency</div>
+  <div class="lanes">
+    <div class="lane now">
+      <h3>🔴 Do NOW</h3>
+      <div class="when">This month · blocks everything else</div>
+      <ul class="clean">
+        <li><span class="ic">①</span> <b>Resolve the intermediary/SEBI question</b> with a securities lawyer (see §2). Shapes your whole fee model.</li>
+        <li><span class="ic">②</span> <b>Finish Pvt Ltd incorporation</b> — CoI, PAN, TAN. Open the <b>current account</b> in the company name.</li>
+        <li><span class="ic">③</span> <b>Engage a CA + lawyer on retainer.</b> Everything below flows through them.</li>
+        <li><span class="ic">④</span> <b>GST registration</b> — needed to raise tax invoices (incl. to CA partners / for any fees).</li>
+        <li><span class="ic">⑤</span> <b>Trademark "Skyquire"</b> — file early (classes 35, 36, 42); secure the .com + key handles (done).</li>
+      </ul>
+    </div>
+    <div class="lane pre">
+      <h3>🔵 Before launch</h3>
+      <div class="when">By Dec 19 · required to operate</div>
+      <ul class="clean">
+        <li><span class="ic">①</span> <b>Privacy Policy + DPDP compliance</b> — consent flows, data-handling, grievance officer (you store PII + financials).</li>
+        <li><span class="ic">②</span> <b>Terms of Service</b> + buyer/seller terms; clear <b>"marketplace, not an investment adviser"</b> + "not investment advice" disclaimers.</li>
+        <li><span class="ic">③</span> <b>Fee / commission agreement</b> + <b>seller listing agreement</b> + <b>buyer terms</b> (gated at the NDA step).</li>
+        <li><span class="ic">④</span> <b>NDA template</b> (click-wrap) for the confidential / deal-room stage.</li>
+        <li><span class="ic">⑤</span> <b>Startup India (DPIIT)</b> registration — tax benefits + credibility.</li>
+        <li><span class="ic">⑥</span> <b>Refund / cancellation policy</b> (once any fees go live).</li>
+      </ul>
+    </div>
+    <div class="lane post">
+      <h3>⚪ Post-launch</h3>
+      <div class="when">v1.x / v2 · as money flows</div>
+      <ul class="clean">
+        <li><span class="ic">①</span> <b>Escrow</b> via an RBI-regulated provider (Cashfree/Escrowpay) — don't custody funds yourself.</li>
+        <li><span class="ic">②</span> <b>Aadhaar eSign</b> via a licensed ASP (Leegality/SignDesk) for NDAs/LOIs.</li>
+        <li><span class="ic">③</span> <b>Automated GST invoicing</b> (18% on platform services) + ongoing ROC/ITR filings.</li>
+        <li><span class="ic">④</span> <b>ESOP pool / contractor agreements</b> as you bring on help.</li>
+        <li><span class="ic">⑤</span> Revisit the <b>regulatory posture</b> if you ever touch larger/listed-company deals.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- REGULATORY QUESTIONS -->
+  <div class="sec-label">② The regulatory questions to resolve (with your lawyer)</div>
+  <div class="panel">
+    <div class="q">
+      <div class="qt">1. Does running a business-sale / M&amp;A marketplace trigger SEBI licensing?</div>
+      <div class="qd">For <b>private SMB sales</b> (selling a business as a going concern, or shares of an unlisted private company), this generally isn't dealing in "securities" the way listed-market broking is — so SEBI merchant-banker/broker rules typically don't apply. <b>But</b>: if you give deal-specific <b>investment advice</b> for a fee, the <b>SEBI (Investment Advisers) Regulations</b> could be implicated; and larger/structured equity deals get more sensitive. <b>Action:</b> get a written opinion from a securities lawyer on (a) marketplace vs adviser framing, (b) whether your fee model is "advisory," (c) any thresholds to stay under. Lean into <b>"marketplace + tools,"</b> not "advice."</div>
+    </div>
+    <div class="q">
+      <div class="qt">2. Can you charge success / referral fees — and pay CAs referral fees?</div>
+      <div class="qd">Brokerage/finder fees on private business sales are common, but the <b>structure</b> matters (who pays, when, GST treatment, whether it reads as regulated "advice"). Paying CA partners referral fees (core to the supply plan) must be a clean, documented arrangement. <b>Action:</b> have the lawyer/CA design the fee + referral structure before you sign CA partners at scale.</div>
+    </div>
+    <div class="q">
+      <div class="qt">3. Handling money / escrow</div>
+      <div class="qd">Do <b>not</b> take custody of deal funds yourself — that invites payment-system/RBI exposure. <b>Action:</b> route any money through a regulated <b>escrow</b> provider (post-launch). Until then, you only facilitate; funds move directly between parties.</div>
+    </div>
+    <div class="q">
+      <div class="qt">4. Data protection (DPDP Act 2023)</div>
+      <div class="qd">You collect PII + sensitive financials from both sides. The <b>Digital Personal Data Protection Act, 2023</b> requires lawful consent, purpose limitation, security safeguards, and a grievance/contact mechanism. <b>Action:</b> publish a compliant privacy policy, build consent into signup/listing, and document your data-handling. (Your RLS + verification model already help.)</div>
+    </div>
+    <div class="q" style="margin-bottom:0;">
+      <div class="qt">5. Cross-border (FEMA) — only if relevant</div>
+      <div class="qd">If a buyer or seller is non-resident, <b>FEMA</b> rules on foreign investment/repatriation apply. <b>Action:</b> keep v1 <b>domestic-only</b>; revisit before enabling cross-border deals.</div>
+    </div>
+  </div>
+
+  <!-- DOCS CHECKLIST -->
+  <div class="sec-label">③ Documents checklist — what your lawyer drafts</div>
+  <div class="panel">
+    <table>
+      <tr><th>Document</th><th>Purpose</th><th>When</th></tr>
+      <tr><td class="m">Privacy Policy (DPDP-compliant)</td><td>Lawful data handling + consent + grievance contact</td><td><span class="pill p-pre">Before launch</span></td></tr>
+      <tr><td class="m">Terms of Service</td><td>Platform rules; "marketplace, not adviser"; liability limits</td><td><span class="pill p-pre">Before launch</span></td></tr>
+      <tr><td class="m">Seller listing agreement</td><td>Right to list, verification consent, confidentiality, fees</td><td><span class="pill p-pre">Before launch</span></td></tr>
+      <tr><td class="m">Buyer terms + NDA (click-wrap)</td><td>Confidentiality gate before financials/deal room</td><td><span class="pill p-pre">Before launch</span></td></tr>
+      <tr><td class="m">Fee / commission agreement</td><td>What you charge, when, GST; success-fee structure</td><td><span class="pill p-pre">Before launch</span></td></tr>
+      <tr><td class="m">CA / advisor referral agreement</td><td>Clean referral-fee arrangement for the supply flywheel</td><td><span class="pill p-now">Now-ish</span></td></tr>
+      <tr><td class="m">Disclaimers ("not investment advice")</td><td>On valuation, health score, DD outputs, AI features</td><td><span class="pill p-pre">Before launch</span></td></tr>
+      <tr><td class="m">Refund / cancellation policy</td><td>Required once fees go live</td><td><span class="pill p-pre">Before launch</span></td></tr>
+      <tr><td class="m">Escrow + eSign vendor terms</td><td>Regulated money movement + e-signatures</td><td><span class="pill p-post">Post-launch</span></td></tr>
+    </table>
+  </div>
+
+  <!-- ENTITY/COMPLIANCE -->
+  <div class="sec-label">④ Entity &amp; ongoing compliance</div>
+  <div class="grid2">
+    <div class="panel">
+      <h3 style="font-size:15px;margin-bottom:10px;">🏛️ Set up (front-loaded)</h3>
+      <ul class="clean">
+        <li><span class="ic">→</span> <b>Pvt Ltd</b>: CoI, PAN, TAN, MoA/AoA</li>
+        <li><span class="ic">→</span> <b>Current account</b> in the company name</li>
+        <li><span class="ic">→</span> <b>GST</b> registration + <b>Professional Tax</b> (state-dependent)</li>
+        <li><span class="ic">→</span> <b>Startup India (DPIIT)</b> recognition</li>
+        <li><span class="ic">→</span> <b>Trademark</b> filing (classes 35/36/42); domain + handle protection</li>
+        <li><span class="ic">→</span> <b>MSME/Udyam</b> registration (optional, light)</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h3 style="font-size:15px;margin-bottom:10px;">🔁 Ongoing (don't let these slip)</h3>
+      <ul class="clean">
+        <li><span class="ic">→</span> <b>GST returns</b> (monthly/quarterly) once registered</li>
+        <li><span class="ic">→</span> <b>ROC annual filings</b> (AOC-4, MGT-7) + board minutes</li>
+        <li><span class="ic">→</span> <b>Income-tax returns</b>; TDS where applicable</li>
+        <li><span class="ic">→</span> <b>Statutory registers</b> &amp; compliance calendar (your CA runs this)</li>
+        <li><span class="ic">→</span> <b>DPDP</b> obligations as data volume grows</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note" style="margin-top:18px;">🧭 <b>The one thing to do this week:</b> book a securities lawyer and get a written read on the SEBI/adviser question (§2.1). It's the only legal item that can change your <b>product framing and revenue model</b> — and it directly gates the CA referral-fee structure your <b>Supply / Cold-Start Plan</b> depends on. Everything else is a scheduled checklist your CA + lawyer can run in parallel.</div>
+
+  <div class="foot">Skyquire · Legal Critical Path · planning roadmap, not legal advice · confirm every item with your CA + lawyer</div>
+</body>
+</html>
