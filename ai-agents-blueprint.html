@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Skyquire — AI Agents Blueprint</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Bricolage+Grotesque:wght@600;700;800&display=swap" rel="stylesheet" />
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  :root{--sky:#38BDF8;--violet:#8B5CF6;--green:#34D399;--amber:#FBBF24;--red:#F87171;--pink:#F472B6;--text:#EAF1FB;--soft:rgba(234,241,251,.66);--dim:rgba(234,241,251,.42);--line:rgba(255,255,255,.1);--card:rgba(255,255,255,.03);}
+  body{font-family:'Inter',sans-serif;background:radial-gradient(ellipse 90% 55% at 50% -10%,#1a1033,#070E1B);color:var(--text);min-height:100vh;padding:30px;}
+  h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif;letter-spacing:-.02em;}
+  .brand{font-weight:800;font-size:14px;} .brand span{color:var(--violet);}
+  h1{font-size:29px;font-weight:800;margin-top:6px;}
+  .sub{color:var(--soft);font-size:14px;margin:4px 0 8px;max-width:830px;line-height:1.55;}
+  .meta{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 4px;}
+  .chip{font-size:12px;border:1px solid var(--line);background:var(--card);border-radius:100px;padding:6px 13px;color:var(--soft);}
+  .chip b{color:var(--text);}
+  .sec-label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);font-weight:600;margin:32px 0 14px;display:flex;align-items:center;gap:12px;}
+  .sec-label::after{content:'';flex:1;height:1px;background:var(--line);}
+  .flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+  .step{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:8px 12px;font-size:12px;font-weight:600;}
+  .step .a{display:block;font-size:10px;color:var(--violet);font-weight:700;margin-top:2px;}
+  .arrow{color:var(--dim);font-size:13px;}
+  .agents{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .agent{border:1px solid var(--line);border-radius:16px;padding:16px;background:var(--card);}
+  .agent h3{font-size:15px;display:flex;align-items:center;gap:8px;margin-bottom:2px;}
+  .auto{font-size:9px;font-weight:800;padding:2px 8px;border-radius:6px;margin-left:auto;white-space:nowrap;}
+  .a-suggest{background:rgba(56,189,248,.18);color:#7dd3fc;} .a-draft{background:rgba(251,191,36,.18);color:#fcd34d;} .a-act{background:rgba(52,211,153,.18);color:#6ee7b7;}
+  .agent .role{font-size:11.5px;color:var(--dim);margin-bottom:9px;}
+  .agent ul{list-style:none;}
+  .agent li{font-size:12px;color:var(--soft);padding:5px 0;display:flex;gap:8px;line-height:1.4;}
+  .agent li .ic{flex:none;color:var(--violet);}
+  .agent .tools{font-size:10.5px;color:var(--dim);margin-top:8px;padding-top:8px;border-top:1px solid var(--line);}
+  .panel{border:1px solid var(--line);border-radius:16px;padding:18px;background:var(--card);}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  ul.clean{list-style:none;}
+  ul.clean li{font-size:12.5px;color:var(--soft);padding:7px 0;border-bottom:1px solid var(--line);display:flex;gap:9px;line-height:1.45;}
+  ul.clean li:last-child{border:0;} ul.clean li .ic{flex:none;} ul.clean li b{color:var(--text);font-weight:600;}
+  table{width:100%;border-collapse:collapse;font-size:12.5px;}
+  th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top;}
+  th{font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--dim);font-weight:600;}
+  td{color:var(--soft);} td.m{color:var(--text);font-weight:600;}
+  .pill{font-size:9px;font-weight:700;padding:1px 7px;border-radius:5px;}
+  .p1{background:rgba(52,211,153,.18);color:#6ee7b7;} .p2{background:rgba(56,189,248,.18);color:#7dd3fc;} .p3{background:rgba(148,163,184,.18);color:#cbd5e1;}
+  .note{font-size:12.5px;color:var(--soft);background:rgba(139,92,246,.08);border:1px solid rgba(139,92,246,.25);border-radius:12px;padding:13px 15px;line-height:1.55;}
+  .guard{border-left:3px solid var(--red);padding:4px 0 4px 12px;margin-bottom:11px;}
+  .guard .gt{font-size:13px;font-weight:700;color:var(--text);font-family:'Bricolage Grotesque',sans-serif;}
+  .guard .gd{font-size:12px;color:var(--soft);line-height:1.5;margin-top:3px;}
+  .foot{margin-top:24px;color:var(--dim);font-size:11.5px;text-align:center;}
+  @media(max-width:900px){.agents,.grid2{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+  <div class="brand">Sky<span>quire</span> · AI Strategy</div>
+  <h1>AI Agents Blueprint</h1>
+  <div class="sub">Skyquire is a <b>mediated marketplace</b> — a human sits in the middle of every listing, conversation, and deal. That's what makes it trustworthy, and what won't scale. This blueprint turns "AI features" into an <b>agentic operations layer</b>: a team of specialized agents that run the back office so one founder operates like a 10-person M&amp;A firm — with you approving anything that matters.</div>
+  <div class="meta">
+    <span class="chip">Model <b>AI-native, human-in-the-loop</b></span>
+    <span class="chip">Goal <b>Remove the founder bottleneck</b></span>
+    <span class="chip">Autonomy <b>Suggest · Draft · Act (gated)</b></span>
+    <span class="chip">Status <b>Plan — not built yet</b></span>
+  </div>
+
+  <!-- VALUE CHAIN -->
+  <div class="sec-label">① The value chain &amp; where humans choke</div>
+  <div class="panel">
+    <div class="flow">
+      <div class="step">Source<span class="a">Scout</span></div><span class="arrow">→</span>
+      <div class="step">Verify<span class="a">Verifier</span></div><span class="arrow">→</span>
+      <div class="step">List<span class="a">Curator</span></div><span class="arrow">→</span>
+      <div class="step">Match<span class="a">Aria+</span></div><span class="arrow">→</span>
+      <div class="step">Inquire / Mediate<span class="a">Relay</span></div><span class="arrow">→</span>
+      <div class="step">Diligence<span class="a">Diligence</span></div><span class="arrow">→</span>
+      <div class="step">Negotiate / Close<span class="a">Coordinator</span></div>
+    </div>
+    <div class="note" style="margin-top:14px;">Today every box is <b>you</b>, manually. The four that choke first as volume grows: <b>sourcing supply</b> (the #1 launch risk), <b>verifying every listing</b>, <b>mediating every conversation</b>, and <b>deal coordination</b>. The agent team below maps one specialist to each box.</div>
+  </div>
+
+  <!-- AGENT ROSTER -->
+  <div class="sec-label">② The agent team — what each does &amp; how much it's trusted</div>
+  <div class="agents">
+    <div class="agent">
+      <h3>🔭 Scout <span class="auto a-draft">Draft</span></h3>
+      <div class="role">Sourcing — attacks the #1 risk: supply.</div>
+      <ul>
+        <li><span class="ic">▹</span> Finds likely-to-sell businesses from permissioned public sources</li>
+        <li><span class="ic">▹</span> Drafts personalized outreach (owner / CA / broker)</li>
+        <li><span class="ic">▹</span> Qualifies + scores inbound seller leads</li>
+        <li><span class="ic">▹</span> Tracks the CA-partner pipeline &amp; follow-ups</li>
+      </ul>
+      <div class="tools">Tools: web search · Supabase · email/WhatsApp drafts · the Supply plan's scripts</div>
+    </div>
+    <div class="agent">
+      <h3>🛡️ Verifier <span class="auto a-suggest">Suggest</span></h3>
+      <div class="role">First-pass listing verification.</div>
+      <ul>
+        <li><span class="ic">▹</span> Parses uploaded docs (P&amp;L, balance sheet, GST, MCA)</li>
+        <li><span class="ic">▹</span> Validates GSTIN / CIN; cross-checks the numbers</li>
+        <li><span class="ic">▹</span> Pre-fills your verification checklist + flags red flags</li>
+        <li><span class="ic">▹</span> You approve — never auto-verifies</li>
+      </ul>
+      <div class="tools">Tools: doc parsing · Supabase storage · verification_checkpoints · (extends the DD assistant)</div>
+    </div>
+    <div class="agent">
+      <h3>✍️ Curator <span class="auto a-draft">Draft</span></h3>
+      <div class="role">Raw submission → polished, anonymized teaser.</div>
+      <ul>
+        <li><span class="ic">▹</span> Writes description, highlights, sector tags</li>
+        <li><span class="ic">▹</span> Generates the embedding (you already auto-embed)</li>
+        <li><span class="ic">▹</span> Asking-price sanity check vs sector comps</li>
+        <li><span class="ic">▹</span> Strips identifying details (confidentiality)</li>
+      </ul>
+      <div class="tools">Tools: Anthropic · pgvector · business_listings</div>
+    </div>
+    <div class="agent">
+      <h3>✦ Aria+ <span class="auto a-act">Act (alerts)</span></h3>
+      <div class="role">Proactive matchmaking — already half-built.</div>
+      <ul>
+        <li><span class="ic">▹</span> On a new listing, finds the buyers/mandates it fits</li>
+        <li><span class="ic">▹</span> Queues match alerts (email/in-app)</li>
+        <li><span class="ic">▹</span> Explains *why* it's a fit (scored, like today)</li>
+      </ul>
+      <div class="tools">Tools: pgvector match_listings · buyer_profiles · saved_searches · notifications</div>
+    </div>
+    <div class="agent">
+      <h3>📨 Relay <span class="auto a-draft">Draft</span></h3>
+      <div class="role">Mediation — the highest-leverage agent.</div>
+      <ul>
+        <li><span class="ic">▹</span> Drafts the buyer↔team↔seller relay messages</li>
+        <li><span class="ic">▹</span> Auto-answers common buyer questions from listing data</li>
+        <li><span class="ic">▹</span> Triages inquiries by seriousness; summarizes threads</li>
+        <li><span class="ic">▹</span> You hit send — confidentiality wall enforced</li>
+      </ul>
+      <div class="tools">Tools: messages · inquiries · listing context · Anthropic</div>
+    </div>
+    <div class="agent">
+      <h3>🩺 Diligence <span class="auto a-suggest">Suggest</span></h3>
+      <div class="role">DD assistant, grown up (post-launch).</div>
+      <ul>
+        <li><span class="ic">▹</span> Ingests a data room → structured DD report</li>
+        <li><span class="ic">▹</span> Generates the buyer's diligence question list</li>
+        <li><span class="ic">▹</span> Risk &amp; anomaly flags, health score</li>
+      </ul>
+      <div class="tools">Tools: deal_room_documents · doc parsing · /api/ai/diligence</div>
+    </div>
+    <div class="agent">
+      <h3>🧭 Coordinator <span class="auto a-draft">Draft</span></h3>
+      <div class="role">Deal progression (post-launch).</div>
+      <ul>
+        <li><span class="ic">▹</span> Moves deals through stages; nudges stalled ones</li>
+        <li><span class="ic">▹</span> Drafts NDAs / LOIs from templates</li>
+        <li><span class="ic">▹</span> Status summaries for both sides</li>
+      </ul>
+      <div class="tools">Tools: deals · deal_tasks · scheduled tasks · email</div>
+    </div>
+    <div class="agent">
+      <h3>📣 Marketer <span class="auto a-draft">Draft</span></h3>
+      <div class="role">Feeds the content engine.</div>
+      <ul>
+        <li><span class="ic">▹</span> Drafts daily posts from the content calendar</li>
+        <li><span class="ic">▹</span> Repurposes one idea into many formats</li>
+        <li><span class="ic">▹</span> Drafts waitlist nurture emails</li>
+      </ul>
+      <div class="tools">Tools: content calendar · waitlist · Anthropic</div>
+    </div>
+  </div>
+
+  <!-- ARCHITECTURE -->
+  <div class="sec-label">③ Architecture — how the team fits together</div>
+  <div class="grid2">
+    <div class="panel">
+      <h3 style="font-size:15px;margin-bottom:10px;">🧱 The shape</h3>
+      <ul class="clean">
+        <li><span class="ic">→</span> An <b>orchestrator</b> routes work to specialist sub-agents (each a focused prompt + tool set).</li>
+        <li><span class="ic">→</span> <b>Event-triggered</b> agents fire on a submission / inquiry / new listing.</li>
+        <li><span class="ic">→</span> <b>Proactive</b> agents (Scout, Aria+) run as <b>scheduled tasks</b>.</li>
+        <li><span class="ic">→</span> Output lands as <b>drafts &amp; suggestions in the admin console</b> — your existing approval surface.</li>
+        <li><span class="ic">→</span> Built on what exists: Anthropic API in routes, pgvector, the DD assistant, auto-embed.</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h3 style="font-size:15px;margin-bottom:10px;">🧰 Shared tools (the agent toolbox)</h3>
+      <ul class="clean">
+        <li><span class="ic">→</span> <b>Supabase</b> (RLS-scoped reads/writes) — listings, inquiries, messages, deals</li>
+        <li><span class="ic">→</span> <b>pgvector</b> semantic search / matching</li>
+        <li><span class="ic">→</span> <b>Document parsing</b> (financials, GST, MCA PDFs)</li>
+        <li><span class="ic">→</span> <b>Web search</b> (sourcing, comps)</li>
+        <li><span class="ic">→</span> <b>Messaging</b> (email via Resend, WhatsApp later) — draft-only by default</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- GUARDRAILS -->
+  <div class="sec-label">④ Guardrails — non-negotiable</div>
+  <div class="panel">
+    <div class="guard">
+      <div class="gt">1. Human-approval gate on every side-effectful action</div>
+      <div class="gd">Sending a message, publishing a listing, charging a fee, moving money — an agent <b>drafts</b>; a human <b>commits</b>. Agents never auto-send to a buyer/seller or auto-verify.</div>
+    </div>
+    <div class="guard">
+      <div class="gt">2. Confidentiality wall</div>
+      <div class="gd">Agents must never leak buyer ↔ seller identity across the mediated channel. The Relay agent works within the same channel isolation your RLS already enforces.</div>
+    </div>
+    <div class="guard" style="margin-bottom:0;">
+      <div class="gt">3. Compliance line — no investment advice</div>
+      <div class="gd">Agents present <b>information &amp; tools</b>, never "advice" or return promises. This keeps the product on the right side of the SEBI/adviser question (see Legal Critical Path) and must be in every agent's system prompt.</div>
+    </div>
+  </div>
+
+  <!-- PHASING -->
+  <div class="sec-label">⑤ Rollout — start where the bottleneck is sharpest</div>
+  <div class="panel">
+    <table>
+      <tr><th>Phase</th><th>Agents</th><th>Why first</th><th>When</th></tr>
+      <tr><td class="m">Phase 1 · Ops core</td><td>Relay · Verifier · Curator</td><td>Multiplies conversations you can handle + turns a 30-min listing into a 3-min review. Highest leverage, lowest risk (all draft/suggest).</td><td><span class="pill p1">Now-ish</span></td></tr>
+      <tr><td class="m">Phase 2 · Supply &amp; match</td><td>Scout · Aria+</td><td>Scout feeds the #1 risk (supply); Aria+ activates demand. Scout needs quality/compliance care, so it follows the safe ops agents.</td><td><span class="pill p2">Pre-launch</span></td></tr>
+      <tr><td class="m">Phase 3 · Deal engine</td><td>Diligence · Coordinator · Marketer</td><td>Matter most once real deals flow; Marketer can start anytime to feed content.</td><td><span class="pill p3">Post-launch</span></td></tr>
+    </table>
+    <div class="note" style="margin-top:14px;">🎯 <b>Recommended first build: the Relay agent.</b> Mediation is your core scaling limit — every extra conversation today costs your time. A draft-and-approve relay assistant in the admin console gives the biggest leverage for the least risk, and proves the agentic pattern you'll reuse for the rest.</div>
+  </div>
+
+  <!-- POSITIONING -->
+  <div class="sec-label">⑥ Bonus — the positioning upside</div>
+  <div class="note">Beyond operations, this is a <b>story</b>. Your landing page already says "powered by AI" — an agentic ops layer makes Skyquire a genuinely <b>AI-native M&amp;A platform</b>, not a directory with a chatbot. That's a sharper wedge for press, partners, and investors: <i>"one founder running an M&amp;A firm with an AI back office."</i> Build it for leverage; it pays off twice as narrative.</div>
+
+  <div class="foot">Skyquire · AI Agents Blueprint · plan, not built · pairs with Supply, Legal &amp; the Enhancement roadmap</div>
+</body>
+</html>
