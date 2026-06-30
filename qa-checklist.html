@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Skyquire — Release QA Checklist</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Bricolage+Grotesque:wght@600;700;800&display=swap" rel="stylesheet" />
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  :root{--sky:#38BDF8;--violet:#8B5CF6;--green:#34D399;--amber:#FBBF24;--red:#F87171;--pink:#F472B6;--text:#EAF1FB;--soft:rgba(234,241,251,.62);--dim:rgba(234,241,251,.4);--line:rgba(255,255,255,.1);}
+  body{font-family:'Inter',sans-serif;background:radial-gradient(ellipse 90% 50% at 50% -10%,#10213c,#070E1B);color:var(--text);min-height:100vh;padding:30px;}
+  h1,h2{font-family:'Bricolage Grotesque',sans-serif;letter-spacing:-.02em;}
+  .brand{font-weight:800;font-size:14px;} .brand span{color:var(--sky);}
+  h1{font-size:27px;font-weight:800;margin-top:6px;}
+  .sub{color:var(--soft);font-size:13px;margin:4px 0 6px;max-width:780px;line-height:1.5;}
+  .progwrap{position:sticky;top:0;background:rgba(7,14,27,.92);backdrop-filter:blur(10px);padding:14px 0;margin:12px 0 8px;border-bottom:1px solid var(--line);z-index:5;}
+  .progrow{display:flex;align-items:center;gap:14px;}
+  .bar{flex:1;height:10px;border-radius:100px;background:rgba(255,255,255,.08);overflow:hidden;}
+  .fill{height:100%;width:0;background:linear-gradient(90deg,#38bdf8,#34d399);transition:width .35s ease;}
+  .pct{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:18px;min-width:54px;text-align:right;}
+  .reset{font-size:11px;color:var(--dim);background:none;border:1px solid var(--line);border-radius:8px;padding:6px 12px;cursor:pointer;}
+  .reset:hover{color:var(--soft);border-color:var(--soft);}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:14px;}
+  .sec{border:1px solid var(--line);border-radius:16px;padding:18px;background:rgba(255,255,255,.025);}
+  .sec.full{grid-column:1 / -1;}
+  .sec h2{font-size:15px;display:flex;align-items:center;gap:9px;margin-bottom:3px;}
+  .sec .sc{font-size:11px;color:var(--dim);margin-bottom:12px;}
+  .secn{margin-left:auto;font-size:11px;color:var(--soft);font-family:'Bricolage Grotesque',sans-serif;font-weight:700;}
+  label.item{display:flex;gap:11px;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--line);font-size:13px;color:var(--soft);cursor:pointer;line-height:1.45;}
+  label.item:last-child{border-bottom:0;}
+  label.item input{appearance:none;flex:none;width:18px;height:18px;border:1.5px solid var(--line);border-radius:6px;margin-top:1px;cursor:pointer;transition:all .15s;position:relative;}
+  label.item input:checked{background:linear-gradient(135deg,#38bdf8,#0ea5e9);border-color:#38bdf8;}
+  label.item input:checked::after{content:'✓';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:12px;color:#04121f;font-weight:800;}
+  label.item input:checked + span{color:var(--dim);text-decoration:line-through;}
+  .tag{font-size:9px;font-weight:700;padding:1px 6px;border-radius:5px;margin-left:6px;white-space:nowrap;}
+  .t-block{background:rgba(248,113,113,.18);color:#fca5a5;} .t-cfg{background:rgba(251,191,36,.18);color:#fcd34d;}
+  .legend{display:flex;gap:14px;flex-wrap:wrap;font-size:11px;color:var(--dim);margin-top:8px;}
+  .foot{margin-top:22px;color:var(--dim);font-size:11.5px;text-align:center;}
+  @media(max-width:840px){.grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<nav style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;padding:9px 14px;margin-bottom:18px;background:rgba(7,14,27,.6);border:1px solid rgba(255,255,255,.1);border-radius:12px;">
+  <span style="font-weight:800;font-size:13px;color:#EAF1FB;">Sky<span style="color:#38BDF8;">quire</span></span>
+  <span style="color:rgba(234,241,251,.25);font-size:12px;">/ Release QA</span>
+  <a href="index.html" style="margin-left:auto;font-size:12px;color:#38BDF8;text-decoration:none;">All plans →</a>
+</nav>
+
+  <div class="brand">Sky<span>quire</span> · Quality</div>
+  <h1>Release QA Checklist</h1>
+  <div class="sub">Run this end-to-end smoke test on the <b>production</b> URL (hash-free domain, not a preview) before every release. Your progress is saved in this browser. <span style="color:#fca5a5;">RELEASE&nbsp;BLOCKER</span> items must pass before shipping; <span style="color:#fcd34d;">CONFIG</span> items are dashboard/env setup.</div>
+
+  <div class="progwrap">
+    <div class="progrow">
+      <div class="bar"><div class="fill" id="fill"></div></div>
+      <div class="pct" id="pct">0%</div>
+      <button class="reset" onclick="resetQA()">Reset</button>
+    </div>
+    <div class="legend"><span>✅ tick as you verify on the live site</span><span>·</span><span id="count">0 / 0 checks</span></div>
+  </div>
+
+  <div class="grid">
+
+    <!-- PRE-FLIGHT -->
+    <div class="sec full">
+      <h2>🚦 Pre-flight <span class="secn" data-counter></span></h2>
+      <div class="sc">Before you click anything — confirm you're testing the right build with config in place.</div>
+      <label class="item"><input type="checkbox"><span>On the <b>production</b> domain (no random <code>-hash-</code> in the URL) <span class="tag t-block">BLOCKER</span></span></label>
+      <label class="item"><input type="checkbox"><span>Latest commit is deployed (Vercel "Production · Current")</span></label>
+      <label class="item"><input type="checkbox"><span>Vercel env vars set: <code>NEXT_PUBLIC_SENTRY_DSN</code>, <code>UPSTASH_REDIS_*</code>, <code>RESEND_API_KEY</code> + <code>RESEND_FROM</code> <span class="tag t-cfg">CONFIG</span></span></label>
+      <label class="item"><input type="checkbox"><span>Supabase → Auth → <b>leaked-password protection</b> enabled <span class="tag t-cfg">CONFIG</span></span></label>
+    </div>
+
+    <!-- AUTH -->
+    <div class="sec">
+      <h2>🔑 Auth <span class="secn" data-counter></span></h2>
+      <div class="sc">Both account types, in and out.</div>
+      <label class="item"><input type="checkbox"><span>Register a <b>buyer</b> account → lands in buyer dashboard <span class="tag t-block">BLOCKER</span></span></label>
+      <label class="item"><input type="checkbox"><span>Register a <b>corporate</b> account → lands in corporate dashboard</span></label>
+      <label class="item"><input type="checkbox"><span>Log out, log back in → correct dashboard by user type <span class="tag t-block">BLOCKER</span></span></label>
+      <label class="item"><input type="checkbox"><span>Refresh a deep page (e.g. /buyer-dashboard/settings) → <b>no false logout</b></span></label>
+      <label class="item"><input type="checkbox"><span>"Forgot password" sends the reset email</span></label>
+    </div>
+
+    <!-- BUYER -->
+    <div class="sec">
+      <h2>🛒 Buyer flow <span class="secn" data-counter></span></h2>
+      <div class="sc">The core marketplace journey.</div>
+      <label class="item"><input type="checkbox"><span>AI Matchmaker (Aria) completes → profile saved <span class="tag t-block">BLOCKER</span></span></label>
+      <label class="item"><input type="checkbox"><span>Browse loads listings; <b>✓ Verified</b> badge shows on verified ones <span class="tag t-block">BLOCKER</span></span></label>
+      <label class="item"><input type="checkbox"><span>Sector + budget filters work; ✨ Smart (semantic) search returns results</span></label>
+      <label class="item"><input type="checkbox"><span>Save a listing (♥) → appears in Saved tab</span></label>
+      <label class="item"><input type="checkbox"><span>"★ Save this search" → appears under Saved with a "new" count + alert toggle</span></label>
+      <label class="item"><input type="checkbox"><span>Open a listing → Express Interest creates an inquiry <span class="tag t-block">BLOCKER</span></span></label>
+      <label class="item"><input type="checkbox"><span>Make an offer (amount/structure/terms) → submits successfully <span class="tag t-block">BLOCKER</span></span></label>
+      <label class="item"><input type="checkbox"><span>My Inquiries shows <b>both</b> the offer and the inquiry with correct status</span></label>
+      <label class="item"><input type="checkbox"><span>Settings: edit profile/prefs, change password — all persist</span></label>
+    </div>
+
+    <!-- SELLER -->
+    <div class="sec">
+      <h2>🏷️ Seller app <span class="secn" data-counter></span></h2>
+      <div class="sc">Separate app — submit → verify pipeline.</div>
+      <label class="item"><input type="checkbox"><span>Register a seller account → seller dashboard <span class="tag t-block">BLOCKER</span></span></label>
+      <label class="item"><input type="checkbox"><span>Submit a business (wizard) with document upload <span class="tag t-block">BLOCKER</span></span></label>
+      <label class="item"><input type="checkbox"><span>Submission shows correct status in the tracker</span></label>
+      <label class="item"><input type="checkbox"><span>Messages tab loads (no buyer identity leaked)</span></label>
+    </div>
+
+    <!-- ADMIN -->
+    <div class="sec">
+      <h2>🛡️ Admin console <span class="secn" data-counter></span></h2>
+      <div class="sc">At <code>/admin</code> as your admin account.</div>
+      <label class="item"><input type="checkbox"><span>Verification queue shows the new submission <span class="tag t-block">BLOCKER</span></span></label>
+      <label class="item"><input type="checkbox"><span>Run checklist → "Approve &amp; publish" → listing goes live <b>Verified</b> in Browse <span class="tag t-block">BLOCKER</span></span></label>
+      <label class="item"><input type="checkbox"><span>Inquiries: buyer <b>name + email</b> populated (not "—") <span class="tag t-block">BLOCKER</span></span></label>
+      <label class="item"><input type="checkbox"><span>Offers tab lists the buyer's offer; status dropdown updates</span></label>
+      <label class="item"><input type="checkbox"><span>Users page loads; admin gate blocks non-admins from /admin</span></label>
+    </div>
+
+    <!-- MESSAGING -->
+    <div class="sec">
+      <h2>💬 Mediated messaging <span class="secn" data-counter></span></h2>
+      <div class="sc">Buyer ↔ team ↔ seller, kept separate.</div>
+      <label class="item"><input type="checkbox"><span>Buyer sends a message on an inquiry → appears in admin "Chat with Buyer" <span class="tag t-block">BLOCKER</span></span></label>
+      <label class="item"><input type="checkbox"><span>Admin "Relay to Seller" → reaches the seller app inbox <span class="tag t-block">BLOCKER</span></span></label>
+      <label class="item"><input type="checkbox"><span>Buyer does <b>not</b> see seller-channel messages, and vice-versa</span></label>
+      <label class="item"><input type="checkbox"><span>New messages appear in real time (no manual refresh)</span></label>
+    </div>
+
+    <!-- MOBILE -->
+    <div class="sec">
+      <h2>📱 Mobile app <span class="secn" data-counter></span></h2>
+      <div class="sc"><code>npx expo start</code> → Expo Go or a build.</div>
+      <label class="item"><input type="checkbox"><span>Login → correct tabs by user type <span class="tag t-block">BLOCKER</span></span></label>
+      <label class="item"><input type="checkbox"><span>Browse loads; Verified badge shows; open a listing</span></label>
+      <label class="item"><input type="checkbox"><span>Make an offer → confirms; appears in web admin Offers <span class="tag t-block">BLOCKER</span></span></label>
+      <label class="item"><input type="checkbox"><span>My Offers section in Inquiries shows it</span></label>
+      <label class="item"><input type="checkbox"><span>Saved searches list + tap opens Browse pre-filtered</span></label>
+      <label class="item"><input type="checkbox"><span>Inquiry chat sends/receives messages</span></label>
+    </div>
+
+    <!-- CROSS-CUTTING -->
+    <div class="sec">
+      <h2>🧪 Cross-cutting <span class="secn" data-counter></span></h2>
+      <div class="sc">Quality, resilience, performance.</div>
+      <label class="item"><input type="checkbox"><span>Keyboard-only: Tab reaches all controls; visible focus ring; Esc closes the offer modal</span></label>
+      <label class="item"><input type="checkbox"><span>Lighthouse → Accessibility score checked (note the number)</span></label>
+      <label class="item"><input type="checkbox"><span>Lighthouse → Performance; key pages load &lt; ~3s on mobile</span></label>
+      <label class="item"><input type="checkbox"><span>Trigger an error → friendly fallback shows; event appears in Sentry (if DSN set)</span></label>
+      <label class="item"><input type="checkbox"><span>Spam an AI endpoint → 429 rate-limit kicks in (if Upstash set)</span></label>
+      <label class="item"><input type="checkbox"><span>Responsive: pages usable at 375px width (phone) and tablet</span></label>
+      <label class="item"><input type="checkbox"><span>No secrets/console errors leaking in the browser devtools</span></label>
+    </div>
+
+    <!-- SIGN-OFF -->
+    <div class="sec full">
+      <h2>✅ Sign-off <span class="secn" data-counter></span></h2>
+      <div class="sc">Don't ship until these are green.</div>
+      <label class="item"><input type="checkbox"><span>All <span style="color:#fca5a5;">BLOCKER</span> items above pass <span class="tag t-block">BLOCKER</span></span></label>
+      <label class="item"><input type="checkbox"><span>Tester name + date recorded; any failures logged as issues</span></label>
+      <label class="item"><input type="checkbox"><span>Release notes / changelog updated</span></label>
+    </div>
+
+  </div>
+
+  <div class="foot">Skyquire · Release QA Checklist · run on production before every ship · progress saved locally</div>
+
+<script>
+  const KEY = 'skyquire_qa_v1';
+  const boxes = Array.from(document.querySelectorAll('label.item input'));
+  // assign stable ids by index
+  boxes.forEach((b,i)=>b.dataset.qi=i);
+  function load(){
+    let saved={};
+    try{ saved=JSON.parse(localStorage.getItem(KEY)||'{}'); }catch(e){}
+    boxes.forEach(b=>{ b.checked=!!saved[b.dataset.qi]; });
+  }
+  function save(){
+    const s={}; boxes.forEach(b=>{ if(b.checked) s[b.dataset.qi]=1; });
+    localStorage.setItem(KEY, JSON.stringify(s));
+  }
+  function refresh(){
+    const total=boxes.length, done=boxes.filter(b=>b.checked).length;
+    const pct=total?Math.round(done/total*100):0;
+    document.getElementById('fill').style.width=pct+'%';
+    document.getElementById('pct').textContent=pct+'%';
+    document.getElementById('count').textContent=done+' / '+total+' checks';
+    document.querySelectorAll('.sec').forEach(sec=>{
+      const bs=sec.querySelectorAll('label.item input');
+      const c=sec.querySelector('[data-counter]');
+      if(c){ const d=Array.from(bs).filter(x=>x.checked).length; c.textContent=d+'/'+bs.length; }
+    });
+  }
+  boxes.forEach(b=>b.addEventListener('change',()=>{ save(); refresh(); }));
+  function resetQA(){ localStorage.removeItem(KEY); boxes.forEach(b=>b.checked=false); refresh(); }
+  load(); refresh();
+</script>
+</body>
+</html>
